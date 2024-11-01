@@ -1,15 +1,12 @@
 import sys
 from typing import TypeVar, Iterable
-
 from termcolor import colored, RESET, COLORS
-from termcolor._types import Color
 
 T = TypeVar("T")
 
-
-def put_color(color: Color):
-    return f"\033[{COLORS[color]}m"
-
+def put_color(color: str):
+    # Utilise directement la couleur du dictionnaire COLORS
+    return f"\033[{COLORS[color]}m" if color in COLORS else ""
 
 def safe_input(text: str, transform):
     while True:
@@ -19,7 +16,6 @@ def safe_input(text: str, transform):
             return transform(output)
         except ValueError:
             pass
-
 
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
@@ -37,14 +33,12 @@ def print_selection(choices: list, print_choices=True) -> None:
             colored(choice, line_colors),
         )
 
-
 def select_one(choices: list[T], msg="Choose a number", print_choices=True) -> T:
     print_selection(choices)
     if len(choices) == 1:
         return choices[0]
 
     return choices[safe_input(f"{msg}: " + put_color("blue"), int) - 1]
-
 
 def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
     print_selection(choices, print_choices)
@@ -61,7 +55,6 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
 
     return choices[ints[0] - 1 : ints[1]]
 
-
 def suppress_stop_iteration(*args: list[Iterable], defaut=None) -> iter:
     args = [iter(arg) for arg in args]
 
@@ -77,7 +70,6 @@ def suppress_stop_iteration(*args: list[Iterable], defaut=None) -> iter:
 
         if not value_yielded:
             break
-
 
 def keyboard_inter():
     print(colored("\nExiting...", "red"))

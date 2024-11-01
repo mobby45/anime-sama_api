@@ -10,7 +10,7 @@ from anime_sama import AnimeSama
 
 async def main():
     catalogues = await AnimeSama(config.URL).search(
-        safe_input("Anime name: " + put_color("blue"), str)
+        safe_input("Anime name: " + put_color("yellow"), str)
     )
     catalogue = select_one(catalogues)
 
