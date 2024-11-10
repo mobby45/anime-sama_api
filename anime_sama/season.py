@@ -12,14 +12,14 @@ from episode import Episode, Players, Languages
 
 class Season:
     def __init__(
-        self, url: str, name="", serie_name="", client: httpx.AsyncClient = None
+        self, url: str, name="", serie_name="", client: httpx.AsyncClient | None = None
     ) -> None:
         self.vf_url = url + "vf/"
         self.vostfr_url = url + "vostfr/"
         self.site_url = "/".join(url.split("/")[:3]) + "/"
 
         self.name = name or url.split("/")[-2]
-        self.serie_name = serie_name or None
+        self.serie_name = serie_name or url.split("/")[-3]
 
         self.client = client or CustomAsyncClient()
 
@@ -64,7 +64,7 @@ class Season:
             ]
 
     def __repr__(self):
-        return f"Season({self.vf_url[:-3]!r}, {self.name!r}, VF={self.has_vf})"
+        return f"Season({self.vf_url[:-3]!r}, {self.name!r})"
 
     def __str__(self):
         return self.name

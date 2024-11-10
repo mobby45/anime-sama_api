@@ -9,7 +9,9 @@ from season import Season
 
 
 class Catalogue:
-    def __init__(self, url: str, name="", client: httpx.AsyncClient = None) -> None:
+    def __init__(
+        self, url: str, name="", client: httpx.AsyncClient | None = None
+    ) -> None:
         self.url = url + "/" if url[-1] != "/" else url
         self.name = name or url.split("/")[-2]
         self.site_url = "/".join(url.split("/")[:3]) + "/"

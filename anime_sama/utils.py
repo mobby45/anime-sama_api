@@ -1,6 +1,5 @@
 import sys
-from typing import TypeVar, Iterable
-
+from typing import Literal, TypeVar
 from termcolor import colored, RESET, COLORS
 from termcolor._types import Color
 
@@ -8,6 +7,7 @@ T = TypeVar("T")
 
 
 def put_color(color: Color):
+    # Utilise directement la couleur du dictionnaire COLORS
     return f"\033[{COLORS[color]}m"
 
 
@@ -31,7 +31,7 @@ def print_selection(choices: list, print_choices=True) -> None:
         return
 
     for index, choice in enumerate(choices, start=1):
-        line_colors = "yellow" if index % 2 == 0 else None
+        line_colors: Color = "yellow" if index % 2 == 0 else "white"
         print(
             colored(f"[{index:{len(str(len(choices)))}}]", "green"),
             colored(choice, line_colors),
@@ -60,23 +60,6 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         return [choices[ints[0] - 1]]
 
     return choices[ints[0] - 1 : ints[1]]
-
-
-def suppress_stop_iteration(*args: list[Iterable], defaut=None) -> iter:
-    args = [iter(arg) for arg in args]
-
-    while True:
-        value_yielded = False
-
-        for arg in args:
-            try:
-                yield next(arg)
-                value_yielded = True
-            except StopIteration:
-                yield defaut
-
-        if not value_yielded:
-            break
 
 
 def keyboard_inter():

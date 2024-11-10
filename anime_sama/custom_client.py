@@ -11,7 +11,7 @@ def generate_key(request: httpcore.Request) -> str:
     key_parts = [
         request.method,
         encoded_url,
-        request.stream._stream,
+        request.stream._stream,  # type: ignore
     ]
 
     key = blake2b(digest_size=16)
