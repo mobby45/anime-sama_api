@@ -31,6 +31,12 @@ Otherwise:
 python anime_sama/main.py
 ```
 
+# Update
+In the `anime_sama` folder:
+```bash
+git pull
+```
+
 ## Config
 You can customize the config in `anime_sama/config.py`
 
