@@ -1,6 +1,9 @@
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from tkinter import ON
+from typing import TYPE_CHECKING
 
+from termcolor import colored
 from yt_dlp import YoutubeDL
 from tqdm import tqdm
 
@@ -40,6 +43,10 @@ class TqdmYoutubeDL(tqdm):
 def download(
     episode: Episode, path: Path, concurrent_fragment_downloads=3, main_tqdm_bar=None
 ):
+    if episode.languages.best is None:
+        print(colored("No player available", "red"))
+        return
+
     full_path = (
         path / episode.serie_name / episode.season_name / episode.name
     ).expanduser()
@@ -55,7 +62,7 @@ def download(
             "logger": OnlyErrorLogger(),
         }
 
-        with YoutubeDL(option) as ydl:
+        with YoutubeDL(option) as ydl:  # type: ignore
             ydl.download([episode.languages.best])
 
     if main_tqdm_bar is not None:

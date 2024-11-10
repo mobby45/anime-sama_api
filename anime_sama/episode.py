@@ -1,25 +1,29 @@
-from dataclasses import dataclass, field
-from termcolor import colored
 import re
 from itertools import product
+from dataclasses import dataclass, field
 
-zero = re.match(r"\d", "0")
+from termcolor import colored
+
+# zero = re.match(r"\d", "0")
 
 
 @dataclass
 class Players:
     availables: list[str] = field(default_factory=list)
-    _best: str = field(default=None, init=False)
+    _best: str | None = field(default=None, init=False)
     index: int = field(default=1, init=False)
 
     @property
-    def best(self) -> str:
+    def best(self) -> str | None:
         if self._best is None:
             self.set_best()
         return self._best
 
-    def set_best(self, prefers: list[str] = None, bans: list[str] = None) -> None:
+    def set_best(
+        self, prefers: list[str] | None = None, bans: list[str] | None = None
+    ) -> None:
         if not self.availables:
+            print(colored(f"WARNING: No player available for {self}", "yellow"))
             return
         if prefers is None:
             prefers = []
@@ -34,10 +38,14 @@ class Players:
             if all(ban not in candidate for ban in bans):
                 self._best = candidate
                 return
-        if self._best is None and self.availables:
-            self._best = self.availables[0]
-        if self._best is None:
-            print(colored(f"WARNING: No suitable player found. Available players: {self.availables}", "yellow"))
+        print(
+            colored(
+                f"WARNING: No suitable player found. Defaulting to {self.availables[0]}",
+                "yellow",
+            )
+        )
+        self._best = self.availables[0]
+
 
 @dataclass
 class Languages:
@@ -50,12 +58,17 @@ class Languages:
         self.availables = (self.french, self.original)
 
     @property
-    def best(self) -> str:
-        return self.french._best if self.prefer_french and self.has_vf else self.original._best
+    def best(self) -> str | None:
+        return (
+            self.french._best
+            if self.prefer_french and self.has_vf
+            else self.original._best
+        )
 
     def set_best(self, *args, **kwargs):
         for players in self.availables:
             players.set_best(*args, **kwargs)
+
 
 @dataclass
 class Episode:
@@ -66,7 +79,10 @@ class Episode:
 
     def __post_init__(self) -> None:
         self.index = self._index
-        self.season_number = int((re.search(r"\d+", self.season_name) or zero).group(0))
+        match_season_number = re.search(r"\d+", self.season_name)
+        self.season_number = (
+            int(match_season_number.group(0)) if match_season_number else 0
+        )
         self.name = f"{self.season_name} - Episode {self.index:02}"
         self.short_name = f"{self.serie_name} S{self.season_number:02}E{self.index:02}"
 

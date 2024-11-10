@@ -8,19 +8,15 @@ from hishel._utils import normalized_url
 def generate_key(request: httpcore.Request) -> str:
     encoded_url = normalized_url(request.url).encode("ascii")
 
-    # Suppression de l'encodage de request.method
     key_parts = [
-        request.method,  # Suppression de .encode("ascii") car c'est déjà en bytes
+        request.method,
         encoded_url,
-        b"" if request.stream is None else request.stream,  # Vérification de request.stream
+        request.stream._stream,  # type: ignore
     ]
 
     key = blake2b(digest_size=16)
     for part in key_parts:
-        if isinstance(part, bytes):
-            key.update(part)
-        elif hasattr(part, "read"):  # Vérifie si l'objet est un flux de type fichier
-            key.update(part.read())
+        key.update(part)
     return key.hexdigest()
 
 

@@ -1,12 +1,15 @@
 import sys
-from typing import TypeVar, Iterable
+from typing import Literal, TypeVar
 from termcolor import colored, RESET, COLORS
+from termcolor._types import Color
 
 T = TypeVar("T")
 
-def put_color(color: str):
+
+def put_color(color: Color):
     # Utilise directement la couleur du dictionnaire COLORS
-    return f"\033[{COLORS[color]}m" if color in COLORS else ""
+    return f"\033[{COLORS[color]}m"
+
 
 def safe_input(text: str, transform):
     while True:
@@ -16,6 +19,7 @@ def safe_input(text: str, transform):
             return transform(output)
         except ValueError:
             pass
+
 
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
@@ -27,11 +31,12 @@ def print_selection(choices: list, print_choices=True) -> None:
         return
 
     for index, choice in enumerate(choices, start=1):
-        line_colors = "yellow" if index % 2 == 0 else None
+        line_colors: Color = "yellow" if index % 2 == 0 else "white"
         print(
             colored(f"[{index:{len(str(len(choices)))}}]", "green"),
             colored(choice, line_colors),
         )
+
 
 def select_one(choices: list[T], msg="Choose a number", print_choices=True) -> T:
     print_selection(choices)
@@ -39,6 +44,7 @@ def select_one(choices: list[T], msg="Choose a number", print_choices=True) -> T
         return choices[0]
 
     return choices[safe_input(f"{msg}: " + put_color("blue"), int) - 1]
+
 
 def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
     print_selection(choices, print_choices)
@@ -55,21 +61,6 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
 
     return choices[ints[0] - 1 : ints[1]]
 
-def suppress_stop_iteration(*args: list[Iterable], defaut=None) -> iter:
-    args = [iter(arg) for arg in args]
-
-    while True:
-        value_yielded = False
-
-        for arg in args:
-            try:
-                yield next(arg)
-                value_yielded = True
-            except StopIteration:
-                yield defaut
-
-        if not value_yielded:
-            break
 
 def keyboard_inter():
     print(colored("\nExiting...", "red"))

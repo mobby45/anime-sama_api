@@ -19,6 +19,7 @@ termcolor = "^2.4.0"
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.0.3"
 black = "^24.2.0"
+yt-dlp-types = "^0.0.13"
 
 
 [build-system]
