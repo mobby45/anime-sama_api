@@ -5,27 +5,11 @@ import httpcore
 from hishel._utils import normalized_url
 
 
-def generate_key(request: httpcore.Request) -> str:
-    encoded_url = normalized_url(request.url).encode("ascii")
-
-    key_parts = [
-        request.method,
-        encoded_url,
-        request.stream._stream,  # type: ignore
-    ]
-
-    key = blake2b(digest_size=16)
-    for part in key_parts:
-        key.update(part)
-    return key.hexdigest()
-
-
 class CustomAsyncClient(hishel.AsyncCacheClient):
     def __init__(self, *args, **kwargs):
         customs = {
-            "timeout": 30.0,
+            "timeout": 180.0,
             "storage": hishel.AsyncFileStorage(ttl=3600),
-            "controller": hishel.Controller(key_generator=generate_key),
         }
         customs.update(kwargs)
 

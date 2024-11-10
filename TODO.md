@@ -1,10 +1,14 @@
 - [X] Search
 - [X] Download
 - [X] Play
+- [X] Name Episode
 - [ ] Menu
 - [ ] Ani-skip
 - [ ] Resume play (history)
 - [ ] MAL sync
-- [ ] Auto-download at start-up
+- [ ] Play from download
+- [ ] Auto-download at start-up & queue download
 - [ ] Planning
 - [ ] Discord presence
+- [ ] Other language see Solo Leveling for exemple
+- [ ] Fallback on other players

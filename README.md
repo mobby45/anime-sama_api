@@ -2,8 +2,7 @@
 Download video from anime-sama.fr
 
 # Requirements
-- Python 3.11 or higher
-- yt-dlp
+- Python 3.12 or higher
 - git
 
 # Installation

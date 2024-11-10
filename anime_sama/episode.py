@@ -4,8 +4,6 @@ from dataclasses import dataclass, field
 
 from termcolor import colored
 
-# zero = re.match(r"\d", "0")
-
 
 @dataclass
 class Players:
@@ -75,15 +73,19 @@ class Episode:
     languages: Languages
     serie_name: str = ""
     season_name: str = ""
+    episode_name: str = ""
     _index: int = 1
 
     def __post_init__(self) -> None:
+        self.name = self.episode_name
+        self.fancy_name = self.name + " 🇫🇷" if self.languages.has_vf else self.name
+
         self.index = self._index
         match_season_number = re.search(r"\d+", self.season_name)
         self.season_number = (
             int(match_season_number.group(0)) if match_season_number else 0
         )
-        self.name = f"{self.season_name} - Episode {self.index:02}"
+        self.long_name = f"{self.season_name} - {self.episode_name}"
         self.short_name = f"{self.serie_name} S{self.season_number:02}E{self.index:02}"
 
     @property
@@ -97,4 +99,4 @@ class Episode:
             players.index = self._index
 
     def __str__(self):
-        return self.name
+        return self.fancy_name

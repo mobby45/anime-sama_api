@@ -1,7 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from tkinter import ON
-from typing import TYPE_CHECKING
 
 from termcolor import colored
 from yt_dlp import YoutubeDL
@@ -52,7 +50,7 @@ def download(
     ).expanduser()
 
     with TqdmYoutubeDL(
-        desc=put_color("red") + episode.short_name,
+        desc=put_color("red") + episode.name,
         leave=not bool(main_tqdm_bar),
     ) as tqdm_bar:
         option = {
