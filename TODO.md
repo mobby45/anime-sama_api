@@ -2,7 +2,8 @@
 - [X] Download
 - [X] Play
 - [X] Name Episode
-- [ ] Other language see Solo Leveling for exemple
+- [X] All language
+- [ ] Order Episode
 - [ ] Tests
 - [ ] Fallback on other players
 - [ ] Menu

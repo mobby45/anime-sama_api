@@ -1,8 +1,4 @@
-from hashlib import blake2b
-
 import hishel
-import httpcore
-from hishel._utils import normalized_url
 
 
 class CustomAsyncClient(hishel.AsyncCacheClient):
@@ -19,4 +15,9 @@ class CustomAsyncClient(hishel.AsyncCacheClient):
         if kwargs.get("extensions") is None:
             kwargs["extensions"] = {"force_cache": True}
 
-        return await super().request(*args, **kwargs)
+        response = await super().request(*args, **kwargs)
+
+        """if response.extensions["from_cache"]:
+            print("Cache hit")"""
+
+        return response

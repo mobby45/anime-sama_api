@@ -31,7 +31,7 @@ async def main():
     )
 
     for episode in selected_episodes:
-        episode.languages.prefer_french = config.PREFER_VF
+        episode.languages.prefer_languages = config.PREFER_LANGUAGES
         episode.languages.set_best(config.PLAYERS["prefer"], config.PLAYERS["ban"])
 
     # print(selected_episodes[0].languages.best)

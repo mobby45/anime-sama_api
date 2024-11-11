@@ -1,6 +1,7 @@
 from pathlib import Path
+from langs import LANG
 
-PREFER_VF = False
+PREFER_LANGUAGES: list[LANG] = ["VO"]
 INTERNAL_PLAYER_COMMAND = "mpv".split()
 DOWNLOAD_PATH = Path("~/Downloads/Anime-Sama")
 DOWNLOAD = True
@@ -10,7 +11,7 @@ URL = "https://anime-sama.fr/"
 # fmt: off
 PLAYERS = {
     "prefer": [],
-    "ban": ["myvid", "myvi", "anime-sama"]
+    "ban": ["anime-sama"]
 }
 
 # fmt: off

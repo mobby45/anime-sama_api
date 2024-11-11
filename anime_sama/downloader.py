@@ -24,18 +24,18 @@ class TqdmYoutubeDL(tqdm):
     def __init__(self, *args, **kwargs):
         super().__init__(unit="B", unit_scale=True, mininterval=1, *args, **kwargs)
 
-    def hook(self, data):
-        if data["status"] != "downloading":
+    def hook(self, data: dict):
+        if data.get("status") != "downloading":
             return
 
         if not self.total:
-            self.total = data["total_bytes"]
+            self.total = data.get("total_bytes")
             # Resume download
-            self.last_print_n = data["downloaded_bytes"]
-            self.last_print_t = self._time()
+            self.last_print_n = data.get("downloaded_bytes", 0)
+            self.last_print_t = self._time()  # type: ignore
             return
 
-        self.update(data["downloaded_bytes"] - self.n)
+        self.update(data.get("downloaded_bytes", 0) - self.n)
 
 
 def download(

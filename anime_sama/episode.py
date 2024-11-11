@@ -4,6 +4,8 @@ from dataclasses import dataclass, field
 
 from termcolor import colored
 
+from langs import flags, LANG, LANG_ID, id2lang, lang2ids
+
 
 @dataclass
 class Players:
@@ -21,7 +23,6 @@ class Players:
         self, prefers: list[str] | None = None, bans: list[str] | None = None
     ) -> None:
         if not self.availables:
-            print(colored(f"WARNING: No player available for {self}", "yellow"))
             return
         if prefers is None:
             prefers = []
@@ -47,24 +48,47 @@ class Players:
 
 @dataclass
 class Languages:
-    french: Players
-    original: Players
-    prefer_french: bool = field(default=False, init=False)
+    players: dict[LANG_ID, Players]
+    prefer_languages: list[LANG] = field(default_factory=list)
 
     def __post_init__(self):
-        self.has_vf = bool(self.french.availables)
-        self.availables = (self.french, self.original)
+        to_delete = [
+            lang_id for lang_id in self.players if not self.players[lang_id].availables
+        ]
+        for lang_id in to_delete:
+            del self.players[lang_id]
+
+        if not self.players:
+            print(colored(f"WARNING: No player available for {self}", "yellow"))
+
+        self.availables: dict[LANG, list[Players]] = {}
+        for lang_id, player in self.players.items():
+            if self.availables.get(id2lang[lang_id]) is None:
+                self.availables[id2lang[lang_id]] = []
+            self.availables[id2lang[lang_id]].append(player)
 
     @property
     def best(self) -> str | None:
-        return (
-            self.french._best
-            if self.prefer_french and self.has_vf
-            else self.original._best
-        )
+        for prefer_language in self.prefer_languages:
+            for player in self.availables[prefer_language]:
+                if player.availables:
+                    return player.best
+
+        for language in lang2ids:
+            for player in self.availables[language]:
+                if player.availables:
+                    print(
+                        colored(
+                            f"WARNING: Language preference not respected. Defaulting to {language}",
+                            "yellow",
+                        )
+                    )
+                    return player.best
+
+        return None
 
     def set_best(self, *args, **kwargs):
-        for players in self.availables:
+        for players in self.players.values():
             players.set_best(*args, **kwargs)
 
 
@@ -78,7 +102,9 @@ class Episode:
 
     def __post_init__(self) -> None:
         self.name = self.episode_name
-        self.fancy_name = self.name + " 🇫🇷" if self.languages.has_vf else self.name
+        self.fancy_name = self.name
+        for lang in self.languages.availables:
+            self.fancy_name += f" {flags[lang]}"
 
         self.index = self._index
         match_season_number = re.search(r"\d+", self.season_name)
@@ -95,7 +121,7 @@ class Episode:
     @index.setter
     def index(self, value: int):
         self._index = value
-        for players in self.languages.availables:
+        for players in self.languages.players.values():
             players.index = self._index
 
     def __str__(self):

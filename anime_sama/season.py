@@ -6,6 +6,7 @@ import httpx
 from termcolor import colored
 from yaspin import yaspin
 
+from langs import lang_ids
 from custom_client import CustomAsyncClient
 from episode import Episode, Players, Languages
 from utils import zip_varlen, split_and_strip, remove_quotes
@@ -19,8 +20,7 @@ class Season:
         serie_name="",
         client: httpx.AsyncClient | None = None,
     ) -> None:
-        self.vf_url = url + "vf/"
-        self.vostfr_url = url + "vostfr/"
+        self.pages = [url + lang + "/" for lang in lang_ids]
         self.site_url = "/".join(url.split("/")[:3]) + "/"
 
         self.name = name or url.split("/")[-2]
@@ -98,23 +98,24 @@ class Season:
         ):
 
             episodes_pages = await asyncio.gather(
-                self._get_players_links_from(self.vf_url),
-                self._get_players_links_from(self.vostfr_url),
+                *(self._get_players_links_from(page) for page in self.pages),
             )
 
             episodes_in_season = max(
                 len(episodes_page) for episodes_page in episodes_pages
             )
             episodes_names_index = await asyncio.gather(
-                self._get_episodes_names_index(
-                    self.vf_url, episodes_in_season, len(episodes_pages[0])
-                ),
-                self._get_episodes_names_index(
-                    self.vostfr_url, episodes_in_season, len(episodes_pages[1])
-                ),
+                *(
+                    self._get_episodes_names_index(
+                        page, episodes_in_season, len(episodes_page)
+                    )
+                    for page, episodes_page in zip(self.pages, episodes_pages)
+                )
             )
 
-            names = set().union(*(language.keys() for language in episodes_names_index))
+            names: set[str] = set().union(
+                *(language.keys() for language in episodes_names_index)
+            )
             episodes = {
                 name: [
                     (
@@ -130,7 +131,12 @@ class Season:
             # TODO: Index: 1-last episode numbered. HS number after that.
             return [
                 Episode(
-                    Languages(*(Players(players) for players in players_links)),
+                    Languages(
+                        {
+                            lang_id: Players(players)
+                            for lang_id, players in zip(lang_ids, players_links)
+                        }
+                    ),
                     self.serie_name,
                     self.name,
                     name,
