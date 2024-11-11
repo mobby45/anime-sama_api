@@ -2,13 +2,14 @@
 - [X] Download
 - [X] Play
 - [X] Name Episode
+- [ ] Other language see Solo Leveling for exemple
+- [ ] Tests
+- [ ] Fallback on other players
 - [ ] Menu
+- [ ] Auto-download at start-up & queue download
+- [ ] Planning
 - [ ] Ani-skip
 - [ ] Resume play (history)
 - [ ] MAL sync
 - [ ] Play from download
-- [ ] Auto-download at start-up & queue download
-- [ ] Planning
 - [ ] Discord presence
-- [ ] Other language see Solo Leveling for exemple
-- [ ] Fallback on other players

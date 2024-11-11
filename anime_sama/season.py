@@ -60,8 +60,11 @@ class Season:
         )[-1]
         functions_list = split_and_strip(functions, ";")[:-1]
 
+        padding = len(str(episodes_in_season))
+
         def episode_name_range(*args):
-            return [f"Episode {n}" for n in range(*args)]
+            # In the long term, this shouldn't have padding, block by proper sort
+            return [f"Episode {n:0{padding}}" for n in range(*args)]
 
         episodes_name = []
         for function in functions_list:
