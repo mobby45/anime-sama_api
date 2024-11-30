@@ -24,11 +24,11 @@ pip install -r requirements.txt
 # Run
 Poetry:
 ```bash
-poetry run python anime_sama/main.py
+poetry run python main.py
 ```
 Otherwise:
 ```bash
-python anime_sama/main.py
+python main.py
 ```
 
 # Update
@@ -38,10 +38,10 @@ git pull
 ```
 
 ## Config
-You can customize the config in `anime_sama/config.py`
+You can customize the config in `cli/config.py`
 
 ```yaml
-PREFER_VF: If you want to download the french version (if available)
+PREFER_LANGUAGES: list of languages in order of preference see LANG in anime_sama/langs.py for available language
 DOWNLOAD_PATH: Where to place downloaded videos
 URL: url of anime-sama (You shouldn't touch that)
 PLAYERS:

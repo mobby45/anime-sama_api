@@ -5,8 +5,10 @@ from pathlib import Path
 
 from termcolor import colored
 
-from episode import Episode
-from config import INTERNAL_PLAYER_COMMAND
+from .config import INTERNAL_PLAYER_COMMAND
+
+sys.path.append("../anime_sama_api")
+from anime_sama_api.episode import Episode
 
 
 def open_silent_process(command: list[str]) -> subprocess.Popen:

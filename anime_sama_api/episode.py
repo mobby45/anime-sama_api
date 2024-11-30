@@ -1,10 +1,14 @@
 import re
+import logging
 from itertools import product
 from dataclasses import dataclass, field
 
 from termcolor import colored
 
-from langs import flags, LANG, LANG_ID, id2lang, lang2ids
+from .langs import flags, LANG, LANG_ID, id2lang, lang2ids
+
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -37,58 +41,49 @@ class Players:
             if all(ban not in candidate for ban in bans):
                 self._best = candidate
                 return
-        print(
-            colored(
-                f"WARNING: No suitable player found. Defaulting to {self.availables[0]}",
-                "yellow",
-            )
+        logger.warning(
+            f"WARNING: No suitable player found. Defaulting to {self.availables[0]}"
         )
         self._best = self.availables[0]
 
 
 @dataclass
 class Languages:
-    players: dict[LANG_ID, Players]
+    players_map: dict[LANG_ID, Players]
     prefer_languages: list[LANG] = field(default_factory=list)
 
     def __post_init__(self):
-        to_delete = [
-            lang_id for lang_id in self.players if not self.players[lang_id].availables
-        ]
-        for lang_id in to_delete:
-            del self.players[lang_id]
+        if not self.players_map:
+            logger.warning(f"WARNING: No player available for {self}")
 
-        if not self.players:
-            print(colored(f"WARNING: No player available for {self}", "yellow"))
-
-        self.availables: dict[LANG, list[Players]] = {}
-        for lang_id, player in self.players.items():
-            if self.availables.get(id2lang[lang_id]) is None:
-                self.availables[id2lang[lang_id]] = []
-            self.availables[id2lang[lang_id]].append(player)
+    @property
+    def availables(self) -> dict[LANG, list[Players]]:
+        availables: dict[LANG, list[Players]] = {}
+        for lang_id, players in self.players_map.items():
+            if availables.get(id2lang[lang_id]) is None:
+                availables[id2lang[lang_id]] = []
+            availables[id2lang[lang_id]].append(players)
+        return availables
 
     @property
     def best(self) -> str | None:
         for prefer_language in self.prefer_languages:
-            for player in self.availables[prefer_language]:
-                if player.availables:
-                    return player.best
+            for players in self.availables.get(prefer_language, []):
+                if players.availables:
+                    return players.best
 
         for language in lang2ids:
-            for player in self.availables[language]:
-                if player.availables:
-                    print(
-                        colored(
-                            f"WARNING: Language preference not respected. Defaulting to {language}",
-                            "yellow",
-                        )
+            for players in self.availables[language]:
+                if players.availables:
+                    logger.warning(
+                        f"WARNING: Language preference not respected. Defaulting to {language}"
                     )
-                    return player.best
+                    return players.best
 
         return None
 
     def set_best(self, *args, **kwargs):
-        for players in self.players.values():
+        for players in self.players_map.values():
             players.set_best(*args, **kwargs)
 
 
@@ -121,7 +116,7 @@ class Episode:
     @index.setter
     def index(self, value: int):
         self._index = value
-        for players in self.languages.players.values():
+        for players in self.languages.players_map.values():
             players.index = self._index
 
     def __str__(self):

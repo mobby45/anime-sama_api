@@ -1,5 +1,9 @@
+import sys
+
 from pathlib import Path
-from langs import LANG
+
+sys.path.append("../anime_sama_api")
+from anime_sama_api.langs import LANG
 
 PREFER_LANGUAGES: list[LANG] = ["VO"]
 INTERNAL_PLAYER_COMMAND = "mpv".split()

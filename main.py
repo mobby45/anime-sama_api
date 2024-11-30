@@ -1,24 +1,34 @@
 import asyncio
 
 from termcolor import colored
+from yaspin import yaspin
 
-import config
-import downloader
-import internal_player
-from utils import safe_input, select_one, select_range, put_color, keyboard_inter
-from anime_sama import AnimeSama
+import cli.config as config
+import cli.downloader as downloader
+import cli.internal_player as internal_player
+from cli.utils import safe_input, select_one, select_range, put_color, keyboard_inter
+from cli.custom_client import CustomAsyncClient
+
+from anime_sama_api.top_level import AnimeSama
 
 
 async def main():
-    catalogues = await AnimeSama(config.URL).search(
-        safe_input("Anime name: " + put_color("blue"), str)
-    )
+    query = safe_input("Anime name: " + put_color("blue"), str)
+    with yaspin(text=f"Searching for {colored(query, 'blue')}", color="cyan"):
+        catalogues = await AnimeSama(config.URL, CustomAsyncClient()).search(query)
     catalogue = select_one(catalogues)
 
-    seasons = await catalogue.seasons()
+    with yaspin(
+        text=f"Getting season list for {colored(catalogue.name, 'blue')}", color="cyan"
+    ):
+        seasons = await catalogue.seasons()
     season = select_one(seasons)
 
-    episodes = await season.episodes()
+    with yaspin(
+        text=f"Getting episode list for {colored(season.name, 'blue')}", color="cyan"
+    ):
+        episodes = await season.episodes()
+
     print(
         colored(
             f"\n{season.serie_name} - {season.name}",

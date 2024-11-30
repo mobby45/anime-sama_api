@@ -1,11 +1,12 @@
 import sys
+from collections.abc import Callable
 from typing import Literal, TypeVar
-from itertools import zip_longest
-from collections.abc import Iterable
 
 from termcolor import colored, RESET, COLORS
 
+
 T = TypeVar("T")
+
 Color = Literal[
     "black",
     "grey",
@@ -31,13 +32,15 @@ def put_color(color: Color):
     return f"\033[{COLORS[color]}m"
 
 
-def safe_input(text: str, transform):
+def safe_input(
+    text: str, transform: Callable[[str], T], exceptions=(ValueError, IndexError)
+) -> T:
     while True:
         try:
             output = input(text)
             print(RESET, end="")
             return transform(output)
-        except ValueError:
+        except exceptions:
             pass
 
 
@@ -63,7 +66,9 @@ def select_one(choices: list[T], msg="Choose a number", **_) -> T:
     if len(choices) == 1:
         return choices[0]
 
-    return choices[safe_input(f"{msg}: " + put_color("blue"), int) - 1]
+    return safe_input(
+        f"{msg}: " + put_color("blue"), lambda string: choices[int(string) - 1]
+    )
 
 
 def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
@@ -72,34 +77,26 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
     if len(choices) == 1:
         return [choices[0]]
 
-    ints = safe_input(
-        f"{msg} {colored(f'[1-{len(choices)}]', 'green')}: {put_color('blue')}",
-        lambda string: tuple(map(int, string.split("-"))),
-    )
-    if len(ints) == 1:
-        return [choices[ints[0] - 1]]
+    def transform(string: str) -> list[T]:
+        ints_set = set()
+        for args in string.split(","):
+            ints = [int(num) for num in args.split("-")]
 
-    return choices[ints[0] - 1 : ints[1]]
+            if len(ints) == 1:
+                ints_set.add(ints[0])
+            elif len(ints) == 2:
+                ints_set.update(range(ints[0], ints[1] + 1))
+            else:
+                raise ValueError
+
+        return [choices[i - 1] for i in ints_set]
+
+    return safe_input(
+        f"{msg} {colored(f'[1-{len(choices)}]', 'green')}: {put_color('blue')}",
+        transform,
+    )
 
 
 def keyboard_inter():
     print(colored("\nExiting...", "red"))
     sys.exit()
-
-
-# By Mike Müller (https://stackoverflow.com/a/38059462)
-def zip_varlen(*iterables: list[Iterable[T]], sentinel=object()) -> list[list[T]]:
-    return [
-        [entry for entry in iterable if entry is not sentinel]
-        for iterable in zip_longest(*iterables, fillvalue=sentinel)
-    ]
-
-
-def split_and_strip(string: str, delimiter: str) -> list[str]:
-    return [part.strip() for part in string.split(delimiter)]
-
-
-def remove_quotes(string: str) -> str:
-    if string[0] == string[-1] and string[0] in ["'", '"']:
-        string = string[1:-1]
-    return string

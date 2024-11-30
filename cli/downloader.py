@@ -1,3 +1,4 @@
+import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -5,8 +6,10 @@ from termcolor import colored
 from yt_dlp import YoutubeDL
 from tqdm import tqdm
 
-from utils import put_color
-from episode import Episode
+from .utils import put_color
+
+sys.path.append("../anime_sama_api")
+from anime_sama_api.episode import Episode
 
 
 class OnlyErrorLogger:
@@ -28,13 +31,12 @@ class TqdmYoutubeDL(tqdm):
         if data.get("status") != "downloading":
             return
 
-        if not self.total:
-            self.total = data.get("total_bytes")
+        if self.total is None:
             # Resume download
-            self.last_print_n = data.get("downloaded_bytes", 0)
-            self.last_print_t = self._time()  # type: ignore
-            return
+            self.reset()
+            self.n = self.last_print_n = data.get("downloaded_bytes", 0)
 
+        self.total = data.get("total_bytes") or data.get("total_bytes_estimate")
         self.update(data.get("downloaded_bytes", 0) - self.n)
 
 

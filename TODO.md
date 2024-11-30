@@ -3,9 +3,11 @@
 - [X] Play
 - [X] Name Episode
 - [X] All language
-- [ ] Order Episode
+- [X] Order Episode
+- [?] Separate backend
 - [ ] Tests
 - [ ] Fallback on other players
+- [ ] Make a package (make hishel optional)
 - [ ] Menu
 - [ ] Auto-download at start-up & queue download
 - [ ] Planning
