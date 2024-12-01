@@ -3,7 +3,7 @@ import sys
 import subprocess
 from pathlib import Path
 
-from termcolor import colored
+from rich import print
 
 from .config import INTERNAL_PLAYER_COMMAND
 
@@ -22,14 +22,15 @@ def open_silent_process(command: list[str]) -> subprocess.Popen:
             )
 
     except FileNotFoundError as e:
-        sys.exit(colored(f"Error: {e}", "red"))
+        print(f"[red]Error: {e}")
+        sys.exit()
 
 
 def play_episode(
     episode: Episode, args: list[str] | None = None
 ) -> subprocess.Popen | None:
     if episode.languages.best is None:
-        print(colored("No player available", "red"))
+        print(f"[red]No player available")
         return None
 
     player_command = INTERNAL_PLAYER_COMMAND + [episode.languages.best]

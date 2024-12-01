@@ -1,81 +1,100 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+import logging
 
-from termcolor import colored
 from yt_dlp import YoutubeDL
-from tqdm import tqdm
-
-from .utils import put_color
+from rich import print, get_console
+from rich.live import Live
+from rich.console import Group
+from rich.progress import (
+    BarColumn,
+    DownloadColumn,
+    Progress,
+    TextColumn,
+    TimeRemainingColumn,
+    TransferSpeedColumn,
+    MofNCompleteColumn,
+    TaskID,
+)
 
 sys.path.append("../anime_sama_api")
 from anime_sama_api.episode import Episode
 
 
-class OnlyErrorLogger:
-    def debug(self, msg):
-        pass
-
-    def warning(self, msg):
-        pass
-
-    def error(self, msg):
-        print(msg)
-
-
-class TqdmYoutubeDL(tqdm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(unit="B", unit_scale=True, mininterval=1, *args, **kwargs)
-
-    def hook(self, data: dict):
-        if data.get("status") != "downloading":
-            return
-
-        if self.total is None:
-            # Resume download
-            self.reset()
-            self.n = self.last_print_n = data.get("downloaded_bytes", 0)
-
-        self.total = data.get("total_bytes") or data.get("total_bytes_estimate")
-        self.update(data.get("downloaded_bytes", 0) - self.n)
+logger = logging.getLogger(__name__)
+console = get_console()
+download_progress = Progress(
+    TextColumn("[bold blue]{task.fields[episode_name]}", justify="right"),
+    BarColumn(bar_width=None),
+    "[progress.percentage]{task.percentage:>3.1f}%",
+    "•",
+    DownloadColumn(),
+    "•",
+    TransferSpeedColumn(),
+    "•",
+    TimeRemainingColumn(),
+    console=console,
+)
+total_progress = Progress(
+    TextColumn("[bold cyan]{task.description}"),
+    BarColumn(bar_width=None),
+    MofNCompleteColumn(),
+    TimeRemainingColumn(),
+    console=console,
+)
+progress = Group(total_progress, download_progress)
 
 
 def download(
-    episode: Episode, path: Path, concurrent_fragment_downloads=3, main_tqdm_bar=None
+    episode: Episode,
+    path: Path,
+    concurrent_fragment_downloads=3,
 ):
     if episode.languages.best is None:
-        print(colored("No player available", "red"))
+        print("[red]No player available")
         return
+
+    me = download_progress.add_task("download", episode_name=episode.name, total=None)
+    task = download_progress.tasks[me]
 
     full_path = (
         path / episode.serie_name / episode.season_name / episode.name
     ).expanduser()
 
-    with TqdmYoutubeDL(
-        desc=put_color("red") + episode.name,
-        leave=not bool(main_tqdm_bar),
-    ) as tqdm_bar:
-        option = {
-            "outtmpl": {"default": f"{full_path}.%(ext)s"},
-            "concurrent_fragment_downloads": concurrent_fragment_downloads,
-            "progress_hooks": [tqdm_bar.hook],
-            "logger": OnlyErrorLogger(),
-        }
+    def hook(data: dict):
+        if data.get("status") != "downloading":
+            return
 
-        with YoutubeDL(option) as ydl:  # type: ignore
-            ydl.download([episode.languages.best])
+        task.total = data.get("total_bytes") or data.get("total_bytes_estimate")
+        download_progress.update(me, completed=data.get("downloaded_bytes", 0))
 
-    if main_tqdm_bar is not None:
-        main_tqdm_bar.update()
+    option = {
+        "outtmpl": {"default": f"{full_path}.%(ext)s"},
+        "concurrent_fragment_downloads": concurrent_fragment_downloads,
+        "progress_hooks": [hook],
+        "logger": logger,
+    }
+
+    with YoutubeDL(option) as ydl:  # type: ignore
+        error_code: int = ydl.download([episode.languages.best])  # type: ignore
+
+    if error_code:
+        return
+
+    download_progress.update(me, visible=False)
+    if total_progress.tasks:
+        total_progress.update(TaskID(0), advance=1)
 
 
 def multi_download(episodes: list[Episode], path: Path, concurrent_downloads):
-    print(put_color("light_red"), end="")
-    with tqdm(total=len(episodes), unit="Ep") as tqdm_bar:
+    """
+    Not sure if you can use this function multiple times
+    """
+    total_progress.add_task("Downloaded", total=len(episodes))
+    with Live(progress, console=console):
         with ThreadPoolExecutor(max_workers=concurrent_downloads["video"]) as executor:
-            executor.map(
-                lambda episode: download(
-                    episode, path, concurrent_downloads["fragment"], tqdm_bar
-                ),
-                episodes,
-            )
+            for episode in episodes:
+                executor.submit(
+                    download, episode, path, concurrent_downloads["fragment"]
+                )

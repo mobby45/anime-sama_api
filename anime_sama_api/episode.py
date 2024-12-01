@@ -3,8 +3,6 @@ import logging
 from itertools import product
 from dataclasses import dataclass, field
 
-from termcolor import colored
-
 from .langs import flags, LANG, LANG_ID, id2lang, lang2ids
 
 

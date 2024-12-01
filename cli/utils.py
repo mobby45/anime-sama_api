@@ -1,35 +1,10 @@
 import sys
 from collections.abc import Callable
-from typing import Literal, TypeVar
+from typing import TypeVar
 
-from termcolor import colored, RESET, COLORS
-
+from rich import print
 
 T = TypeVar("T")
-
-Color = Literal[
-    "black",
-    "grey",
-    "red",
-    "green",
-    "yellow",
-    "blue",
-    "magenta",
-    "cyan",
-    "light_grey",
-    "dark_grey",
-    "light_red",
-    "light_green",
-    "light_yellow",
-    "light_blue",
-    "light_magenta",
-    "light_cyan",
-    "white",
-]
-
-
-def put_color(color: Color):
-    return f"\033[{COLORS[color]}m"
 
 
 def safe_input(
@@ -37,8 +12,8 @@ def safe_input(
 ) -> T:
     while True:
         try:
-            output = input(text)
-            print(RESET, end="")
+            print(text, end="")
+            output = input()
             return transform(output)
         except exceptions:
             pass
@@ -46,18 +21,18 @@ def safe_input(
 
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
-        sys.exit(colored("No result", "red"))
+        sys.exit("[red]No result")
     if len(choices) == 1:
-        print(f"-> {colored(choices[0], 'blue')}")
+        print(f"-> \033[0;34m{choices[0]}")
         return
     if not print_choices:
         return
 
     for index, choice in enumerate(choices, start=1):
-        line_colors: Color = "yellow" if index % 2 == 0 else "white"
+        line_colors = "yellow" if index % 2 == 0 else "white"
         print(
-            colored(f"[{index:{len(str(len(choices)))}}]", "green"),
-            colored(choice, line_colors),
+            f"[green][{index:{len(str(len(choices)))}}]",
+            f"[{line_colors}]{choice}",
         )
 
 
@@ -66,9 +41,7 @@ def select_one(choices: list[T], msg="Choose a number", **_) -> T:
     if len(choices) == 1:
         return choices[0]
 
-    return safe_input(
-        f"{msg}: " + put_color("blue"), lambda string: choices[int(string) - 1]
-    )
+    return safe_input(f"{msg}: \033[0;34m", lambda string: choices[int(string) - 1])
 
 
 def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
@@ -92,11 +65,11 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         return [choices[i - 1] for i in ints_set]
 
     return safe_input(
-        f"{msg} {colored(f'[1-{len(choices)}]', 'green')}: {put_color('blue')}",
+        f"{msg} [green][1-{len(choices)}]:[/] \033[0;34m",
         transform,
     )
 
 
 def keyboard_inter():
-    print(colored("\nExiting...", "red"))
+    print("\n[red]Exiting...")
     sys.exit()

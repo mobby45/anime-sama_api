@@ -2,24 +2,21 @@
 name = "anime-sama"
 version = "0.1.0"
 description = "Download video from anime-sama.fr"
-authors = ["NiniKo <you@example.com>"]
-license = "GPLv3"
+authors = ["NiniKo <pcninik@gmail.com>"]
+license = "LICENSE"
 readme = "README.md"
-packages = [{include = "anime_sama"}]
+packages = [{include = "anime_sama_api"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-yt-dlp = "^2024.11.4"
-httpx = "^0.27.2"
+yt-dlp = "^2024.11.18"
+httpx = "^0.28.0"
 hishel = "^0.1.1"
-tqdm = "^4.67.0"
-yaspin = "^3.1.0"
-termcolor = "^2.3.0"
+rich = {extras = ["progress", "status"], version = "^13.9.4"}
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
 mypy = "^1.13.0"
-types-tqdm = "^4.66.0"
 yt-dlp-types = "^0.0.13"
 
 

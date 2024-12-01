@@ -1,41 +1,38 @@
 import asyncio
+import logging
 
-from termcolor import colored
-from yaspin import yaspin
+from rich import get_console
+from rich.logging import RichHandler
 
 import cli.config as config
 import cli.downloader as downloader
 import cli.internal_player as internal_player
-from cli.utils import safe_input, select_one, select_range, put_color, keyboard_inter
+from cli.utils import safe_input, select_one, select_range, keyboard_inter
 from cli.custom_client import CustomAsyncClient
 
 from anime_sama_api.top_level import AnimeSama
 
+console = get_console()
+console._highlight = False
+logging.basicConfig(format="%(message)s", datefmt="[%X]", handlers=[RichHandler()])
+spinner = lambda text: console.status(text, spinner_style="cyan")
+
 
 async def main():
-    query = safe_input("Anime name: " + put_color("blue"), str)
-    with yaspin(text=f"Searching for {colored(query, 'blue')}", color="cyan"):
+    query = safe_input("Anime name: \033[0;34m", str)
+
+    with spinner(f"Searching for [blue]{query}"):
         catalogues = await AnimeSama(config.URL, CustomAsyncClient()).search(query)
     catalogue = select_one(catalogues)
 
-    with yaspin(
-        text=f"Getting season list for {colored(catalogue.name, 'blue')}", color="cyan"
-    ):
+    with spinner(f"Getting season list for [blue]{catalogue.name}"):
         seasons = await catalogue.seasons()
     season = select_one(seasons)
 
-    with yaspin(
-        text=f"Getting episode list for {colored(season.name, 'blue')}", color="cyan"
-    ):
+    with spinner(f"Getting episode list for [blue]{season.name}"):
         episodes = await season.episodes()
 
-    print(
-        colored(
-            f"\n{season.serie_name} - {season.name}",
-            "cyan",
-            attrs=["bold", "underline"],
-        )
-    )
+    console.print(f"\n[cyan bold underline]{season.serie_name} - {season.name}")
     selected_episodes = select_range(
         episodes, msg="Choose episode(s)", print_choices=True
     )
