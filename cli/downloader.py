@@ -4,6 +4,7 @@ from pathlib import Path
 import logging
 
 from yt_dlp import YoutubeDL
+from yt_dlp.utils import YoutubeDLError
 from rich import print, get_console
 from rich.live import Live
 from rich.console import Group
@@ -76,11 +77,26 @@ def download(
         "logger": logger,
     }
 
-    with YoutubeDL(option) as ydl:  # type: ignore
-        error_code: int = ydl.download([episode.languages.best])  # type: ignore
+    try:
+        with YoutubeDL(option) as ydl:  # type: ignore
+            error_code: int = ydl.download([episode.languages.best])  # type: ignore
+    except YoutubeDLError:
+        error_code = 1
 
     if error_code:
-        return
+        # Temporary fix until a real download manager is implemented
+        for player in episode.languages.availables.get(
+            episode.languages.prefer_languages[0], []
+        )[0].availables:
+            try:
+                with YoutubeDL(option) as ydl:  # type: ignore
+                    error_code: int = ydl.download([player])  # type: ignore
+            except YoutubeDLError:
+                error_code = 1
+            if not error_code:
+                break
+        else:
+            return
 
     download_progress.update(me, visible=False)
     if total_progress.tasks:

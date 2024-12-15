@@ -6,7 +6,7 @@
 - [X] Order Episode
 - [?] Separate backend
 - [ ] Tests
-- [ ] Fallback on other players
+- [ ] Fallback on other players (download manager)
 - [ ] Make a package (make hishel optional)
 - [ ] Menu
 - [ ] Auto-download at start-up & queue download

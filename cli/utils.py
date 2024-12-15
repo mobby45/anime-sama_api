@@ -21,7 +21,8 @@ def safe_input(
 
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
-        sys.exit("[red]No result")
+        print("[red]No result")
+        sys.exit()
     if len(choices) == 1:
         print(f"-> \033[0;34m{choices[0]}")
         return
