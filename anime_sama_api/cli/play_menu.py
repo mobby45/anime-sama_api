@@ -1,7 +1,4 @@
-import sys
-
-sys.path.append("../anime_sama_api")
-from anime_sama_api.episode import Episode
+from ..episode import Episode
 
 
 class EpisodesManager:

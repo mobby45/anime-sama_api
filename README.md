@@ -13,7 +13,7 @@ cd anime-sama_downloader
 
 If you don't have poetry, `pip install poetry`.
 ```bash
-poetry install
+poetry install --extras cli
 ```
 
 If you can't install poetry, but be warn, it is not supported:
@@ -24,11 +24,11 @@ pip install -r requirements.txt
 # Run
 Poetry:
 ```bash
-poetry run python main.py
+poetry run python -m anime_sama_api.cli
 ```
 Otherwise:
 ```bash
-python main.py
+python -m anime_sama_api.cli
 ```
 
 # Update
@@ -38,7 +38,7 @@ git pull
 ```
 
 ## Config
-You can customize the config in `cli/config.py`
+You can customize the config in `anime_sama_api/cli/config.py`
 
 ```yaml
 PREFER_LANGUAGES: list of languages in order of preference see LANG in anime_sama/langs.py for available language

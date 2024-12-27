@@ -5,9 +5,9 @@
 - [X] All language
 - [X] Order Episode
 - [?] Separate backend
+- [X] Fallback on other players
+- [?] Make a package
 - [ ] Tests
-- [ ] Fallback on other players (download manager)
-- [ ] Make a package (make hishel optional)
 - [ ] Menu
 - [ ] Auto-download at start-up & queue download
 - [ ] Planning

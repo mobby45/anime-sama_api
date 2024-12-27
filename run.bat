@@ -1,1 +1,1 @@
-poetry run python .\main.py
+poetry run python -m anime_sama_api.clis

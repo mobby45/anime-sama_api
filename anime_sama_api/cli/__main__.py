@@ -1,16 +1,14 @@
 import asyncio
 import logging
 
+import httpx
 from rich import get_console
 from rich.logging import RichHandler
 
-import cli.config as config
-import cli.downloader as downloader
-import cli.internal_player as internal_player
-from cli.utils import safe_input, select_one, select_range, keyboard_inter
-from cli.custom_client import CustomAsyncClient
+from . import config, downloader, internal_player
+from .utils import safe_input, select_one, select_range, keyboard_inter
 
-from anime_sama_api.top_level import AnimeSama
+from ..top_level import AnimeSama
 
 console = get_console()
 console._highlight = False
@@ -22,7 +20,7 @@ async def main():
     query = safe_input("Anime name: \033[0;34m", str)
 
     with spinner(f"Searching for [blue]{query}"):
-        catalogues = await AnimeSama(config.URL, CustomAsyncClient()).search(query)
+        catalogues = await AnimeSama(config.URL, httpx.AsyncClient()).search(query)
     catalogue = select_one(catalogues)
 
     with spinner(f"Getting season list for [blue]{catalogue.name}"):
@@ -37,21 +35,23 @@ async def main():
         episodes, msg="Choose episode(s)", print_choices=True
     )
 
-    for episode in selected_episodes:
-        episode.languages.prefer_languages = config.PREFER_LANGUAGES
-        episode.languages.set_best(config.PLAYERS["prefer"], config.PLAYERS["ban"])
-
-    # print(selected_episodes[0].languages.best)
+    # print(episodes[0])
     if config.DOWNLOAD:
         downloader.multi_download(
-            selected_episodes, config.DOWNLOAD_PATH, config.CONCURRENT_DOWNLOADS
+            selected_episodes,
+            config.DOWNLOAD_PATH,
+            config.CONCURRENT_DOWNLOADS,
+            config.PREFER_LANGUAGES,
         )
     else:
-        internal_player.play_episode(selected_episodes[0]).wait()
+        command = internal_player.play_episode(
+            selected_episodes[0], config.PREFER_LANGUAGES
+        )
+        if command is not None:
+            command.wait()
 
 
-if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except (KeyboardInterrupt, asyncio.exceptions.CancelledError, EOFError):
-        keyboard_inter()
+try:
+    asyncio.run(main())
+except (KeyboardInterrupt, asyncio.exceptions.CancelledError, EOFError):
+    keyboard_inter()

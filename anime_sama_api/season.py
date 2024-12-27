@@ -42,9 +42,7 @@ class Season:
         players_list = episodes_js.text.split("[")[1:]
         players_list_links = (re.findall(r"'(.+?)'", player) for player in players_list)
 
-        return [
-            Players(availables=players) for players in zip_varlen(*players_list_links)
-        ]
+        return [Players(players) for players in zip_varlen(*players_list_links)]
 
     async def _get_episodes_names(
         self, page: str, number_of_episodes: int
@@ -105,12 +103,12 @@ class Season:
         for name_new, players in zip(names, players_list):
             for pos, (name_current, languages) in enumerate(current[curr_done:]):
                 if name_new == name_current:
-                    languages.players_map[lang] = players
+                    languages[lang] = players
                     fusion.extend(current[curr_done : curr_done + pos + 1])
                     curr_done += pos + 1
                     break
             else:
-                fusion.append((name_new, Languages(players_map={lang: players})))
+                fusion.append((name_new, Languages({lang: players})))
         fusion.extend(current[curr_done:])
         return fusion
 
@@ -142,7 +140,7 @@ class Season:
         ]
 
     def __repr__(self):
-        return f"Season({self.vf_url[:-3]!r}, {self.name!r})"
+        return f"Season({self.name!r}, {self.serie_name!r})"
 
     def __str__(self):
         return self.name
