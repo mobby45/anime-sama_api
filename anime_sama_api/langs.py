@@ -15,6 +15,12 @@ lang2ids: dict[LANG, list[LANG_ID]] = {
     "VQC": ["vqc"],
 }
 
+id2lang: dict[LANG_ID, LANG] = {
+    lang_id: lang for lang, langs_id in lang2ids.items() for lang_id in langs_id
+}
+
+lang_ids = list(id2lang.keys())
+
 flags: dict[LANG | LANG_ID, str] = {
     "VO": "",
     "VA": "🇬🇧",
@@ -22,14 +28,8 @@ flags: dict[LANG | LANG_ID, str] = {
     "VF": "🇫🇷",
     "VJ": "🇯🇵",
     "VKR": "🇰🇷",
-    "VQC": "🇲🇶",
+    "VQC": "🏴󠁣󠁡󠁱󠁣󠁿",
 }
-
-id2lang: dict[LANG_ID, LANG] = {
-    lang_id: lang for lang, langs_id in lang2ids.items() for lang_id in langs_id
-}
-
-lang_ids = list(id2lang.keys())
 
 for language, language_ids in lang2ids.items():
     for lang_id in language_ids:

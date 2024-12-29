@@ -23,7 +23,7 @@ def open_silent_process(command: list[str]) -> subprocess.Popen:
 
     except FileNotFoundError as e:
         print(f"[red]Error: {e}")
-        sys.exit()
+        sys.exit(404)
 
 
 def play_episode(

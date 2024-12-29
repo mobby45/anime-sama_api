@@ -4,11 +4,13 @@
 - [X] Name Episode
 - [X] All language
 - [X] Order Episode
-- [?] Separate backend
+- [X] Separate backend
 - [X] Fallback on other players
+- [ ] Retry players
 - [?] Make a package
 - [ ] Tests
 - [ ] Menu
+- [ ] Nix?
 - [ ] Auto-download at start-up & queue download
 - [ ] Planning
 - [ ] Ani-skip

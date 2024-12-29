@@ -24,11 +24,11 @@ pip install -r requirements.txt
 # Run
 Poetry:
 ```bash
-poetry run python -m anime_sama_api.cli
+poetry run anime-sama
 ```
 Otherwise:
 ```bash
-python -m anime_sama_api.cli
+anime-sama
 ```
 
 # Update

@@ -6,7 +6,7 @@ from rich import get_console
 from rich.logging import RichHandler
 
 from . import config, downloader, internal_player
-from .utils import safe_input, select_one, select_range, keyboard_inter
+from .utils import safe_input, select_one, select_range
 
 from ..top_level import AnimeSama
 
@@ -16,7 +16,7 @@ logging.basicConfig(format="%(message)s", datefmt="[%X]", handlers=[RichHandler(
 spinner = lambda text: console.status(text, spinner_style="cyan")
 
 
-async def main():
+async def async_main():
     query = safe_input("Anime name: \033[0;34m", str)
 
     with spinner(f"Searching for [blue]{query}"):
@@ -51,7 +51,13 @@ async def main():
             command.wait()
 
 
-try:
-    asyncio.run(main())
-except (KeyboardInterrupt, asyncio.exceptions.CancelledError, EOFError):
-    keyboard_inter()
+def main() -> int:
+    try:
+        asyncio.run(async_main())
+    except (KeyboardInterrupt, asyncio.exceptions.CancelledError, EOFError):
+        console.print("\n[red]Exiting...")
+
+    return 0
+
+if __name__ == "__main__":
+    main()

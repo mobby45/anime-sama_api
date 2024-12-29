@@ -22,7 +22,7 @@ def safe_input(
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
         print("[red]No result")
-        sys.exit()
+        sys.exit(404)
     if len(choices) == 1:
         print(f"-> \033[0;34m{choices[0]}")
         return
@@ -69,8 +69,3 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         f"{msg} [green][1-{len(choices)}]:[/] \033[0;34m",
         transform,
     )
-
-
-def keyboard_inter():
-    print("\n[red]Exiting...")
-    sys.exit()

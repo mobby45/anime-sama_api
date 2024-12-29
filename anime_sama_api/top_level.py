@@ -22,3 +22,5 @@ class AnimeSama:
             Catalogue(url=link, name=name, client=self.client)
             for link, name in zip(links, names)
         ]
+
+    # TODO add all catalogue

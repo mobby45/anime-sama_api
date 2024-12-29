@@ -1,16 +1,18 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
 [tool.poetry]
 name = "anime-sama_api"
-description = "Download video from anime-sama.fr"
+description = "Api for anime-sama.fr"
 readme = "README.md"
 version = "0.1.0"
 authors = ["NiniKo <pcninik@gmail.com>"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/Sky-NiniKo/anime-sama_downloader/"
 keywords = ["anime-sama", "anime", "downloader"]
-classifiers = [
-    "Topic :: Software Development :: Build Tools",
-    "Topic :: Software Development :: Libraries :: Python Modules",
-]
+classifiers = []
 packages = [{ include = "anime_sama_api" }]
 
 [tool.poetry.dependencies]
@@ -19,15 +21,13 @@ httpx = "^0.28.1"
 yt-dlp = { version = "^2024.12.13", optional = true }
 rich = { extras = ["progress", "status"], version = "13.9.4", optional = true }
 
+[tool.poetry.extras]
+cli = ["rich", "yt-dlp"]
+
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
 mypy = "^1.13.0"
 yt-dlp-types = "^0.0.13"
 
-
-[tool.poetry.extras]
-cli = ["rich", "yt-dlp"]
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.poetry.scripts]
+anime-sama = "anime_sama_api:main"
