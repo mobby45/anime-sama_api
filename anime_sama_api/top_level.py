@@ -23,4 +23,5 @@ class AnimeSama:
             for link, name in zip(links, names)
         ]
 
-    # TODO add all catalogue
+    async def all_catalogues(self) -> list[Catalogue]:
+        raise NotImplementedError

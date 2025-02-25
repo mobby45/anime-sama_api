@@ -6,15 +6,18 @@
 - [X] Order Episode
 - [X] Separate backend
 - [X] Fallback on other players
-- [ ] Retry players
-- [?] Make a package
+- [X] Retry players
+- [ ] Config
 - [ ] Tests
-- [ ] Menu
+- [?] Make a package
+- [ ] Implement all NotImplemented
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download
+- [ ] Menu
 - [ ] Planning
 - [ ] Ani-skip
 - [ ] Resume play (history)
 - [ ] MAL sync
 - [ ] Play from download
 - [ ] Discord presence
+- [ ] Smart load distribution between players

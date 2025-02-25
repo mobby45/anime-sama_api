@@ -13,7 +13,10 @@ from ..top_level import AnimeSama
 console = get_console()
 console._highlight = False
 logging.basicConfig(format="%(message)s", datefmt="[%X]", handlers=[RichHandler()])
-spinner = lambda text: console.status(text, spinner_style="cyan")
+
+
+def spinner(text: str):
+    return console.status(text, spinner_style="cyan")
 
 
 async def async_main():
@@ -35,7 +38,6 @@ async def async_main():
         episodes, msg="Choose episode(s)", print_choices=True
     )
 
-    # print(episodes[0])
     if config.DOWNLOAD:
         downloader.multi_download(
             selected_episodes,
@@ -58,6 +60,7 @@ def main() -> int:
         console.print("\n[red]Exiting...")
 
     return 0
+
 
 if __name__ == "__main__":
     main()

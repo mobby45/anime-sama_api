@@ -19,7 +19,7 @@ except ImportError:
 
         sys.exit(1)
 
-    download = multi_download = main
+    download = multi_download = main  # type: ignore
 
 
 __package__ = "anime-sama_api"

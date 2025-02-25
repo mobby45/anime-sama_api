@@ -15,9 +15,3 @@ def zip_varlen(*iterables: list[Iterable[T]], sentinel=object()) -> list[list[T]
 
 def split_and_strip(string: str, delimiter: str) -> list[str]:
     return [part.strip() for part in string.split(delimiter)]
-
-
-"""def remove_quotes(string: str) -> str:
-    if string[0] == string[-1] and string[0] in ["'", '"']:
-        string = string[1:-1]
-    return string"""

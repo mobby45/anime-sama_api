@@ -144,10 +144,3 @@ class Season:
 
     def __str__(self):
         return self.name
-
-    def __add__(self, other):
-        if not isinstance(other, str):
-            raise TypeError(
-                f"unsupported operand type(s) for +: 'Season' and '{type(other).__name__}'"
-            )
-        return str(self) + other

@@ -1,9 +1,10 @@
+import time
+import logging
+from logging import LogRecord
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-import logging
 
-from yt_dlp import YoutubeDL
-from yt_dlp.utils import YoutubeDLError
+from yt_dlp import YoutubeDL, DownloadError
 from rich import print, get_console
 from rich.live import Live
 from rich.console import Group
@@ -18,11 +19,14 @@ from rich.progress import (
     TaskID,
 )
 
+from .error_handeling import YDL_log_filter, reaction_to
 from ..episode import Episode
 from ..langs import LANG
 
 
 logger = logging.getLogger(__name__)
+logger.addFilter(YDL_log_filter)
+
 console = get_console()
 download_progress = Progress(
     TextColumn("[bold blue]{task.fields[episode_name]}", justify="right"),
@@ -78,16 +82,46 @@ def download(
     }
 
     for player in episode.consume_player(prefer_languages):
-        try:
-            with YoutubeDL(option) as ydl:  # type: ignore
-                error_code: int = ydl.download([player])  # type: ignore
-        except YoutubeDLError:
-            continue
+        retry_time = 1
+        sucess = False
 
-        if not error_code:
+        while True:
+            try:
+                with YoutubeDL(option) as ydl:  # type: ignore
+                    error_code: int = ydl.download([player])  # type: ignore
+
+                    if not error_code:
+                        sucess = True
+                    else:
+                        logger.fatal(
+                            f"The download error with the code {error_code}. Please report this to the developper."
+                        )
+
+                    break
+
+            except DownloadError as execption:
+                match reaction_to(execption.msg):
+                    case "continue":
+                        break
+
+                    case "retry":
+                        logger.warning(
+                            f"Download interrupted. Retrying in {retry_time}s."
+                        )
+                        time.sleep(retry_time)
+                        retry_time *= 2
+
+                    case "crash":
+                        raise execption
+
+                    case "":
+                        logger.fatal(
+                            f"The above error wasn't handle. Please report it to the developper."
+                        )
+                        break
+
+        if sucess:
             break
-
-        logger.fatal(error_code)
 
     download_progress.update(me, visible=False)
     if total_progress.tasks:

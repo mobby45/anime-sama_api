@@ -24,7 +24,7 @@ def print_selection(choices: list, print_choices=True) -> None:
         print("[red]No result")
         sys.exit(404)
     if len(choices) == 1:
-        print(f"-> \033[0;34m{choices[0]}")
+        print(f"-> [blue]{choices[0]}")
         return
     if not print_choices:
         return

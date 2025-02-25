@@ -14,8 +14,8 @@ class Players(list[str]):
 
 
 class Languages(dict[LANG_ID, Players]):
-    def __post_init__(self):
-        logger.warn("Everything normal")
+    def __init__(self, *args, **kargs):
+        super().__init__(*args, **kargs)
         if not self:
             logger.warning(f"No player available for {self}")
 

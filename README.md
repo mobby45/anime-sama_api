@@ -53,4 +53,4 @@ CONCURRENT_DOWNLOADS:
 ```
 
 # Contribution
-I am open to contribution.
+I am open to contribution. Please only open a PR for ONE change. AKA don't do "Various improvements" and explain your motivation behind your improvement ("Various typos fix" is fine).
