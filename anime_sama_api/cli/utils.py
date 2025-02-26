@@ -2,7 +2,9 @@ import sys
 from collections.abc import Callable
 from typing import TypeVar
 
-from rich import print
+from rich import print as print_func
+
+input_func = input
 
 T = TypeVar("T")
 
@@ -12,8 +14,8 @@ def safe_input(
 ) -> T:
     while True:
         try:
-            print(text, end="")
-            output = input()
+            print_func(text, end="")
+            output = input_func()
             return transform(output)
         except exceptions:
             pass
@@ -21,17 +23,17 @@ def safe_input(
 
 def print_selection(choices: list, print_choices=True) -> None:
     if len(choices) == 0:
-        print("[red]No result")
+        print_func("[red]No result")
         sys.exit(404)
     if len(choices) == 1:
-        print(f"-> [blue]{choices[0]}")
+        print_func(f"-> [blue]{choices[0]}")
         return
     if not print_choices:
         return
 
     for index, choice in enumerate(choices, start=1):
         line_colors = "yellow" if index % 2 == 0 else "white"
-        print(
+        print_func(
             f"[green][{index:{len(str(len(choices)))}}]",
             f"[{line_colors}]{choice}",
         )
@@ -66,6 +68,6 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         return [choices[i - 1] for i in ints_set]
 
     return safe_input(
-        f"{msg} [green][1-{len(choices)}]:[/] \033[0;34m",
+        f"{msg} [green][1-{len(choices)}][/]: \033[0;34m",
         transform,
     )

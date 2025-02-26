@@ -144,3 +144,6 @@ class Season:
 
     def __str__(self):
         return self.name
+
+    def __eq__(self, value):
+        return self.pages[0] == value.pages[0]

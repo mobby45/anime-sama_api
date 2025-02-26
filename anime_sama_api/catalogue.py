@@ -1,5 +1,4 @@
 import re
-from functools import cache
 
 from httpx import AsyncClient
 
@@ -12,19 +11,24 @@ class Catalogue:
         self.name = name or url.split("/")[-2]
         self.site_url = "/".join(url.split("/")[:3]) + "/"
         self.client = client or AsyncClient()
+        self._page = None
 
-    @cache
-    async def page(self) -> str | None:
+    async def page(self) -> str:
+        if self._page is not None:
+            return self._page
+
         response = await self.client.get(self.url)
 
         if not response.is_success:
-            return None
+            self._page = ""
+        else:
+            self._page = response.text
 
-        return response.text
+        return self._page
 
     async def seasons(self) -> list[Season]:
         seasons = re.findall(
-            r'panneauAnime\("(.+?)", *"(.+?)(?:vostfr|vf)"\);', await self.page() or ""
+            r'panneauAnime\("(.+?)", *"(.+?)(?:vostfr|vf)"\);', await self.page()
         )
 
         seasons = [
@@ -40,23 +44,26 @@ class Catalogue:
         return seasons
 
     async def advancement(self) -> str:
-        search = re.search(r"Avancement.+?>(.+?)<", await self.page() or "")
+        search = re.findall(r"Avancement.+?>(.+?)<", await self.page())
 
-        if search is None:
+        if not search:
             return ""
 
-        return search.group(0)
+        return search[0]
 
     async def correspondance(self):
-        search = re.search(r"Correspondance.+?>(.+?)<", await self.page() or "")
+        search = re.findall(r"Correspondance.+?>(.+?)<", await self.page())
 
-        if search is None:
+        if not search:
             return ""
 
-        return search.group(0)
+        return search[0]
 
     def __repr__(self):
         return f"Catalogue({self.url!r}, {self.name!r})"
 
     def __str__(self):
         return self.name
+
+    def __eq__(self, value):
+        return self.url == value.url

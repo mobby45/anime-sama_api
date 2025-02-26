@@ -93,7 +93,8 @@ def download(
                         sucess = True
                     else:
                         logger.fatal(
-                            "The download error with the code %s. Please report this to the developper.", error_code
+                            "The download error with the code %s. Please report this to the developper.",
+                            error_code,
                         )
 
                     break
@@ -130,7 +131,7 @@ def download(
 def multi_download(
     episodes: list[Episode],
     path: Path,
-    concurrent_downloads,
+    concurrent_downloads={},
     prefer_languages: list[Lang] = ["VO"],
 ):
     """
@@ -138,12 +139,14 @@ def multi_download(
     """
     total_progress.add_task("Downloaded", total=len(episodes))
     with Live(progress, console=console):
-        with ThreadPoolExecutor(max_workers=concurrent_downloads["video"]) as executor:
+        with ThreadPoolExecutor(
+            max_workers=concurrent_downloads.get("video", 1)
+        ) as executor:
             for episode in episodes:
                 executor.submit(
                     download,
                     episode,
                     path,
                     prefer_languages,
-                    concurrent_downloads["fragment"],
+                    concurrent_downloads.get("fragment", 1),
                 )

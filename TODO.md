@@ -8,7 +8,7 @@
 - [X] Fallback on other players
 - [X] Retry players
 - [X] Config
-- [ ] Tests
+- [X] Tests
 - [?] Make a package
 - [ ] Implement all NotImplemented
 - [ ] Nix?
