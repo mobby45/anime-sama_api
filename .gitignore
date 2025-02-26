@@ -1,4 +1,16 @@
-__pycache__
-.vscode
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# OS files
 .DS_Store
-venv
+
+# IDE
+.vscode

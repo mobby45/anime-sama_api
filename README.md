@@ -2,33 +2,20 @@
 Download video from anime-sama.fr
 
 # Requirements
-- Python 3.12 or higher
+- Python 3.10 or higher
 - git
+- [uv](https://docs.astral.sh/uv/#installation)
 
 # Installation
 ```bash
 git clone https://github.com/Sky-NiniKo/anime-sama_downloader.git
 cd anime-sama_downloader
-```
-
-If you don't have poetry, `pip install poetry`.
-```bash
-poetry install --extras cli
-```
-
-If you can't install poetry, but be warn, it is not supported:
-```bash
-pip install -r requirements.txt
+uv sync --extra cli
 ```
 
 # Run
-Poetry:
 ```bash
-poetry run anime-sama
-```
-Otherwise:
-```bash
-anime-sama
+uv run anime-sama
 ```
 
 # Update
@@ -53,4 +40,4 @@ CONCURRENT_DOWNLOADS:
 ```
 
 # Contribution
-I am open to contribution. Please only open a PR for ONE change. AKA don't do "Various improvements" and explain your motivation behind your improvement ("Various typos fix" is fine).
+I am open to contribution. Please only open a PR for ONE change. AKA don't do "Various improvements" and explain your motivation behind your improvement ("Various typos fix"/"Cleanup" is fine).
