@@ -13,6 +13,7 @@ dependencies = [
 [package.optional-dependencies]
 cli = [
     { name = "rich" },
+    { name = "tomli", marker = "python_full_version < '3.11'" },
     { name = "yt-dlp" },
 ]
 
@@ -27,6 +28,7 @@ dev = [
 requires-dist = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "rich", marker = "extra == 'cli'", specifier = ">=13.9.4" },
+    { name = "tomli", marker = "python_full_version < '3.11' and extra == 'cli'", specifier = ">=2.2.1" },
     { name = "yt-dlp", marker = "extra == 'cli'", specifier = ">=2025.2.19" },
 ]
 provides-extras = ["cli"]

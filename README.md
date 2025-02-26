@@ -25,19 +25,7 @@ git pull
 ```
 
 ## Config
-You can customize the config in `anime_sama_api/cli/config.py`
-
-```yaml
-PREFER_LANGUAGES: list of languages in order of preference see LANG in anime_sama/langs.py for available language
-DOWNLOAD_PATH: Where to place downloaded videos
-URL: url of anime-sama (You shouldn't touch that)
-PLAYERS:
-    prefer: player to use if multiple are available (first in the list are prefer over the afters)
-    ban: player to not use (even if that the only player)
-CONCURRENT_DOWNLOADS:
-    fragment: how many fragment of a video to download at once
-    video: how many video to download at once
-```
+You can customize the config at `~/.config/anime-sama_cli/config.toml` for MacOs/Linux and at `~/AppData/Local/anime-sama_cli/config.toml` for Windows.
 
 # Contribution
 I am open to contribution. Please only open a PR for ONE change. AKA don't do "Various improvements" and explain your motivation behind your improvement ("Various typos fix"/"Cleanup" is fine).

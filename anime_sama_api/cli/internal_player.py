@@ -5,9 +5,9 @@ from pathlib import Path
 
 from rich import print
 
-from anime_sama_api.langs import LANG
+from anime_sama_api.langs import Lang
 
-from .config import INTERNAL_PLAYER_COMMAND
+from .config import config
 from ..episode import Episode
 
 
@@ -28,7 +28,7 @@ def open_silent_process(command: list[str]) -> subprocess.Popen:
 
 def play_episode(
     episode: Episode,
-    prefer_languages: list[LANG],
+    prefer_languages: list[Lang],
     args: list[str] | None = None,
 ) -> subprocess.Popen | None:
     best = episode.best(prefer_languages)
@@ -36,7 +36,7 @@ def play_episode(
         print("[red]No player available")
         return None
 
-    player_command = INTERNAL_PLAYER_COMMAND + [best]
+    player_command = config.internal_player_command + [best]
     if args is not None:
         player_command += args
 
@@ -51,7 +51,7 @@ def play_episode(
 
 
 def play_file(path: Path, args: list[str] | None = None) -> subprocess.Popen:
-    player_command = INTERNAL_PLAYER_COMMAND + [str(path)]
+    player_command = config.internal_player_command + [str(path)]
     if args is not None:
         player_command += args
 

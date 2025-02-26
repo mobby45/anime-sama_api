@@ -1,11 +1,11 @@
 from typing import Literal
 
 
-LANG = Literal["VA", "VCN", "VF", "VJ", "VKR", "VQC", "VO"]
+Lang = Literal["VA", "VCN", "VF", "VJ", "VKR", "VQC", "VO"]
 
-LANG_ID = Literal["va", "vcn", "vf", "vf1", "vf2", "vj", "vkr", "vqc", "vostfr"]
+LangId = Literal["va", "vcn", "vf", "vf1", "vf2", "vj", "vkr", "vqc", "vostfr"]
 
-lang2ids: dict[LANG, list[LANG_ID]] = {
+lang2ids: dict[Lang, list[LangId]] = {
     "VO": ["vostfr"],
     "VA": ["va"],
     "VCN": ["vcn"],
@@ -15,13 +15,13 @@ lang2ids: dict[LANG, list[LANG_ID]] = {
     "VQC": ["vqc"],
 }
 
-id2lang: dict[LANG_ID, LANG] = {
+id2lang: dict[LangId, Lang] = {
     lang_id: lang for lang, langs_id in lang2ids.items() for lang_id in langs_id
 }
 
 lang_ids = list(id2lang.keys())
 
-flags: dict[LANG | LANG_ID, str] = {
+flags: dict[Lang | LangId, str] = {
     "VO": "",
     "VA": "🇬🇧",
     "VCN": "🇨🇳",
@@ -42,8 +42,8 @@ if __name__ == "__main__":
 
     import httpx
 
-    url = "https://anime-sama.fr/js/contenu/script_videos.js"
-    page = httpx.get(url).text
+    URL = "https://anime-sama.fr/js/contenu/script_videos.js"
+    page = httpx.get(URL).text
     langs = {}
 
     matchs = re.findall(r"if\((.+)\){langue = \"(.+)\";}", page)

@@ -1,6 +1,5 @@
 import time
 import logging
-from logging import LogRecord
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -21,7 +20,7 @@ from rich.progress import (
 
 from .error_handeling import YDL_log_filter, reaction_to
 from ..episode import Episode
-from ..langs import LANG
+from ..langs import Lang
 
 
 logger = logging.getLogger(__name__)
@@ -53,7 +52,7 @@ progress = Group(total_progress, download_progress)
 def download(
     episode: Episode,
     path: Path,
-    prefer_languages: list[LANG] = ["VO"],
+    prefer_languages: list[Lang] = ["VO"],
     concurrent_fragment_downloads=3,
 ):
     if not any(episode.languages.values()):
@@ -94,7 +93,7 @@ def download(
                         sucess = True
                     else:
                         logger.fatal(
-                            f"The download error with the code {error_code}. Please report this to the developper."
+                            "The download error with the code %s. Please report this to the developper.", error_code
                         )
 
                     break
@@ -106,7 +105,7 @@ def download(
 
                     case "retry":
                         logger.warning(
-                            f"Download interrupted. Retrying in {retry_time}s."
+                            "Download interrupted. Retrying in %ss.", retry_time
                         )
                         time.sleep(retry_time)
                         retry_time *= 2
@@ -116,7 +115,7 @@ def download(
 
                     case "":
                         logger.fatal(
-                            f"The above error wasn't handle. Please report it to the developper."
+                            "The above error wasn't handle. Please report it to the developper."
                         )
                         break
 
@@ -132,7 +131,7 @@ def multi_download(
     episodes: list[Episode],
     path: Path,
     concurrent_downloads,
-    prefer_languages: list[LANG] = ["VO"],
+    prefer_languages: list[Lang] = ["VO"],
 ):
     """
     Not sure if you can use this function multiple times

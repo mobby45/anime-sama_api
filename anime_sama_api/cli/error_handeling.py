@@ -7,8 +7,11 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
     "continue": (
         "[Errno 61] Connection refused",
         "Remote end closed connection without response",
+        "HTTPError 404: Not Found",
+        "Unsupported URL:",
+        "The read operation timed out",
     ),
-    "retry": ("The read operation timed out",),
+    "retry": ("TransportError('timed out')",),
     "crash": (),
 }
 

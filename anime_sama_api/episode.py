@@ -3,7 +3,7 @@ import re
 import logging
 from dataclasses import dataclass
 
-from .langs import flags, LANG, LANG_ID, id2lang, lang2ids
+from .langs import flags, Lang, LangId, id2lang, lang2ids
 
 logger = logging.getLogger(__name__)
 
@@ -13,15 +13,15 @@ class Players(list[str]):
         yield from self[index % len(self) :] + self[: index % len(self)]
 
 
-class Languages(dict[LANG_ID, Players]):
+class Languages(dict[LangId, Players]):
     def __init__(self, *args, **kargs):
         super().__init__(*args, **kargs)
         if not self:
-            logger.warning(f"No player available for {self}")
+            logger.warning("No player available for %s", self)
 
     @property
-    def availables(self) -> dict[LANG, list[Players]]:
-        availables: dict[LANG, list[Players]] = {}
+    def availables(self) -> dict[Lang, list[Players]]:
+        availables: dict[Lang, list[Players]] = {}
         for lang_id, players in self.items():
             if availables.get(id2lang[lang_id]) is None:
                 availables[id2lang[lang_id]] = []
@@ -29,7 +29,7 @@ class Languages(dict[LANG_ID, Players]):
         return availables
 
     def consume_player(
-        self, prefer_languages: list[LANG], index: int
+        self, prefer_languages: list[Lang], index: int
     ) -> Generator[str]:
         for prefer_language in prefer_languages:
             for players in self.availables.get(prefer_language, []):
@@ -40,7 +40,7 @@ class Languages(dict[LANG_ID, Players]):
             for players in self.availables.get(language, []):
                 if players:
                     logger.warning(
-                        f"Language preference not respected. Using {language}"
+                        "Language preference not respected. Using %s", language
                     )
                     yield from players(index)
 
@@ -75,10 +75,10 @@ class Episode:
     def __str__(self):
         return self.fancy_name
 
-    def consume_player(self, prefer_languages: list[LANG]) -> Generator[str]:
+    def consume_player(self, prefer_languages: list[Lang]) -> Generator[str]:
         yield from self.languages.consume_player(prefer_languages, self.index)
 
-    def best(self, prefer_languages: list[LANG]) -> str | None:
+    def best(self, prefer_languages: list[Lang]) -> str | None:
         try:
             return next(self.consume_player(prefer_languages))
         except StopIteration:

@@ -2,7 +2,7 @@ from .top_level import AnimeSama
 from .catalogue import Catalogue
 from .season import Season
 from .episode import Episode, Languages, Players
-from .langs import LANG, LANG_ID, lang2ids, id2lang, lang_ids, flags
+from .langs import Lang, LangId, lang2ids, id2lang, lang_ids, flags
 
 try:
     from .cli.__main__ import main
@@ -22,7 +22,7 @@ except ImportError:
     download = multi_download = main  # type: ignore
 
 
-__package__ = "anime-sama_api"
+# __package__ = "anime-sama_api"
 __all__ = [
     "AnimeSama",
     "Catalogue",
@@ -30,8 +30,8 @@ __all__ = [
     "Players",
     "Languages",
     "Episode",
-    "LANG",
-    "LANG_ID",
+    "Lang",
+    "LangId",
     "lang2ids",
     "id2lang",
     "lang_ids",

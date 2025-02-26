@@ -5,7 +5,8 @@ import httpx
 from rich import get_console
 from rich.logging import RichHandler
 
-from . import config, downloader, internal_player
+from . import downloader, internal_player
+from .config import config
 from .utils import safe_input, select_one, select_range
 
 from ..top_level import AnimeSama
@@ -23,7 +24,7 @@ async def async_main():
     query = safe_input("Anime name: \033[0;34m", str)
 
     with spinner(f"Searching for [blue]{query}"):
-        catalogues = await AnimeSama(config.URL, httpx.AsyncClient()).search(query)
+        catalogues = await AnimeSama(config.url, httpx.AsyncClient()).search(query)
     catalogue = select_one(catalogues)
 
     with spinner(f"Getting season list for [blue]{catalogue.name}"):
@@ -38,16 +39,16 @@ async def async_main():
         episodes, msg="Choose episode(s)", print_choices=True
     )
 
-    if config.DOWNLOAD:
+    if config.download:
         downloader.multi_download(
             selected_episodes,
-            config.DOWNLOAD_PATH,
-            config.CONCURRENT_DOWNLOADS,
-            config.PREFER_LANGUAGES,
+            config.download_path,
+            config.concurrent_downloads,
+            config.prefer_languages,
         )
     else:
         command = internal_player.play_episode(
-            selected_episodes[0], config.PREFER_LANGUAGES
+            selected_episodes[0], config.prefer_languages
         )
         if command is not None:
             command.wait()

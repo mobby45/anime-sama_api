@@ -7,7 +7,7 @@
 - [X] Separate backend
 - [X] Fallback on other players
 - [X] Retry players
-- [ ] Config
+- [X] Config
 - [ ] Tests
 - [?] Make a package
 - [ ] Implement all NotImplemented

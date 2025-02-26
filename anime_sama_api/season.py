@@ -5,7 +5,7 @@ import asyncio
 
 from httpx import AsyncClient
 
-from .langs import LANG_ID, lang_ids
+from .langs import LangId, lang_ids
 from .episode import Episode, Players, Languages
 from .utils import zip_varlen, split_and_strip
 
@@ -89,11 +89,11 @@ class Season:
     @staticmethod
     def _extend_episodes(
         current: list[tuple[str, Languages]],
-        new: tuple[LANG_ID, list[str], list[Players]],
+        new: tuple[LangId, list[str], list[Players]],
     ) -> list[tuple[str, Languages]]:
         """
-        Extend a list of episodes AKA (name, languages) from a list names and players corresponding to a language
-        while preserving the relative order of names.
+        Extend a list of episodes AKA (name, languages) from a list names and players corresponding
+        to a language while preserving the relative order of names.
         This function is intended to be used with reduce.
         """
         lang, names, players_list = new  # Unpack args. This is due to reduce
