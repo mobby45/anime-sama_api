@@ -10,9 +10,10 @@
 - [X] Config
 - [X] Tests
 - [X] Make a package
-- [ ] Implement all NotImplemented
+- [X] Implement all NotImplemented
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download
+- [ ] Do all TODO (present in .py files)
 - [ ] Menu
 - [ ] Planning
 - [ ] Ani-skip
