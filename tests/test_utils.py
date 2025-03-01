@@ -1,4 +1,4 @@
-from anime_sama_api.utils import zip_varlen, split_and_strip
+from anime_sama_api.utils import remove_some_js_comments, zip_varlen, split_and_strip
 
 
 def test_zip_varlen():
@@ -8,5 +8,13 @@ def test_zip_varlen():
 
 
 def test_split_and_strip():
-    data = "some\t \ngood\r\f \v\ntext"
-    assert split_and_strip(data, " ") == ["some", "good", "text"]
+    data = "some\t \ngood\r\f\v\ntext"
+    assert split_and_strip(data, (" ", "\r")) == ["some", "good", "text"]
+
+
+def test_remove_some_js_comments():
+    # assert remove_some_js_comments("<p>Hello</p> // end of line\nNew"), "<p>Hello</p> \nNew"
+    assert remove_some_js_comments("<p>Hello</p> /* end of line\nNew */"), (
+        "<p>Hello</p>"
+    )
+    assert remove_some_js_comments("<!-- <p>Hello</p> -->\nNew"), "\nNew"

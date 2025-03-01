@@ -21,10 +21,12 @@ def safe_input(
             pass
 
 
-def print_selection(choices: list, print_choices=True) -> None:
+def print_selection(choices: list, print_choices=True, exit=True) -> None:
     if len(choices) == 0:
         print_func("[red]No result")
-        sys.exit(404)
+        if exit:
+            sys.exit(404)
+        return
     if len(choices) == 1:
         print_func(f"-> [blue]{choices[0]}")
         return

@@ -2,8 +2,8 @@ from typing import Literal
 
 
 Lang = Literal["VA", "VCN", "VF", "VJ", "VKR", "VQC", "VO"]
-
 LangId = Literal["va", "vcn", "vf", "vf1", "vf2", "vj", "vkr", "vqc", "vostfr"]
+FlagId = Literal["cn", "qc", "en", "pal", "kr", "fr", "jp"]
 
 lang2ids: dict[Lang, list[LangId]] = {
     "VO": ["vostfr"],
@@ -31,6 +31,15 @@ flags: dict[Lang | LangId, str] = {
     "VQC": "🏴󠁣󠁡󠁱󠁣󠁿",
 }
 
+flagid2lang: dict[FlagId, Lang] = {
+    "cn": "VCN",
+    "qc": "VQC",
+    "en": "VA",
+    "kr": "VKR",
+    "fr": "VF",
+    "jp": "VJ",
+}
+
 for language, language_ids in lang2ids.items():
     for lang_id in language_ids:
         flags[lang_id] = flags[language]
@@ -38,12 +47,15 @@ for language, language_ids in lang2ids.items():
 
 if __name__ == "__main__":
     import re
+    import asyncio
     from pprint import pprint
 
     import httpx
 
-    URL = "https://anime-sama.fr/js/contenu/script_videos.js"
-    page = httpx.get(URL).text
+    from anime_sama_api.top_level import AnimeSama
+
+    SCRIPT_VIDEO_URL = "https://anime-sama.fr/js/contenu/script_videos.js"
+    page = httpx.get(SCRIPT_VIDEO_URL).text
     langs = {}
 
     matchs = re.findall(r"if\((.+)\){langue = \"(.+)\";}", page)
@@ -51,3 +63,18 @@ if __name__ == "__main__":
         langs[match[1]] = match[0].split('"')[1::2]
 
     pprint(langs)
+
+    async def main():
+        async for catalogue in AnimeSama("https://anime-sama.fr/").catalogues_iter():
+            if await catalogue.seasons():
+                break
+        else:
+            raise
+
+        vostfr_url = (await catalogue.seasons())[0].url + "vostfr/"
+        response = await catalogue.client.get(vostfr_url)
+        if not response.is_success:
+            raise
+        print(set(re.findall(r"src=\".+flag_(.+?)\.png\"", response.text)))
+
+    asyncio.run(main())

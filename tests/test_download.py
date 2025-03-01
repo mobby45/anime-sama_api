@@ -1,4 +1,4 @@
-from anyio import Path
+from pathlib import Path
 from anime_sama_api.cli.downloader import multi_download, download
 from anime_sama_api.episode import Episode, Languages, Players
 

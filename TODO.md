@@ -9,7 +9,7 @@
 - [X] Retry players
 - [X] Config
 - [X] Tests
-- [?] Make a package
+- [X] Make a package
 - [ ] Implement all NotImplemented
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download

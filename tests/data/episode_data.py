@@ -13,6 +13,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-ze0dv8b88jpo.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826196",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-ze0dv8b88jpo.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826196",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -28,6 +32,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_02_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-tax5nszvx0e2.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826200",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-tax5nszvx0e2.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826200",
             ],
@@ -49,6 +57,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-fl3lyt250ill.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826204",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-fl3lyt250ill.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826204",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -64,6 +76,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_04_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-y4b1qcot5818.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826207",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-y4b1qcot5818.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826207",
             ],
@@ -85,6 +101,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-5cvwmdjfesxm.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826209",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-5cvwmdjfesxm.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826209",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -100,6 +120,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_06_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-6jbw8xasjpaj.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826211",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-6jbw8xasjpaj.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826211",
             ],
@@ -121,6 +145,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-pibpk0a8zjiq.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826212",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-pibpk0a8zjiq.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826212",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -136,6 +164,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_08_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-ig52x9yg2m7t.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826156",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-ig52x9yg2m7t.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826156",
             ],
@@ -157,6 +189,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-ncrczehra65z.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826157",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-ncrczehra65z.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826157",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -172,6 +208,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_10_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-c0dg19tn3my5.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826158",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-c0dg19tn3my5.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826158",
             ],
@@ -193,6 +233,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-mmo8n73ybepk.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826159",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-mmo8n73ybepk.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826159",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -208,6 +252,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_12_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-h3wh0u7nvmkj.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826162",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-h3wh0u7nvmkj.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826162",
             ],
@@ -229,6 +277,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-jd8a4c0mnpho.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826167",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-jd8a4c0mnpho.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826167",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -244,6 +296,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_14_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-9rha8vndbw92.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826168",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-9rha8vndbw92.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826168",
             ],
@@ -265,6 +321,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-5v2fjbb8ire3.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826169",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-5v2fjbb8ire3.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826169",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -280,6 +340,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_16_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-skc1b9m4xrp9.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826170",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-skc1b9m4xrp9.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826170",
             ],
@@ -301,6 +365,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-gk7hii7zhej5.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826171",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-gk7hii7zhej5.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826171",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -316,6 +384,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_18_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-hd4ot35jx74b.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826173",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-hd4ot35jx74b.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826173",
             ],
@@ -337,6 +409,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-wyg38sy2jyem.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826174",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-wyg38sy2jyem.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826174",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -352,6 +428,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_20_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-in2rfflkohvb.html",
+                "https://video.sibnet.ru/shell.php?videoid=4702767",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-in2rfflkohvb.html",
                 "https://video.sibnet.ru/shell.php?videoid=4702767",
             ],
@@ -373,6 +453,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-uqjprtlalgqr.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826213",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-uqjprtlalgqr.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826213",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -388,6 +472,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_22_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-c9kg4104y5b0.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826215",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-c9kg4104y5b0.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826215",
             ],
@@ -409,6 +497,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-f0qgty6adbe8.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826216",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-f0qgty6adbe8.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826216",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -424,6 +516,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_24_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-s497934imdn3.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826217",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-s497934imdn3.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826217",
             ],
@@ -445,6 +541,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-4n3xctw38ck0.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826220",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-4n3xctw38ck0.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826220",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -460,6 +560,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_26_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-lmxbyxdas9t5.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826222",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-lmxbyxdas9t5.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826222",
             ],
@@ -481,6 +585,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-05emx3uufv66.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826224",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-05emx3uufv66.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826224",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -496,6 +604,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_28_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-8s1tmnqtxt6t.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826226",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-8s1tmnqtxt6t.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826226",
             ],
@@ -517,6 +629,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-5skra2vqd1l6.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826227",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-5skra2vqd1l6.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826227",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -532,6 +648,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_30_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-zyoxlt4ub0qm.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826228",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-zyoxlt4ub0qm.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826228",
             ],
@@ -553,6 +673,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-m9ufjqs91k3g.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826230",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-m9ufjqs91k3g.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826230",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -568,6 +692,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_32_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-nf5o72fi194m.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826231",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-nf5o72fi194m.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826231",
             ],
@@ -589,6 +717,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-7imnv2xf1qd8.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826233",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-7imnv2xf1qd8.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826233",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -604,6 +736,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_34_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-xq8jxq3m0kog.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826234",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-xq8jxq3m0kog.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826234",
             ],
@@ -625,6 +761,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-pa5f15oi6q7c.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826235",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-pa5f15oi6q7c.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826235",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -640,6 +780,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_36_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-5lefsqh3w1me.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826236",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-5lefsqh3w1me.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826236",
             ],
@@ -661,6 +805,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-rwc5u5hvsd4f.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826237",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-rwc5u5hvsd4f.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826237",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -676,6 +824,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_38_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-4dgk0ymjbtzb.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826239",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-4dgk0ymjbtzb.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826239",
             ],
@@ -697,6 +849,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-l9e1hkvn5tdo.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826240",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-l9e1hkvn5tdo.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826240",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -712,6 +868,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_40_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-s0xuswwvwchl.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826243",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-s0xuswwvwchl.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826243",
             ],
@@ -733,6 +893,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-d0vemgbozlow.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826244",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-d0vemgbozlow.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826244",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -748,6 +912,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_42_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-avf0ovneivpe.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826245",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-avf0ovneivpe.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826245",
             ],
@@ -769,6 +937,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-btkp6x2rejhb.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826247",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-btkp6x2rejhb.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826247",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -784,6 +956,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_44_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-h4osgl1qg81r.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826248",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-h4osgl1qg81r.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826248",
             ],
@@ -805,6 +981,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-rdl0tphn32jj.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826249",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-rdl0tphn32jj.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826249",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -820,6 +1000,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_46_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-2z42fsojx42l.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826251",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-2z42fsojx42l.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826251",
             ],
@@ -841,6 +1025,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-cwiruw6k8wnq.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826252",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-cwiruw6k8wnq.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826252",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -856,6 +1044,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_48_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-2o4y5gxj7jxi.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826253",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-2o4y5gxj7jxi.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826253",
             ],
@@ -877,6 +1069,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-xaspn4aas0pi.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826255",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-xaspn4aas0pi.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826255",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -892,6 +1088,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_50_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-spkzjno0yksg.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826256",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-spkzjno0yksg.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826256",
             ],
@@ -913,6 +1113,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-ctvrlxsrtko7.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826257",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-ctvrlxsrtko7.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826257",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -928,6 +1132,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_52_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-bew6mahdmzdc.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826258",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-bew6mahdmzdc.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826258",
             ],
@@ -949,6 +1157,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-nwm1zet92uq8.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826260",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-nwm1zet92uq8.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826260",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -964,6 +1176,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_54_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-cf15tba8xy55.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826262",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-cf15tba8xy55.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826262",
             ],
@@ -985,6 +1201,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-8ujzqoqn2dbj.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826264",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-8ujzqoqn2dbj.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826264",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -1000,6 +1220,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_56_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-v70ohgq1t9k4.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826267",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-v70ohgq1t9k4.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826267",
             ],
@@ -1021,6 +1245,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-ghovbolbp5hu.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826268",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-ghovbolbp5hu.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826268",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -1036,6 +1264,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_58_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-m7ig1virv4ts.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826270",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-m7ig1virv4ts.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826270",
             ],
@@ -1057,6 +1289,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-13xmir23xyta.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826273",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-13xmir23xyta.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826273",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -1075,6 +1311,10 @@ one_piece_season1 = [
                 "https://vidmoly.to/embed-hjjr54khswdb.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826276",
             ],
+            "vj": [
+                "https://vidmoly.to/embed-hjjr54khswdb.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826276",
+            ],
         },
         serie_name="one-piece",
         season_name="saison1",
@@ -1090,6 +1330,10 @@ one_piece_season1 = [
                 "https://s22.anime-sama.fr/s2/One%20Piece/VF/One_Piece_61_VF.mp4",
             ],
             "vostfr": [
+                "https://vidmoly.to/embed-cdcdc04uvjcc.html",
+                "https://video.sibnet.ru/shell.php?videoid=4826278",
+            ],
+            "vj": [
                 "https://vidmoly.to/embed-cdcdc04uvjcc.html",
                 "https://video.sibnet.ru/shell.php?videoid=4826278",
             ],
@@ -1353,6 +1597,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955465",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_01_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/up01jsqj",
+                "https://vidmoly.to/embed-qwvo7wyduen5.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955465",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_01_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1368,6 +1618,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_2_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/udiuhfeq",
+                "https://vidmoly.to/embed-4hxjrfohe5la.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955467",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_02_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/udiuhfeq",
                 "https://vidmoly.to/embed-4hxjrfohe5la.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955467",
@@ -1393,6 +1649,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4983121",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_03_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/a6h91fg0",
+                "https://vidmoly.to/embed-3gtcmhd435r9.html",
+                "https://video.sibnet.ru/shell.php?videoid=4983121",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_03_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1408,6 +1670,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_4_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/qw36zs7t",
+                "https://vidmoly.to/embed-ke3rw6m9rezv.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955469",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_04_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/qw36zs7t",
                 "https://vidmoly.to/embed-ke3rw6m9rezv.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955469",
@@ -1433,6 +1701,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955470",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_05_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/zbzuulpk",
+                "https://vidmoly.to/embed-qkknejk62sra.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955470",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_05_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1448,6 +1722,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_6_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/inrimlir",
+                "https://vidmoly.to/embed-jq02pgtub7c8.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955472",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_06_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/inrimlir",
                 "https://vidmoly.to/embed-jq02pgtub7c8.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955472",
@@ -1473,6 +1753,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955473",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_07_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/s5649pjr",
+                "https://vidmoly.to/embed-695vulxlpq5w.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955473",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_07_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1488,6 +1774,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_8_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/pm4zmxal",
+                "https://vidmoly.to/embed-x0mzbu5ady8d.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955474",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_08_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/pm4zmxal",
                 "https://vidmoly.to/embed-x0mzbu5ady8d.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955474",
@@ -1513,6 +1805,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955475",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_09_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/r3s3bp6q",
+                "https://vidmoly.to/embed-tr9xorx0e59h.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955475",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_09_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1528,6 +1826,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_10_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/m1ex7won",
+                "https://vidmoly.to/embed-4kjoy226jfca.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955476",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_10_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/m1ex7won",
                 "https://vidmoly.to/embed-4kjoy226jfca.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955476",
@@ -1553,6 +1857,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955478",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_11_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/w1v549rv",
+                "https://vidmoly.to/embed-06m8jxplr1nk.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955478",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_11_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1573,6 +1883,12 @@ mha_season1 = [
                 "https://video.sibnet.ru/shell.php?videoid=4955482",
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_12_VOSTFR.mp4",
             ],
+            "vj": [
+                "https://sendvid.com/embed/jvily06o",
+                "https://vidmoly.to/embed-zt71sayn0arl.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955482",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_12_VOSTFR.mp4",
+            ],
         },
         serie_name="my-hero-academia",
         season_name="saison1",
@@ -1588,6 +1904,12 @@ mha_season1 = [
                 "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VF/S1/MHA_S1_13_VF.mp4",
             ],
             "vostfr": [
+                "https://sendvid.com/embed/6le4ccbt",
+                "https://vidmoly.to/embed-2gu0b79b92or.html",
+                "https://video.sibnet.ru/shell.php?videoid=4955485",
+                "https://s22.anime-sama.fr/s2/My%20Hero%20Academia/VOSTFR/S1/My_Hero_Academia_S1_13_VOSTFR.mp4",
+            ],
+            "vj": [
                 "https://sendvid.com/embed/6le4ccbt",
                 "https://vidmoly.to/embed-2gu0b79b92or.html",
                 "https://video.sibnet.ru/shell.php?videoid=4955485",
