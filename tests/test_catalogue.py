@@ -27,11 +27,11 @@ async def test_avancement():
 @pytest.mark.asyncio
 async def test_correspondance():
     assert (
-        await catalogue_data.one_piece.correspondance()
+        await catalogue_data.one_piece.correspondence()
         == "Episode 1122 -> Chapitre 1088"
     )
-    assert await catalogue_data.gumball.correspondance() == "Aucune donnée."
+    assert await catalogue_data.gumball.correspondence() == "Aucune donnée."
     assert (
-        await catalogue_data.mha.correspondance()
+        await catalogue_data.mha.correspondence()
         == "Saison 7 Épisode 21 -> Chapitre 399"
     )

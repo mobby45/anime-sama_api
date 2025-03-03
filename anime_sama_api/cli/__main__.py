@@ -45,6 +45,7 @@ async def async_main():
             config.download_path,
             config.concurrent_downloads,
             config.prefer_languages,
+            config.max_retry_time,
         )
     else:
         command = internal_player.play_episode(

@@ -15,7 +15,7 @@ class Catalogue:
         self._page = None
 
         self.name = name or url.split("/")[-2]
-        # TODO: Add alternative names, synopsis, genres. Lang?
+        # TODO: Synopsis, genres. Lang?
         # Need async post init
 
     async def page(self) -> str:
@@ -58,13 +58,28 @@ class Catalogue:
 
         return search[0]
 
-    async def correspondance(self):
+    async def correspondence(self) -> str:
         search = re.findall(r"Correspondance.+?>(.+?)<", await self.page())
 
         if not search:
             return ""
 
         return search[0]
+
+    async def is_anime(self) -> bool:
+        raise NotImplementedError
+
+    async def is_manga(self) -> bool:
+        raise NotImplementedError
+
+    async def is_film(self) -> bool:
+        raise NotImplementedError
+
+    async def is_other(self) -> bool:
+        raise NotImplementedError
+
+    async def alternative_names(self) -> list[str]:
+        raise NotImplementedError
 
     def __repr__(self):
         return f"Catalogue({self.url!r}, {self.name!r})"

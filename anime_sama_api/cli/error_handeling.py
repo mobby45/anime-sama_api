@@ -10,8 +10,9 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
         "HTTPError 404: Not Found",
         "Unsupported URL:",
         "The read operation timed out",
+        "HTTPError 500: Internal Server Error",
     ),
-    "retry": ("TransportError('timed out')",),
+    "retry": ("TransportError('timed out')", "[Errno 54] Connection reset by peer"),
     "crash": (),
 }
 
@@ -34,8 +35,15 @@ def YDL_log_filter(record: LogRecord):
 
     match record.levelname:
         case "WARNING":
-            if "Falling back on generic information extractor" in record.msg:
+            if any(
+                msg in record.msg
+                for msg in (
+                    "Falling back on generic information extractor",
+                    "Live HLS streams are not supported by the native downloader.",
+                )
+            ):
                 return False
+            return True
         case "ERROR":
             return not is_error_handle(record.msg)
         case _:

@@ -28,6 +28,7 @@ class Config:
     prefer_languages: list[Lang]
     download_path: Path
     download: bool
+    max_retry_time: int
     internal_player_command: list[str]
     url: str
     players: PlayersConfig
@@ -71,9 +72,9 @@ config = default_config | user_config
 
 # Check if value respect the type
 for lang in config["prefer_languages"]:
-    assert (
-        lang in lang2ids
-    ), f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
+    assert lang in lang2ids, (
+        f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
+    )
 
 # Convert type
 config["download_path"] = Path(config["download_path"])

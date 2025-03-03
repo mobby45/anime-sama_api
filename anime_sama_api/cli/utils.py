@@ -46,7 +46,9 @@ def select_one(choices: list[T], msg="Choose a number", **_) -> T:
     if len(choices) == 1:
         return choices[0]
 
-    return safe_input(f"{msg}: \033[0;34m", lambda string: choices[int(string) - 1])
+    return safe_input(
+        f"[white]{msg}[/white]: \033[0;34m", lambda string: choices[int(string) - 1]
+    )
 
 
 def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
@@ -56,13 +58,17 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         return [choices[0]]
 
     def transform(string: str) -> list[T]:
-        ints_set = set()
+        ints_set: set[int] = set()
         for args in string.split(","):
-            ints = [int(num) for num in args.split("-")]
+            ints = [int(num) if num.strip() else None for num in args.split("-")]
 
-            if len(ints) == 1:
+            if len(ints) == 1 and ints[0] is not None:
                 ints_set.add(ints[0])
             elif len(ints) == 2:
+                if ints[0] is None:
+                    ints[0] = 1
+                if ints[1] is None:
+                    ints[1] = len(choices)
                 ints_set.update(range(ints[0], ints[1] + 1))
             else:
                 raise ValueError
@@ -70,6 +76,6 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
         return [choices[i - 1] for i in ints_set]
 
     return safe_input(
-        f"{msg} [green][1-{len(choices)}][/]: \033[0;34m",
+        f"[white]{msg}[/white] [green][1-{len(choices)}][/]: \033[0;34m",
         transform,
     )

@@ -54,6 +54,7 @@ def download(
     path: Path,
     prefer_languages: list[Lang] = ["VO"],
     concurrent_fragment_downloads=3,
+    max_retry_time=1024,
 ):
     if not any(episode.languages.values()):
         print("[red]No player available")
@@ -105,8 +106,11 @@ def download(
                         break
 
                     case "retry":
+                        if retry_time >= max_retry_time:
+                            break
+
                         logger.warning(
-                            "Download interrupted. Retrying in %ss.", retry_time
+                            f"{episode.name} interrupted. Retrying in %ss.", retry_time
                         )
                         time.sleep(retry_time)
                         retry_time *= 2
@@ -133,6 +137,7 @@ def multi_download(
     path: Path,
     concurrent_downloads={},
     prefer_languages: list[Lang] = ["VO"],
+    max_retry_time=1024,
 ):
     """
     Not sure if you can use this function multiple times
@@ -149,4 +154,5 @@ def multi_download(
                     path,
                     prefer_languages,
                     concurrent_downloads.get("fragment", 1),
+                    max_retry_time,
                 )

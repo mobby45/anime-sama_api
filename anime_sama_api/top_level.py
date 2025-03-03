@@ -1,5 +1,5 @@
 import asyncio
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Generator
 import re
 
 from httpx import AsyncClient
@@ -28,11 +28,45 @@ class AnimeSama:
             for link, name in zip(links, names)
         ]
 
+    def _yield_catalogues_from(self, html: str) -> Generator[Catalogue]:
+        text_without_script = re.sub(r"<script[\W\w]+?</script>", "", html)
+        for url, name in re.findall(
+            rf"href=\"({self.site_url}catalogue/.+)\"[\W\w]+?>(.+)</h1>",
+            text_without_script,
+        ):
+            yield Catalogue(
+                url,
+                name,
+                self.client,
+            )
+
     async def catalogues_iter(self) -> AsyncIterator[Catalogue]:
         response = await self.client.get(f"{self.site_url}catalogue/")
 
         if not response.is_success:
-            return
+            raise StopAsyncIteration
+
+        available_pages_numbers = [
+            int(num) for num in re.findall(r"\?page=(\d+)", response.text)
+        ]
+
+        for catalogue in self._yield_catalogues_from(response.text):
+            yield catalogue
+
+        for number in range(2, max(available_pages_numbers) + 1):
+            response = await self.client.get(f"{self.site_url}catalogue/?page={number}")
+
+            if not response.is_success:
+                continue
+
+            for catalogue in self._yield_catalogues_from(response.text):
+                yield catalogue
+
+    async def all_catalogues(self) -> list[Catalogue]:
+        response = await self.client.get(f"{self.site_url}catalogue/")
+
+        if not response.is_success:
+            return []
 
         available_pages_numbers = [
             int(num) for num in re.findall(r"\?page=(\d+)", response.text)
@@ -45,20 +79,11 @@ class AnimeSama:
             )
         )
 
+        catalogues = []
         for response in responses:
             if not response.is_success:
                 continue
 
-            text_without_script = re.sub(r"<script[\W\w]+?</script>", "", response.text)
-            for url, name in re.findall(
-                rf"href=\"({self.site_url}catalogue/.+)\"[\W\w]+?>(.+)</h1>",
-                text_without_script,
-            ):
-                yield Catalogue(
-                    url,
-                    name,
-                    self.client,
-                )
+            catalogues += list(self._yield_catalogues_from(response.text))
 
-    async def all_catalogues(self) -> list[Catalogue]:
-        return [catalogue async for catalogue in self.catalogues_iter()]
+        return catalogues
