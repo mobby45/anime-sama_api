@@ -2,43 +2,55 @@ import time
 import logging
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from urllib.parse import urlparse
 
 from yt_dlp import YoutubeDL, DownloadError
 from rich import print, get_console
 from rich.live import Live
 from rich.console import Group
+from rich.table import Column
 from rich.progress import (
     BarColumn,
-    DownloadColumn,
     Progress,
     TextColumn,
     TimeRemainingColumn,
     TransferSpeedColumn,
     MofNCompleteColumn,
     TaskID,
+    TotalFileSizeColumn,
+    ProgressColumn,
 )
 
 from .error_handeling import YDL_log_filter, reaction_to
 from ..episode import Episode
 from ..langs import Lang
+from .config import config
 
 
 logger = logging.getLogger(__name__)
 logger.addFilter(YDL_log_filter)
 
 console = get_console()
-download_progress = Progress(
-    TextColumn("[bold blue]{task.fields[episode_name]}", justify="right"),
+download_progress_list: list[str | ProgressColumn] = [
+    "[bold blue]{task.fields[episode_name]}",
     BarColumn(bar_width=None),
     "[progress.percentage]{task.percentage:>3.1f}%",
-    "•",
-    DownloadColumn(),
-    "•",
     TransferSpeedColumn(),
-    "•",
-    TimeRemainingColumn(),
-    console=console,
-)
+    TotalFileSizeColumn(),
+    TimeRemainingColumn(compact=True, elapsed_when_finished=True),
+]
+if config.show_players:
+    download_progress_list.insert(
+        1,
+        TextColumn(
+            "[green]{task.fields[site]}",
+            table_column=Column(max_width=12),
+            justify="right",
+        ),
+    )
+
+download_progress = Progress(*download_progress_list, console=console)
+
 total_progress = Progress(
     TextColumn("[bold cyan]{task.description}"),
     BarColumn(bar_width=None),
@@ -60,7 +72,9 @@ def download(
         print("[red]No player available")
         return
 
-    me = download_progress.add_task("download", episode_name=episode.name, total=None)
+    me = download_progress.add_task(
+        "download", episode_name=episode.name, site="", total=None
+    )
     task = download_progress.tasks[me]
 
     full_path = (
@@ -71,6 +85,7 @@ def download(
         if data.get("status") != "downloading":
             return
 
+        # Directly accessing .total is needed to not reset the speed
         task.total = data.get("total_bytes") or data.get("total_bytes_estimate")
         download_progress.update(me, completed=data.get("downloaded_bytes", 0))
 
@@ -84,6 +99,7 @@ def download(
     for player in episode.consume_player(prefer_languages):
         retry_time = 1
         sucess = False
+        download_progress.update(me, site=urlparse(player).hostname)
 
         while True:
             try:

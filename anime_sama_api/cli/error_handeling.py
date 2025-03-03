@@ -12,7 +12,11 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
         "The read operation timed out",
         "HTTPError 500: Internal Server Error",
     ),
-    "retry": ("TransportError('timed out')", "[Errno 54] Connection reset by peer"),
+    "retry": (
+        "TransportError('timed out')",
+        "[Errno 54] Connection reset by peer",
+        "HTTPError 503: Service Temporarily Unavailable",
+    ),
     "crash": (),
 }
 

@@ -10,7 +10,8 @@
 - [X] Config
 - [X] Tests
 - [X] Make a package
-- [X] Implement all NotImplemented
+- [ ] Implement all NotImplemented
+- [ ] Take args in cli
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download
 - [ ] Do all TODO (present in .py files)

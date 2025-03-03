@@ -28,6 +28,7 @@ class Config:
     prefer_languages: list[Lang]
     download_path: Path
     download: bool
+    show_players: bool
     max_retry_time: int
     internal_player_command: list[str]
     url: str
