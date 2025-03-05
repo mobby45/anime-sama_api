@@ -20,7 +20,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 1",
+        _name="Episode 1",
         index=1,
     ),
     Episode(
@@ -42,7 +42,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 2",
+        _name="Episode 2",
         index=2,
     ),
     Episode(
@@ -64,7 +64,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 3",
+        _name="Episode 3",
         index=3,
     ),
     Episode(
@@ -86,7 +86,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 4",
+        _name="Episode 4",
         index=4,
     ),
     Episode(
@@ -108,7 +108,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 5",
+        _name="Episode 5",
         index=5,
     ),
     Episode(
@@ -130,7 +130,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 6",
+        _name="Episode 6",
         index=6,
     ),
     Episode(
@@ -152,7 +152,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 7",
+        _name="Episode 7",
         index=7,
     ),
     Episode(
@@ -174,7 +174,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 8",
+        _name="Episode 8",
         index=8,
     ),
     Episode(
@@ -196,7 +196,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 9",
+        _name="Episode 9",
         index=9,
     ),
     Episode(
@@ -218,7 +218,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 10",
+        _name="Episode 10",
         index=10,
     ),
     Episode(
@@ -240,7 +240,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 11",
+        _name="Episode 11",
         index=11,
     ),
     Episode(
@@ -262,7 +262,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 12",
+        _name="Episode 12",
         index=12,
     ),
     Episode(
@@ -284,7 +284,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 13",
+        _name="Episode 13",
         index=13,
     ),
     Episode(
@@ -306,7 +306,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 14",
+        _name="Episode 14",
         index=14,
     ),
     Episode(
@@ -328,7 +328,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 15",
+        _name="Episode 15",
         index=15,
     ),
     Episode(
@@ -350,7 +350,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 16",
+        _name="Episode 16",
         index=16,
     ),
     Episode(
@@ -372,7 +372,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 17",
+        _name="Episode 17",
         index=17,
     ),
     Episode(
@@ -394,7 +394,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 18",
+        _name="Episode 18",
         index=18,
     ),
     Episode(
@@ -416,7 +416,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 19",
+        _name="Episode 19",
         index=19,
     ),
     Episode(
@@ -438,7 +438,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 20",
+        _name="Episode 20",
         index=20,
     ),
     Episode(
@@ -460,7 +460,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 21",
+        _name="Episode 21",
         index=21,
     ),
     Episode(
@@ -482,7 +482,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 22",
+        _name="Episode 22",
         index=22,
     ),
     Episode(
@@ -504,7 +504,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 23",
+        _name="Episode 23",
         index=23,
     ),
     Episode(
@@ -526,7 +526,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 24",
+        _name="Episode 24",
         index=24,
     ),
     Episode(
@@ -548,7 +548,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 25",
+        _name="Episode 25",
         index=25,
     ),
     Episode(
@@ -570,7 +570,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 26",
+        _name="Episode 26",
         index=26,
     ),
     Episode(
@@ -592,7 +592,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 27",
+        _name="Episode 27",
         index=27,
     ),
     Episode(
@@ -614,7 +614,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 28",
+        _name="Episode 28",
         index=28,
     ),
     Episode(
@@ -636,7 +636,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 29",
+        _name="Episode 29",
         index=29,
     ),
     Episode(
@@ -658,7 +658,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 30",
+        _name="Episode 30",
         index=30,
     ),
     Episode(
@@ -680,7 +680,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 31",
+        _name="Episode 31",
         index=31,
     ),
     Episode(
@@ -702,7 +702,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 32",
+        _name="Episode 32",
         index=32,
     ),
     Episode(
@@ -724,7 +724,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 33",
+        _name="Episode 33",
         index=33,
     ),
     Episode(
@@ -746,7 +746,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 34",
+        _name="Episode 34",
         index=34,
     ),
     Episode(
@@ -768,7 +768,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 35",
+        _name="Episode 35",
         index=35,
     ),
     Episode(
@@ -790,7 +790,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 36",
+        _name="Episode 36",
         index=36,
     ),
     Episode(
@@ -812,7 +812,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 37",
+        _name="Episode 37",
         index=37,
     ),
     Episode(
@@ -834,7 +834,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 38",
+        _name="Episode 38",
         index=38,
     ),
     Episode(
@@ -856,7 +856,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 39",
+        _name="Episode 39",
         index=39,
     ),
     Episode(
@@ -878,7 +878,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 40",
+        _name="Episode 40",
         index=40,
     ),
     Episode(
@@ -900,7 +900,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 41",
+        _name="Episode 41",
         index=41,
     ),
     Episode(
@@ -922,7 +922,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 42",
+        _name="Episode 42",
         index=42,
     ),
     Episode(
@@ -944,7 +944,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 43",
+        _name="Episode 43",
         index=43,
     ),
     Episode(
@@ -966,7 +966,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 44",
+        _name="Episode 44",
         index=44,
     ),
     Episode(
@@ -988,7 +988,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 45",
+        _name="Episode 45",
         index=45,
     ),
     Episode(
@@ -1010,7 +1010,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 46",
+        _name="Episode 46",
         index=46,
     ),
     Episode(
@@ -1032,7 +1032,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 47",
+        _name="Episode 47",
         index=47,
     ),
     Episode(
@@ -1054,7 +1054,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 48",
+        _name="Episode 48",
         index=48,
     ),
     Episode(
@@ -1076,7 +1076,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 49",
+        _name="Episode 49",
         index=49,
     ),
     Episode(
@@ -1098,7 +1098,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 50",
+        _name="Episode 50",
         index=50,
     ),
     Episode(
@@ -1120,7 +1120,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 51",
+        _name="Episode 51",
         index=51,
     ),
     Episode(
@@ -1142,7 +1142,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 52",
+        _name="Episode 52",
         index=52,
     ),
     Episode(
@@ -1164,7 +1164,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 53",
+        _name="Episode 53",
         index=53,
     ),
     Episode(
@@ -1186,7 +1186,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 54",
+        _name="Episode 54",
         index=54,
     ),
     Episode(
@@ -1208,7 +1208,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 55",
+        _name="Episode 55",
         index=55,
     ),
     Episode(
@@ -1230,7 +1230,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 56",
+        _name="Episode 56",
         index=56,
     ),
     Episode(
@@ -1252,7 +1252,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 57",
+        _name="Episode 57",
         index=57,
     ),
     Episode(
@@ -1274,7 +1274,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 58",
+        _name="Episode 58",
         index=58,
     ),
     Episode(
@@ -1296,7 +1296,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 59",
+        _name="Episode 59",
         index=59,
     ),
     Episode(
@@ -1318,7 +1318,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 60",
+        _name="Episode 60",
         index=60,
     ),
     Episode(
@@ -1340,7 +1340,7 @@ one_piece_season1 = [
         },
         serie_name="one-piece",
         season_name="saison1",
-        name="Episode 61",
+        _name="Episode 61",
         index=61,
     ),
 ]
@@ -1356,7 +1356,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 1",
+        _name="Episode 1",
         index=1,
     ),
     Episode(
@@ -1369,7 +1369,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 2",
+        _name="Episode 2",
         index=2,
     ),
     Episode(
@@ -1382,7 +1382,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 3",
+        _name="Episode 3",
         index=3,
     ),
     Episode(
@@ -1395,7 +1395,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 4",
+        _name="Episode 4",
         index=4,
     ),
     Episode(
@@ -1408,7 +1408,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 5",
+        _name="Episode 5",
         index=5,
     ),
     Episode(
@@ -1421,7 +1421,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 6",
+        _name="Episode 6",
         index=6,
     ),
     Episode(
@@ -1434,7 +1434,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 7",
+        _name="Episode 7",
         index=7,
     ),
     Episode(
@@ -1447,7 +1447,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 8",
+        _name="Episode 8",
         index=8,
     ),
     Episode(
@@ -1460,7 +1460,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 9",
+        _name="Episode 9",
         index=9,
     ),
     Episode(
@@ -1473,7 +1473,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 10",
+        _name="Episode 10",
         index=10,
     ),
     Episode(
@@ -1486,7 +1486,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 11",
+        _name="Episode 11",
         index=11,
     ),
     Episode(
@@ -1499,7 +1499,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 12",
+        _name="Episode 12",
         index=12,
     ),
     Episode(
@@ -1512,7 +1512,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 13",
+        _name="Episode 13",
         index=13,
     ),
     Episode(
@@ -1525,7 +1525,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 14",
+        _name="Episode 14",
         index=14,
     ),
     Episode(
@@ -1538,7 +1538,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 15",
+        _name="Episode 15",
         index=15,
     ),
     Episode(
@@ -1551,7 +1551,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 16",
+        _name="Episode 16",
         index=16,
     ),
     Episode(
@@ -1564,7 +1564,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 17",
+        _name="Episode 17",
         index=17,
     ),
     Episode(
@@ -1577,7 +1577,7 @@ gumball_season1 = [
         },
         serie_name="le-monde-incroyable-de-gumball",
         season_name="saison1",
-        name="Episode 18",
+        _name="Episode 18",
         index=18,
     ),
 ]
@@ -1606,7 +1606,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 1",
+        _name="Episode 1",
         index=1,
     ),
     Episode(
@@ -1632,7 +1632,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 2",
+        _name="Episode 2",
         index=2,
     ),
     Episode(
@@ -1658,7 +1658,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 3",
+        _name="Episode 3",
         index=3,
     ),
     Episode(
@@ -1684,7 +1684,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 4",
+        _name="Episode 4",
         index=4,
     ),
     Episode(
@@ -1710,7 +1710,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 5",
+        _name="Episode 5",
         index=5,
     ),
     Episode(
@@ -1736,7 +1736,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 6",
+        _name="Episode 6",
         index=6,
     ),
     Episode(
@@ -1762,7 +1762,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 7",
+        _name="Episode 7",
         index=7,
     ),
     Episode(
@@ -1788,7 +1788,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 8",
+        _name="Episode 8",
         index=8,
     ),
     Episode(
@@ -1814,7 +1814,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 9",
+        _name="Episode 9",
         index=9,
     ),
     Episode(
@@ -1840,7 +1840,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 10",
+        _name="Episode 10",
         index=10,
     ),
     Episode(
@@ -1866,7 +1866,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 11",
+        _name="Episode 11",
         index=11,
     ),
     Episode(
@@ -1892,7 +1892,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 12",
+        _name="Episode 12",
         index=12,
     ),
     Episode(
@@ -1918,7 +1918,7 @@ mha_season1 = [
         },
         serie_name="my-hero-academia",
         season_name="saison1",
-        name="Episode 13",
+        _name="Episode 13",
         index=13,
     ),
 ]

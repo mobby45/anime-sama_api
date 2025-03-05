@@ -20,6 +20,6 @@ async def async_main():
 
 
 if __name__ == "__main__":
-    # main()
+    main()
 
-    asyncio.run(async_main())
+    # asyncio.run(async_main())

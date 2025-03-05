@@ -90,8 +90,11 @@ class Season:
         )[-1]
         functions_list = split_and_strip(functions, (";", "\n"))[:-1]
 
+        def padding(n: int):
+            return " " * (len(str(number_of_episodes)) - len(str(n)))
+
         def episode_name_range(*args):
-            return [f"Episode {n}" for n in range(*args)]
+            return [f"Episode {n}{padding(n)}" for n in range(*args)]
 
         episodes_name: list[str] = []
         for function in functions_list:

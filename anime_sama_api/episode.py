@@ -50,13 +50,17 @@ class Episode:
     languages: Languages
     serie_name: str = ""
     season_name: str = ""
-    name: str = ""
+    _name: str = ""
     index: int = 1
 
     @property
+    def name(self):
+        return self._name.strip()
+
+    @property
     def fancy_name(self):
-        return f"{self.name} " + " ".join(
-            flags[lang] for lang in self.languages.availables
+        return f"{self._name.lstrip()} " + " ".join(
+            flags[lang] for lang in self.languages.availables if lang != "VO"
         )
 
     @property
