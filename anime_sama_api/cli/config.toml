@@ -7,7 +7,7 @@ download_path = "~/Downloads/Anime-Sama"
 
 # If it downloads or plays the selected episodes
 download = true
-show_players = true
+show_players = false
 max_retry_time = 1024
 
 # What application to use to play
