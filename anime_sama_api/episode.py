@@ -9,8 +9,18 @@ logger = logging.getLogger(__name__)
 
 
 class Players(list[str]):
+    def __init__(self, *args, **kwargs):
+        ret = super().__init__(*args, **kwargs)
+        self.swapPlayers()  # seem to exist on all pages but that could be false, to be sure check script_videos.js
+        return ret
+
     def __call__(self, index: int) -> Generator[str]:
-        yield from self[index % len(self) :] + self[: index % len(self)]
+        yield from self
+
+    def swapPlayers(self):
+        if len(self) < 2:
+            return
+        self[0], self[1] = self[1], self[0]
 
 
 class Languages(dict[LangId, Players]):

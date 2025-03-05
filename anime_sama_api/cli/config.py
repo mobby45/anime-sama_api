@@ -32,7 +32,7 @@ class Config:
     max_retry_time: int
     internal_player_command: list[str]
     url: str
-    players: PlayersConfig
+    players: PlayersConfig  # Deprecated
     concurrent_downloads: dict[str, int]
 
 

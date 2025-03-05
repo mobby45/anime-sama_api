@@ -55,7 +55,7 @@ total_progress = Progress(
     TextColumn("[bold cyan]{task.description}"),
     BarColumn(bar_width=None),
     MofNCompleteColumn(),
-    TimeRemainingColumn(),
+    TimeRemainingColumn(elapsed_when_finished=True),
     console=console,
 )
 progress = Group(total_progress, download_progress)
@@ -136,7 +136,8 @@ def download(
 
                     case "":
                         logger.fatal(
-                            "The above error wasn't handle. Please report it to the developper."
+                            "The above error wasn't handle. Please report it to the developper with URL: %s",
+                            player,
                         )
                         break
 

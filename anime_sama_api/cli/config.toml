@@ -16,12 +16,6 @@ internal_player_command = "mpv"
 # url of anime-sama (You shouldn't touch that)
 url = "https://anime-sama.fr/"
 
-[players]
-# player to use if multiple are available (first in the list are prefer over the afters)
-prefers = []
-# player to not use (even if that the only player)
-bans = []
-
 [concurrent_downloads]
 # how many fragment of a video to download at once
 fragment = 3
