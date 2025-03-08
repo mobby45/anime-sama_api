@@ -75,8 +75,11 @@ class Season:
 
     # TODO: Refactor
     def _get_players_from(self, page: SeasonLangPage) -> list[Players]:
-        players_list = page.episodes_js.split("[")[1:]
-        players_list_links = (re.findall(r"'(.+?)'", player) for player in players_list)
+        players_list = re.findall(r"eps(\d+) ?= ?\[([\W\w]+?)\]", page.episodes_js)
+        players_list = sorted(players_list, key=lambda tuple: tuple[0])
+        players_list_links = (
+            re.findall(r"'(.+?)'", player) for _, player in players_list
+        )
 
         return [Players(players) for players in zip_varlen(*players_list_links)]
 

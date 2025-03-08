@@ -78,7 +78,17 @@ for lang in config["prefer_languages"]:
     )
 
 # Convert type
-config["download_path"] = Path(config["download_path"])
-config["internal_player_command"] = config["internal_player_command"].split()
-config["players"] = PlayersConfig(**config["players"])
+config["download_path"] = (
+    Path(config["download_path"]) if config.get("download_path") is not None else ""
+)
+config["internal_player_command"] = (
+    config["internal_player_command"].split()
+    if config.get("internal_player_command") is not None
+    else ""
+)
+config["players"] = (
+    PlayersConfig(**config["players"])
+    if config.get("players") is not None
+    else PlayersConfig([], [])
+)
 config = Config(**config)

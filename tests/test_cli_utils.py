@@ -36,7 +36,9 @@ print_choices = "[green][1] [white]abc\n[green][2] [yellow]def\n[green][3] [whit
 
 def test_select_one(choices):
     utils.input_func = input_mock(["abc", "1.2", "", "14", "2-4, 6, 1", "3"])
-    utils.print_func = print_mock(print_choices + "Choose a number: \033[0;34m" * 6)
+    utils.print_func = print_mock(
+        print_choices + "[white]Choose a number[/white]: \033[0;34m" * 6
+    )
 
     assert select_one(choices) == 21
 
@@ -44,7 +46,7 @@ def test_select_one(choices):
 def test_select_range(choices):
     utils.input_func = input_mock(["abc", "1.2", "", "14", "1-4-5", "2-4, 6, 1"])
     utils.print_func = print_mock(
-        print_choices + "Choose a range [green][1-6][/]: \033[0;34m" * 6
+        print_choices + "[white]Choose a range[/white] [green][1-6][/]: \033[0;34m" * 6
     )
 
     assert select_range(choices) == ["abc", "def", 21, 5.2, "xyz"]
