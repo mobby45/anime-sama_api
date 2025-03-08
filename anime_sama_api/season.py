@@ -84,7 +84,7 @@ class Season:
         return [Players(players) for players in zip_varlen(*players_list_links)]
 
     def _get_episodes_names(
-        self, page: SeasonLangPage, number_of_episodes: int
+        self, page: SeasonLangPage, number_of_episodes: int, number_of_episodes_max: int
     ) -> list[str]:
         functions = re.findall(
             r"resetListe\(\); *[\n\r]+\t*(.*?)}",
@@ -94,7 +94,7 @@ class Season:
         functions_list = split_and_strip(functions, (";", "\n"))[:-1]
 
         def padding(n: int):
-            return " " * (len(str(number_of_episodes)) - len(str(n)))
+            return " " * (len(str(number_of_episodes_max)) - len(str(n)))
 
         def episode_name_range(*args):
             return [f"Episode {n}{padding(n)}" for n in range(*args)]
@@ -174,8 +174,12 @@ class Season:
 
         players_list = [self._get_players_from(page) for page in pages]
 
+        number_of_episodes_max = max(
+            len(episodes_page) for episodes_page in players_list
+        )
+
         episodes_names = [
-            self._get_episodes_names(page, len(episodes_page))
+            self._get_episodes_names(page, len(episodes_page), number_of_episodes_max)
             for page, episodes_page in zip(pages, players_list)
         ]
 
