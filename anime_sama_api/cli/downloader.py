@@ -34,7 +34,7 @@ console = get_console()
 download_progress_list: list[str | ProgressColumn] = [
     "[bold blue]{task.fields[episode_name]}",
     BarColumn(bar_width=None),
-    "[progress.percentage]{task.percentage:>3.1f}%",
+    "[progress.percentage]{task.percentage:>3.1f}%",  # TODO: should disappear if the console is not wide enough
     TransferSpeedColumn(),
     TotalFileSizeColumn(),
     TimeRemainingColumn(compact=True, elapsed_when_finished=True),
