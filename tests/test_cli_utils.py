@@ -51,6 +51,14 @@ def test_select_range(choices):
 
     assert select_range(choices) == ["abc", "def", 21, 5.2, "xyz"]
 
+def test_select_range_all_choices(choices):
+    utils.input_func = input_mock(["*"])
+    utils.print_func = print_mock(
+        print_choices + "[white]Choose a range[/white] [green][1-6][/]: \033[0;34m" * 6
+    )
+
+    assert select_range(choices) == choices
+
 
 def test_auto_select():
     utils.print_func = print_mock("-> [blue]1\n")
