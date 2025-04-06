@@ -64,9 +64,11 @@ progress = Group(total_progress, download_progress)
 def download(
     episode: Episode,
     path: Path,
-    prefer_languages: list[Lang] = ["VO"],
+    prefer_languages: list[Lang] = ["VOSTFR"],
     concurrent_fragment_downloads=3,
     max_retry_time=1024,
+    format="",
+    format_sort="",
 ):
     if not any(episode.languages.values()):
         print("[red]No player available")
@@ -94,6 +96,8 @@ def download(
         "concurrent_fragment_downloads": concurrent_fragment_downloads,
         "progress_hooks": [hook],
         "logger": logger,
+        "format": format,
+        "format_sort": format_sort.split(","),
     }
 
     for player in episode.consume_player(prefer_languages):
@@ -153,8 +157,10 @@ def multi_download(
     episodes: list[Episode],
     path: Path,
     concurrent_downloads={},
-    prefer_languages: list[Lang] = ["VO"],
+    prefer_languages: list[Lang] = ["VOSTFR"],
     max_retry_time=1024,
+    format="",
+    format_sort="",
 ):
     """
     Not sure if you can use this function multiple times
@@ -172,4 +178,6 @@ def multi_download(
                     prefer_languages,
                     concurrent_downloads.get("fragment", 1),
                     max_retry_time,
+                    format,
+                    format_sort,
                 )

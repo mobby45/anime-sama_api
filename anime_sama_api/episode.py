@@ -70,7 +70,7 @@ class Episode:
     @property
     def fancy_name(self):
         return f"{self._name.lstrip()} " + " ".join(
-            flags[lang] for lang in self.languages.availables if lang != "VO"
+            flags[lang] for lang in self.languages.availables if lang != "VOSTFR"
         )
 
     @property

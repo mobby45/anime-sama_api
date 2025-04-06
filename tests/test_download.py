@@ -22,5 +22,5 @@ def test_download():
             ),
         ),
         Path(),
-        ["VF", "VO"],
+        ["VF", "VOSTFR"],
     )

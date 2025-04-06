@@ -1,13 +1,13 @@
 from typing import Literal
 
 
-Lang = Literal["VA", "VCN", "VF", "VJ", "VKR", "VQC", "VO"]
+Lang = Literal["VASTFR", "VCN", "VF", "VJ", "VKR", "VQC", "VOSTFR"]
 LangId = Literal["va", "vcn", "vf", "vf1", "vf2", "vj", "vkr", "vqc", "vostfr"]
 FlagId = Literal["cn", "qc", "en", "pal", "kr", "fr", "jp"]
 
 lang2ids: dict[Lang, list[LangId]] = {
-    "VO": ["vostfr"],
-    "VA": ["va"],
+    "VOSTFR": ["vostfr"],
+    "VASTFR": ["va"],
     "VCN": ["vcn"],
     "VF": ["vf", "vf1", "vf2"],
     "VJ": ["vj"],
@@ -22,8 +22,8 @@ id2lang: dict[LangId, Lang] = {
 lang_ids = list(id2lang.keys())
 
 flags: dict[Lang | LangId, str] = {
-    "VO": "",
-    "VA": "🇬🇧",
+    "VOSTFR": "",
+    "VASTFR": "🇬🇧",
     "VCN": "🇨🇳",
     "VF": "🇫🇷",
     "VJ": "🇯🇵",
@@ -34,7 +34,7 @@ flags: dict[Lang | LangId, str] = {
 flagid2lang: dict[FlagId, Lang] = {
     "cn": "VCN",
     "qc": "VQC",
-    "en": "VA",
+    "en": "VASTFR",
     "kr": "VKR",
     "fr": "VF",
     "jp": "VJ",

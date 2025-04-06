@@ -1526,16 +1526,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-y6qylioz9qrg.html",
+                "https://Smoothpre.com/embed/vjmxc1jxhw8f",
                 "https://video.sibnet.ru/shell.php?videoid=4955114",
                 "https://sendvid.com/embed/x10lm9vt",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-qwvo7wyduen5.html",
+                "https://Smoothpre.com/embed/j2ect4ptgep1",
                 "https://video.sibnet.ru/shell.php?videoid=4955465",
                 "https://sendvid.com/embed/up01jsqj",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-qwvo7wyduen5.html",
+                "https://Smoothpre.com/embed/j2ect4ptgep1",
                 "https://video.sibnet.ru/shell.php?videoid=4955465",
                 "https://sendvid.com/embed/up01jsqj",
             ],
@@ -1549,16 +1552,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-v9xxl3mok0ss.html",
+                "https://Smoothpre.com/embed/ldblmmjnsw72",
                 "https://video.sibnet.ru/shell.php?videoid=4955115",
                 "https://sendvid.com/embed/i3ceon0o",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-4hxjrfohe5la.html",
+                "https://Smoothpre.com/embed/sfw5knfq3jug",
                 "https://video.sibnet.ru/shell.php?videoid=4955467",
                 "https://sendvid.com/embed/udiuhfeq",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-4hxjrfohe5la.html",
+                "https://Smoothpre.com/embed/sfw5knfq3jug",
                 "https://video.sibnet.ru/shell.php?videoid=4955467",
                 "https://sendvid.com/embed/udiuhfeq",
             ],
@@ -1572,16 +1578,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-sa2kyijw8v99.html",
+                "https://Smoothpre.com/embed/jsw6q4b6wxn9",
                 "https://video.sibnet.ru/shell.php?videoid=4955118",
                 "https://sendvid.com/embed/d9hz2smo",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-3gtcmhd435r9.html",
+                "https://Smoothpre.com/embed/x97muevku4xq",
                 "https://video.sibnet.ru/shell.php?videoid=4983121",
                 "https://sendvid.com/embed/a6h91fg0",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-3gtcmhd435r9.html",
+                "https://Smoothpre.com/embed/x97muevku4xq",
                 "https://video.sibnet.ru/shell.php?videoid=4983121",
                 "https://sendvid.com/embed/a6h91fg0",
             ],
@@ -1595,16 +1604,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-tf0j7x8105l2.html",
+                "https://Smoothpre.com/embed/r816jj5da18q",
                 "https://video.sibnet.ru/shell.php?videoid=4955119",
                 "https://sendvid.com/embed/d5hsnchn",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-ke3rw6m9rezv.html",
+                "https://Smoothpre.com/embed/84hvvchk6p7y",
                 "https://video.sibnet.ru/shell.php?videoid=4955469",
                 "https://sendvid.com/embed/qw36zs7t",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-ke3rw6m9rezv.html",
+                "https://Smoothpre.com/embed/84hvvchk6p7y",
                 "https://video.sibnet.ru/shell.php?videoid=4955469",
                 "https://sendvid.com/embed/qw36zs7t",
             ],
@@ -1618,16 +1630,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-j9y7h2s93yg9.html",
+                "https://Smoothpre.com/embed/e45bdtvf3wip",
                 "https://video.sibnet.ru/shell.php?videoid=4955121",
                 "https://sendvid.com/embed/zhivq4ac",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-qkknejk62sra.html",
+                "https://Smoothpre.com/embed/kxn9gatukq5y",
                 "https://video.sibnet.ru/shell.php?videoid=4955470",
                 "https://sendvid.com/embed/zbzuulpk",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-qkknejk62sra.html",
+                "https://Smoothpre.com/embed/kxn9gatukq5y",
                 "https://video.sibnet.ru/shell.php?videoid=4955470",
                 "https://sendvid.com/embed/zbzuulpk",
             ],
@@ -1641,16 +1656,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-79w10nl4g7rt.html",
+                "https://Smoothpre.com/embed/i5qlrvn2ropp",
                 "https://video.sibnet.ru/shell.php?videoid=4955123",
                 "https://sendvid.com/embed/qdlpuvy3",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-jq02pgtub7c8.html",
+                "https://Smoothpre.com/embed/4thxci3tp3cl",
                 "https://video.sibnet.ru/shell.php?videoid=4955472",
                 "https://sendvid.com/embed/inrimlir",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-jq02pgtub7c8.html",
+                "https://Smoothpre.com/embed/4thxci3tp3cl",
                 "https://video.sibnet.ru/shell.php?videoid=4955472",
                 "https://sendvid.com/embed/inrimlir",
             ],
@@ -1664,16 +1682,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-nbu92kox5z9o.html",
+                "https://Smoothpre.com/embed/0nw1vvh04epf",
                 "https://video.sibnet.ru/shell.php?videoid=4955125",
                 "https://sendvid.com/embed/nmcnuua8",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-695vulxlpq5w.html",
+                "https://Smoothpre.com/embed/1fuqxhehmylf",
                 "https://video.sibnet.ru/shell.php?videoid=4955473",
                 "https://sendvid.com/embed/s5649pjr",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-695vulxlpq5w.html",
+                "https://Smoothpre.com/embed/1fuqxhehmylf",
                 "https://video.sibnet.ru/shell.php?videoid=4955473",
                 "https://sendvid.com/embed/s5649pjr",
             ],
@@ -1687,16 +1708,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-u5t2o4au40na.html",
+                "https://Smoothpre.com/embed/9yl5nxecwe27",
                 "https://video.sibnet.ru/shell.php?videoid=4955127",
                 "https://sendvid.com/embed/o7fgb4xp",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-x0mzbu5ady8d.html",
+                "https://Smoothpre.com/embed/i2cukxcrgpkc",
                 "https://video.sibnet.ru/shell.php?videoid=4955474",
                 "https://sendvid.com/embed/pm4zmxal",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-x0mzbu5ady8d.html",
+                "https://Smoothpre.com/embed/i2cukxcrgpkc",
                 "https://video.sibnet.ru/shell.php?videoid=4955474",
                 "https://sendvid.com/embed/pm4zmxal",
             ],
@@ -1710,16 +1734,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-ir9b56qxpf85.html",
+                "https://Smoothpre.com/embed/0dli97qt33hg",
                 "https://video.sibnet.ru/shell.php?videoid=4955128",
                 "https://sendvid.com/embed/awlcjtbg",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-tr9xorx0e59h.html",
+                "https://Smoothpre.com/embed/ugkhvo06i2vn",
                 "https://video.sibnet.ru/shell.php?videoid=4955475",
                 "https://sendvid.com/embed/r3s3bp6q",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-tr9xorx0e59h.html",
+                "https://Smoothpre.com/embed/ugkhvo06i2vn",
                 "https://video.sibnet.ru/shell.php?videoid=4955475",
                 "https://sendvid.com/embed/r3s3bp6q",
             ],
@@ -1733,16 +1760,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-016xfwpncoq3.html",
+                "https://Smoothpre.com/embed/m9znmh7s1gp4",
                 "https://video.sibnet.ru/shell.php?videoid=4955131",
                 "https://sendvid.com/embed/i9gtw42y",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-4kjoy226jfca.html",
+                "https://Smoothpre.com/embed/n45bggwmhr1f",
                 "https://video.sibnet.ru/shell.php?videoid=4955476",
                 "https://sendvid.com/embed/m1ex7won",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-4kjoy226jfca.html",
+                "https://Smoothpre.com/embed/n45bggwmhr1f",
                 "https://video.sibnet.ru/shell.php?videoid=4955476",
                 "https://sendvid.com/embed/m1ex7won",
             ],
@@ -1756,16 +1786,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-xixz77n6yysz.html",
+                "https://Smoothpre.com/embed/slulevt0l33s",
                 "https://video.sibnet.ru/shell.php?videoid=4955134",
                 "https://sendvid.com/embed/42a3vjbq",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-06m8jxplr1nk.html",
+                "https://Smoothpre.com/embed/s5p9v910ys1t",
                 "https://video.sibnet.ru/shell.php?videoid=4955478",
                 "https://sendvid.com/embed/w1v549rv",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-06m8jxplr1nk.html",
+                "https://Smoothpre.com/embed/s5p9v910ys1t",
                 "https://video.sibnet.ru/shell.php?videoid=4955478",
                 "https://sendvid.com/embed/w1v549rv",
             ],
@@ -1779,16 +1812,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-kbxwf1nismm8.html",
+                "https://Smoothpre.com/embed/gnivulfpqxv4",
                 "https://video.sibnet.ru/shell.php?videoid=4955151",
                 "https://sendvid.com/embed/upqpkqdl",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-zt71sayn0arl.html",
+                "https://Smoothpre.com/embed/ft0kwiqkzkk2",
                 "https://video.sibnet.ru/shell.php?videoid=4955482",
                 "https://sendvid.com/embed/jvily06o",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-zt71sayn0arl.html",
+                "https://Smoothpre.com/embed/ft0kwiqkzkk2",
                 "https://video.sibnet.ru/shell.php?videoid=4955482",
                 "https://sendvid.com/embed/jvily06o",
             ],
@@ -1802,16 +1838,19 @@ mha_season1 = [
         languages={
             "vf": [
                 "https://vidmoly.to/embed-wbex8ukldqdw.html",
+                "https://Smoothpre.com/embed/58tbi4zl2m9p",
                 "https://video.sibnet.ru/shell.php?videoid=4955153",
                 "https://sendvid.com/embed/x1vjail6",
             ],
-            "vostfr": [
+            "vj": [
                 "https://vidmoly.to/embed-2gu0b79b92or.html",
+                "https://Smoothpre.com/embed/kqyj7y67494g",
                 "https://video.sibnet.ru/shell.php?videoid=4955485",
                 "https://sendvid.com/embed/6le4ccbt",
             ],
-            "vj": [
+            "vostfr": [
                 "https://vidmoly.to/embed-2gu0b79b92or.html",
+                "https://Smoothpre.com/embed/kqyj7y67494g",
                 "https://video.sibnet.ru/shell.php?videoid=4955485",
                 "https://sendvid.com/embed/6le4ccbt",
             ],

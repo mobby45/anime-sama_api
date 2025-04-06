@@ -30,6 +30,8 @@ class Config:
     download: bool
     show_players: bool
     max_retry_time: int
+    format: str
+    format_sort: str
     internal_player_command: list[str]
     url: str
     players: PlayersConfig  # Deprecated
@@ -67,12 +69,16 @@ else:
     copy(exemple_config, possible_path[1])
     logger.info("Default config created at %s", possible_path[1])
 
-
 # Update the default values by values set by the user
 config = default_config | user_config
 
 # Check if value respect the type
-for lang in config["prefer_languages"]:
+for index, lang in enumerate(config["prefer_languages"]):
+    # Backward compatibility
+    if lang == "VO":
+        config["prefer_languages"][index] = "VOSTFR"
+        lang = "VOSTFR"
+
     assert lang in lang2ids, (
         f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
     )

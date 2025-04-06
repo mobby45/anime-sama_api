@@ -1,7 +1,6 @@
 import asyncio
 import logging
 
-import httpx
 from rich import get_console
 from rich.logging import RichHandler
 
@@ -24,7 +23,7 @@ async def async_main():
     query = safe_input("Anime name: \033[0;34m", str)
 
     with spinner(f"Searching for [blue]{query}"):
-        catalogues = await AnimeSama(config.url, httpx.AsyncClient()).search(query)
+        catalogues = await AnimeSama(config.url).search(query)
     catalogue = select_one(catalogues)
 
     with spinner(f"Getting season list for [blue]{catalogue.name}"):
@@ -46,6 +45,8 @@ async def async_main():
             config.concurrent_downloads,
             config.prefer_languages,
             config.max_retry_time,
+            config.format,
+            config.format_sort,
         )
     else:
         command = internal_player.play_episode(

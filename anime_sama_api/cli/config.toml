@@ -1,6 +1,6 @@
 # Languages at the start of the list are preferred over the ones that come after
-# Possible values: "VA", "VCN", "VF", "VJ", "VKR", "VQC", "VO"
-prefer_languages = ["VO"]
+# Possible values: "VASTFR", "VCN", "VF", "VJ", "VKR", "VQC", "VOSTFR"
+prefer_languages = ["VOSTFR"]
 
 # Where to put the downloads (an additional folder is created for every series)
 download_path = "~/Downloads/Anime-Sama"
@@ -9,6 +9,11 @@ download_path = "~/Downloads/Anime-Sama"
 download = true
 show_players = false
 max_retry_time = 1024
+
+# See https://github.com/yt-dlp/yt-dlp#format-selection
+# For exemple, if you want the lowest size, put "+size,+br,+res,+fps" in format_sort
+format = ""
+format_sort = ""
 
 # What application to use to play
 internal_player_command = "mpv"

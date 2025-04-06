@@ -8,9 +8,9 @@
 - [X] Fallback on other players
 - [X] Retry players
 - [X] Config
-- [X] Tests
+- [ ] Tests
 - [X] Make a package
-- [ ] Implement all NotImplemented
+- [X] Implement all NotImplemented
 - [ ] Take args in cli
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download

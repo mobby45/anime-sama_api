@@ -14,13 +14,10 @@ async def test_seasons():
 
 @pytest.mark.asyncio
 async def test_avancement():
-    assert (
-        await catalogue_data.one_piece.advancement()
-        == "La suite sortira à partir d'avril 2025"
-    )
+    assert await catalogue_data.one_piece.advancement() == "Aucune donnée."
     assert await catalogue_data.gumball.advancement() == "Aucune donnée."
     assert (
-        await catalogue_data.mha.advancement() == "La saison 8 sortira en automne 2025"
+        await catalogue_data.mha.advancement() == "La saison 8 sortira en octobre 2025"
     )
 
 
