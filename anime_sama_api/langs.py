@@ -1,7 +1,7 @@
 from typing import Literal
 
 
-Lang = Literal["VASTFR", "VCN", "VF", "VJ", "VKR", "VQC", "VOSTFR"]
+Lang = Literal["VASTFR", "VCN", "VF", "VJSTFR", "VKR", "VQC", "VOSTFR"]
 LangId = Literal["va", "vcn", "vf", "vf1", "vf2", "vj", "vkr", "vqc", "vostfr"]
 FlagId = Literal["cn", "qc", "en", "pal", "kr", "fr", "jp"]
 
@@ -10,7 +10,7 @@ lang2ids: dict[Lang, list[LangId]] = {
     "VASTFR": ["va"],
     "VCN": ["vcn"],
     "VF": ["vf", "vf1", "vf2"],
-    "VJ": ["vj"],
+    "VJSTFR": ["vj"],
     "VKR": ["vkr"],
     "VQC": ["vqc"],
 }
@@ -19,14 +19,12 @@ id2lang: dict[LangId, Lang] = {
     lang_id: lang for lang, langs_id in lang2ids.items() for lang_id in langs_id
 }
 
-lang_ids = list(id2lang.keys())
-
 flags: dict[Lang | LangId, str] = {
     "VOSTFR": "",
     "VASTFR": "🇬🇧",
     "VCN": "🇨🇳",
     "VF": "🇫🇷",
-    "VJ": "🇯🇵",
+    "VJSTFR": "🇯🇵",
     "VKR": "🇰🇷",
     "VQC": "🏴󠁣󠁡󠁱󠁣󠁿",
 }
@@ -37,7 +35,7 @@ flagid2lang: dict[FlagId, Lang] = {
     "en": "VASTFR",
     "kr": "VKR",
     "fr": "VF",
-    "jp": "VJ",
+    "jp": "VJSTFR",
 }
 
 for language, language_ids in lang2ids.items():

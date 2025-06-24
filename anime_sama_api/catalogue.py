@@ -18,13 +18,15 @@ class Catalogue:
         self,
         url: str,
         name="",
-        alternative_names="",
-        genres: list[str] = None,
-        categories: list[Category] = None,
-        languages: list[Lang] = None,
+        alternative_names: list[str] | None = None,
+        genres: list[str] | None = None,
+        categories: list[Category] | None = None,
+        languages: list[Lang] | None = None,
         image_url="",
         client: AsyncClient | None = None,
     ) -> None:
+        if alternative_names is None:
+            alternative_names = []
         if genres is None:
             genres = []
         if categories is None:

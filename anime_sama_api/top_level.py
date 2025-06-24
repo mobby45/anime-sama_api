@@ -1,10 +1,16 @@
 import asyncio
 from collections.abc import AsyncIterator, Generator
+import logging
 import re
 
 from httpx import AsyncClient
 
-from .catalogue import Catalogue
+from .langs import Lang
+from .utils import filter_literal
+from .catalogue import Catalogue, Category
+
+
+logger = logging.getLogger(__name__)
 
 
 class AnimeSama:
@@ -28,13 +34,25 @@ class AnimeSama:
             categories = categories.split(", ") if categories else []
             languages = languages.split(", ") if languages else []
 
+            def not_in_literal(value):
+                logger.warning(
+                    f"Error while parsing '{value}'. \nPlease report this to the developer with the serie you are trying to access."
+                )
+
+            categories_checked: list[Category] = filter_literal(
+                categories, Category, not_in_literal
+            )  # type: ignore
+            languages_checked: list[Lang] = filter_literal(
+                languages, Lang, not_in_literal
+            )  # type: ignore
+
             yield Catalogue(
                 url=url,
                 name=name,
                 alternative_names=alternative_names,
                 genres=genres,
-                categories=categories,
-                languages=languages,
+                categories=categories_checked,
+                languages=languages_checked,
                 image_url=image_url,
                 client=self.client,
             )

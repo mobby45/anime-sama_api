@@ -3,10 +3,11 @@ from dataclasses import dataclass, replace
 from functools import reduce
 import re
 import asyncio
+from typing import get_args
 
 from httpx import AsyncClient
 
-from .langs import LangId, lang_ids, lang2ids, flagid2lang
+from .langs import LangId, lang2ids, flagid2lang
 from .episode import Episode, Players, Languages
 from .utils import remove_some_js_comments, zip_varlen, split_and_strip
 
@@ -57,7 +58,9 @@ class Season:
                 lang_id=lang_id, html=html, episodes_js=episodes_js.text
             )
 
-        pages = await asyncio.gather(*(process_page(lang_id) for lang_id in lang_ids))
+        pages = await asyncio.gather(
+            *(process_page(lang_id) for lang_id in get_args(LangId))
+        )
         pages_dict = {page.lang_id: page for page in pages}
         if pages_dict["vostfr"].html:
             flag_id_vo = re.findall(
@@ -135,12 +138,20 @@ class Season:
                     )
                     break
                 case "newSP":
+                    if not args:
+                        raise NotImplementedError(
+                            "Error while parsing 'newSP'.\nPlease report this to the developer with the serie + the season you are trying to access."
+                        )
                     episodes_name.append(f"Episode {args[0]}")
                 case "newSPF":
+                    if not args:
+                        raise NotImplementedError(
+                            "Error while parsing 'newSPF'.\nPlease report this to the developer with the serie + the season you are trying to access."
+                        )
                     episodes_name.append(args[0])
                 case name:
                     raise NotImplementedError(
-                        f"Error cannot parse '{name}'.\nPlease report this to the developer."
+                        f"Error cannot parse '{name}'.\nPlease report this to the developer with the serie + the season you are trying to access."
                     )
 
         return episodes_name

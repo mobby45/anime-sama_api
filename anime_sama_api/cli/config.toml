@@ -1,5 +1,5 @@
 # Languages at the start of the list are preferred over the ones that come after
-# Possible values: "VASTFR", "VCN", "VF", "VJ", "VKR", "VQC", "VOSTFR"
+# Possible values: "VASTFR", "VCN", "VF", "VJSTFR", "VKR", "VQC", "VOSTFR"
 prefer_languages = ["VOSTFR"]
 
 # Where to put the downloads (an additional folder is created for every series)

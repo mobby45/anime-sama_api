@@ -8,6 +8,7 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
         "[Errno 61] Connection refused",
         "Remote end closed connection without response",
         "HTTPError 404: Not Found",
+        "Unsupported URL",
     ),
     "retry": (
         "Unable to download webpage: HTTP Error 522",

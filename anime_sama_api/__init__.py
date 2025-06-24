@@ -2,7 +2,7 @@ from .top_level import AnimeSama
 from .catalogue import Catalogue
 from .season import Season
 from .episode import Episode, Languages, Players
-from .langs import Lang, LangId, lang2ids, id2lang, lang_ids, flags
+from .langs import Lang, LangId, lang2ids, id2lang, flags
 
 try:
     from .cli.__main__ import main
@@ -34,7 +34,6 @@ __all__ = [
     "LangId",
     "lang2ids",
     "id2lang",
-    "lang_ids",
     "flags",
     "download",
     "multi_download",
