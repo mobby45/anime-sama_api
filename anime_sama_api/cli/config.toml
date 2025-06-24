@@ -12,7 +12,7 @@ max_retry_time = 1024
 
 # See https://github.com/yt-dlp/yt-dlp#format-selection
 # For exemple, if you want the lowest size, put "+size,+br,+res,+fps" in format_sort
-format = ""
+format = "all"
 format_sort = ""
 
 # What application to use to play

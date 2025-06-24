@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.parse import urlparse
 
-from yt_dlp import YoutubeDL, DownloadError
+from yt_dlp import YoutubeDL, DownloadError  # type: ignore
 from rich import print, get_console
 from rich.live import Live
 from rich.console import Group
