@@ -10,6 +10,8 @@ from .season import Season
 from .langs import flags
 
 
+# Cyberpunk: Edgerunners is 'Animes' but that an oversight from anime-sama
+# Even though, we should handle thoses edges cases
 Category = Literal["Anime", "Scans", "Film", "Autres"]
 
 

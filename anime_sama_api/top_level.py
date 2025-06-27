@@ -62,7 +62,12 @@ class AnimeSama:
             await self.client.get(f"{self.site_url}catalogue/?search={query}")
         ).raise_for_status()
 
-        last_page = int(re.findall(r"page=(\d+)", response.text)[-1])
+        pages_regex = re.findall(r"page=(\d+)", response.text)
+
+        if not pages_regex:
+            return []
+
+        last_page = int(pages_regex[-1])
 
         responses = [response] + await asyncio.gather(
             *(
@@ -85,7 +90,12 @@ class AnimeSama:
             await self.client.get(f"{self.site_url}catalogue/?search={query}")
         ).raise_for_status()
 
-        last_page = int(re.findall(r"page=(\d+)", response.text)[-1])
+        pages_regex = re.findall(r"page=(\d+)", response.text)
+
+        if not pages_regex:
+            raise StopAsyncIteration
+
+        last_page = int(pages_regex[-1])
 
         for catalogue in self._yield_catalogues_from(response.text):
             yield catalogue
