@@ -11,7 +11,9 @@
 - [ ] Tests
 - [X] Make a package
 - [X] Implement all NotImplemented
+- [ ] Auto detect download folder and config folder, see https://stackoverflow.com/questions/35851281/python-finding-the-users-downloads-folder and appdirs (pypi)
 - [ ] Take args in cli
+- [ ] Cache players link for offline use
 - [ ] Nix?
 - [ ] Auto-download at start-up & queue download
 - [ ] Do all TODO (present in .py files)
@@ -22,4 +24,3 @@
 - [ ] MAL sync
 - [ ] Play from download
 - [ ] Discord presence
-- [ ] Smart load distribution between players
