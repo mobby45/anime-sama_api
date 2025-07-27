@@ -2,10 +2,12 @@ import time
 import logging
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from typing import TYPE_CHECKING
 from urllib.parse import urlparse
 
-from yt_dlp import YoutubeDL, DownloadError  # type: ignore
-from rich import print, get_console
+from yt_dlp import YoutubeDL
+from yt_dlp.utils import DownloadError
+from rich import get_console
 from rich.live import Live
 from rich.console import Group
 from rich.table import Column
@@ -71,7 +73,7 @@ def download(
     format_sort="",
 ):
     if not any(episode.languages.values()):
-        print("[red]No player available")
+        logger.error("No player available")
         return
 
     me = download_progress.add_task(
@@ -92,7 +94,7 @@ def download(
         download_progress.update(me, completed=data.get("downloaded_bytes", 0))
 
     option = {
-        "outtmpl": {"default": f"{full_path}.%(ext)s"},
+        "outtmpl": f"{full_path}.%(ext)s",
         "concurrent_fragment_downloads": concurrent_fragment_downloads,
         "progress_hooks": [hook],
         "logger": logger,

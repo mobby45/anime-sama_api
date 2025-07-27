@@ -40,7 +40,7 @@ class Catalogue:
 
         self.name = name or url.split("/")[-2]
 
-        self._page = None
+        self._page: str | None = None
         self.alternative_names = alternative_names
         self.genres = genres
         self.categories = categories

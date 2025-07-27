@@ -49,18 +49,19 @@ with open(exemple_config, "rb") as file:
 
 
 # Load user config
-possible_path = ["."]
-possible_path.append(
+possible_path_str = ["."]
+possible_path_str.append(
     "~/AppData/Local/anime-sama_api" if os.name == "nt" else "~/.config/anime-sama_cli"
 )
-possible_path = [Path(path).expanduser() for path in possible_path]
+possible_path = [Path(path).expanduser() for path in possible_path_str]
+del possible_path_str
 
 user_config = {}
 for path in possible_path:
     config_file = path / "config.toml"
     if config_file.is_file():
-        with open(config_file, "rb") as config_file:
-            user_config = tomllib.load(config_file)
+        with open(config_file, "rb") as config_file_reader:
+            user_config = tomllib.load(config_file_reader)
             break
 else:
     from shutil import copy
@@ -68,15 +69,16 @@ else:
     possible_path[1].mkdir(parents=True, exist_ok=True)
     copy(exemple_config, possible_path[1])
     logger.info("Default config created at %s", possible_path[1])
+del possible_path
 
 # Update the default values by values set by the user
-config = default_config | user_config
+config_dict = default_config | user_config
 
 # Check if value respect the type
-for index, lang in enumerate(config["prefer_languages"]):
+for index, lang in enumerate(config_dict["prefer_languages"]):
     # Backward compatibility
     if lang == "VO":
-        config["prefer_languages"][index] = "VOSTFR"
+        config_dict["prefer_languages"][index] = "VOSTFR"
         lang = "VOSTFR"
 
     assert (
@@ -84,17 +86,20 @@ for index, lang in enumerate(config["prefer_languages"]):
     ), f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
 
 # Convert type
-config["download_path"] = (
-    Path(config["download_path"]) if config.get("download_path") is not None else ""
-)
-config["internal_player_command"] = (
-    config["internal_player_command"].split()
-    if config.get("internal_player_command") is not None
+config_dict["download_path"] = (
+    Path(config_dict["download_path"])
+    if config_dict.get("download_path") is not None
     else ""
 )
-config["players"] = (
-    PlayersConfig(**config["players"])
-    if config.get("players") is not None
+config_dict["internal_player_command"] = (
+    config_dict["internal_player_command"].split()
+    if config_dict.get("internal_player_command") is not None
+    else ""
+)
+config_dict["players"] = (
+    PlayersConfig(**config_dict["players"])
+    if config_dict.get("players") is not None
     else PlayersConfig([], [])
 )
-config = Config(**config)
+config = Config(**config_dict)
+del config_dict

@@ -29,7 +29,10 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
 }
 
 
-def reaction_to(msg: str) -> Reaction:
+def reaction_to(msg: str | None) -> Reaction:
+    if msg is None:
+        return "continue"
+
     for reaction, error_msgs in how_to_react.items():
         for error_msg in error_msgs:
             if error_msg in msg:

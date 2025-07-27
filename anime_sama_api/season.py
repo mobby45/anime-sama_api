@@ -70,7 +70,7 @@ class Season:
 
             for lang_id in lang2ids[flagid2lang[flag_id_vo]]:
                 if not pages_dict[lang_id].html:
-                    pages_dict[lang_id] = replace(pages_dict["vostfr"])
+                    pages_dict[lang_id] = replace(pages_dict["vostfr"])  # replace=copy
                     pages_dict[lang_id].lang_id = lang_id
                     break
 
