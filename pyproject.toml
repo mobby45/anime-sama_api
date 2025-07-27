@@ -39,19 +39,19 @@ Repository = "https://github.com/Sky-NiniKo/anime-sama_downloader/"
 
 [project.optional-dependencies]
 cli = [
-    "rich>=13.9.4",
+    "rich>=14.1.0",
     "tomli>=2.2.1 ; python_full_version < '3.11'",
-    "yt-dlp>=2025.2.19",
+    "yt-dlp>=2025.7.21",
 ]
 
 [dependency-groups]
 dev = [
     "black>=25.1.0",
-    "mypy>=1.15.0",
-    "pytest>=8.3.4",
-    "pytest-asyncio>=0.25.3",
-    "pytest-cov>=6.0.0",
-    "yt-dlp-types>=0.0.14",
+    "mypy>=1.17.0",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "pytest-cov>=6.2.1",
+    "yt-dlp-types>=0.0.18",
 ]
 
 [tool.pytest.ini_options]

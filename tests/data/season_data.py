@@ -26,5 +26,4 @@ mha = [
 ] + [
     Season("https://anime-sama.fr/catalogue/my-hero-academia/film/"),
     Season("https://anime-sama.fr/catalogue/my-hero-academia/oav/"),
-    Season("https://anime-sama.fr/catalogue/my-hero-academia/saison1hs/"),
 ]
