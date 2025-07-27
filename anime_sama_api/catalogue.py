@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 import re
 from typing import Literal
 
@@ -18,10 +19,10 @@ class Catalogue:
         self,
         url: str,
         name="",
-        alternative_names: list[str] | None = None,
-        genres: list[str] | None = None,
-        categories: list[Category] | None = None,
-        languages: list[Lang] | None = None,
+        alternative_names: Sequence[str] | None = None,
+        genres: Sequence[str] | None = None,
+        categories: set[Category] | None = None,
+        languages: set[Lang] | None = None,
         image_url="",
         client: AsyncClient | None = None,
     ) -> None:
@@ -30,9 +31,9 @@ class Catalogue:
         if genres is None:
             genres = []
         if categories is None:
-            categories = []
+            categories = set()
         if languages is None:
-            languages = []
+            languages = set()
 
         self.url = url + "/" if url[-1] != "/" else url
         self.site_url = "/".join(url.split("/")[:3]) + "/"
@@ -121,7 +122,7 @@ class Catalogue:
 
     @property
     def fancy_name(self):
-        names = [""] + self.alternative_names if self.alternative_names else []
+        names = [""] + list(self.alternative_names) if self.alternative_names else []
         return f"{self.name}[bright_black]{' - '.join(names)} {' '.join(flags[lang] for lang in self.languages if lang != 'VOSTFR')}"
 
     def __repr__(self):

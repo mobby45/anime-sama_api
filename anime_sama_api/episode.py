@@ -14,7 +14,7 @@ class Players(list[str]):
         self.swapPlayers()  # seem to exist on all pages but that could be false, to be sure check script_videos.js
 
         # Autofix old links
-        for index in range(len(self)):
+        for index, _ in enumerate(self):
             self[index] = self[index].replace("vidmoly.to", "vidmoly.net")
 
         return ret

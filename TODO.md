@@ -10,8 +10,9 @@
 - [X] Config
 - [ ] Tests
 - [X] Make a package
-- [X] Implement all NotImplemented
+- [ ] Implement all NotImplemented
 - [ ] Auto detect download folder and config folder, see https://stackoverflow.com/questions/35851281/python-finding-the-users-downloads-folder and appdirs (pypi)
+- [ ] Select a range of seasons to download
 - [ ] Take args in cli
 - [ ] Cache players link for offline use
 - [ ] Nix?
