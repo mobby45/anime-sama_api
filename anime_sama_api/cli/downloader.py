@@ -114,8 +114,7 @@ def download(
                         sucess = True
                     else:
                         logger.fatal(
-                            "The download error with the code %s. Please report this to the developper.",
-                            error_code,
+                            f"The download encountered an error code {error_code}. Please report this to the developer with URL: {player}",
                         )
 
                     break
@@ -140,7 +139,7 @@ def download(
 
                     case "":
                         logger.fatal(
-                            "The above error wasn't handle. Please report it to the developper with URL: %s",
+                            "The above error wasn't handle. Please report it to the developer with URL: %s",
                             player,
                         )
                         break

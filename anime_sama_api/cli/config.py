@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import os
 import sys
 
-from anime_sama_api.langs import Lang, lang2ids
+from ..langs import Lang, lang2ids
 
 if sys.version_info >= (3, 11):
     import tomllib
@@ -79,9 +79,9 @@ for index, lang in enumerate(config["prefer_languages"]):
         config["prefer_languages"][index] = "VOSTFR"
         lang = "VOSTFR"
 
-    assert lang in lang2ids, (
-        f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
-    )
+    assert (
+        lang in lang2ids
+    ), f"{lang} is not a valid languages for prefer_languages\nOnly the following are acceptable: {list(lang2ids.keys())}"
 
 # Convert type
 config["download_path"] = (

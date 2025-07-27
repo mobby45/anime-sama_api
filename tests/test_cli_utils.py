@@ -8,7 +8,7 @@ from anime_sama_api.cli.utils import select_one, select_range, print_selection
 
 
 # TODO: maybe make sure input_mock and print_mock are fully used at the end (maybe with statement)
-def input_mock(input_queue: list[str]) -> Callable[[object], str]:
+def input_mock(input_queue: list[str]) -> Callable[[], str]:
     def func():
         return input_queue.pop(0)
 
@@ -16,12 +16,12 @@ def input_mock(input_queue: list[str]) -> Callable[[object], str]:
 
 
 def print_mock(excepted_console: str) -> Callable[[object], None]:
-    excepted_console = iter(excepted_console)
+    excepted_console_iter = iter(excepted_console)
 
     def func(*msgs, end="\n", **_):
         msg = " ".join(map(str, msgs)) + end
         for letter in msg:
-            assert letter == next(excepted_console), msg
+            assert letter == next(excepted_console_iter), msg
 
     return func
 
@@ -50,6 +50,7 @@ def test_select_range(choices):
     )
 
     assert select_range(choices) == ["abc", "def", 21, 5.2, "xyz"]
+
 
 def test_select_range_all_choices(choices):
     utils.input_func = input_mock(["*"])

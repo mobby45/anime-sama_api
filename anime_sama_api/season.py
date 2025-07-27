@@ -140,18 +140,18 @@ class Season:
                 case "newSP":
                     if not args:
                         raise NotImplementedError(
-                            "Error while parsing 'newSP'.\nPlease report this to the developer with the serie + the season you are trying to access."
+                            f"Error while parsing 'newSP'.\nPlease report this to the developer with URL: {self.url + page.lang_id}/"
                         )
                     episodes_name.append(f"Episode {args[0]}")
                 case "newSPF":
                     if not args:
                         raise NotImplementedError(
-                            "Error while parsing 'newSPF'.\nPlease report this to the developer with the serie + the season you are trying to access."
+                            f"Error while parsing 'newSPF'.\nPlease report this to the developer with URL: {self.url + page.lang_id}/"
                         )
                     episodes_name.append(args[0])
                 case name:
                     raise NotImplementedError(
-                        f"Error cannot parse '{name}'.\nPlease report this to the developer with the serie + the season you are trying to access."
+                        f"Error cannot parse '{name}'.\nPlease report this to the developer with URL: {self.url + page.lang_id}/"
                     )
 
         return episodes_name

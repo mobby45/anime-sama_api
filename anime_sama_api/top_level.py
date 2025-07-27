@@ -36,7 +36,7 @@ class AnimeSama:
 
             def not_in_literal(value):
                 logger.warning(
-                    f"Error while parsing '{value}'. \nPlease report this to the developer with the serie you are trying to access."
+                    f"Error while parsing '{value}'. \nPlease report this to the developer with URL: {url}"
                 )
 
             categories_checked: list[Category] = filter_literal(

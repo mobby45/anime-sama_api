@@ -23,7 +23,7 @@ jobs:
         python-version-file: "pyproject.toml"
         enable-cache: true
         # cache-dependency-glob: "uv.lock"
-    
+
     - name: Build package
       run: uv build
 

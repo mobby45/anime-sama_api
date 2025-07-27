@@ -5,8 +5,7 @@ from pathlib import Path
 
 from rich import print
 
-from anime_sama_api.langs import Lang
-
+from ..langs import Lang
 from .config import config
 from ..episode import Episode
 

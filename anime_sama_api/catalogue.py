@@ -3,11 +3,9 @@ from typing import Literal
 
 from httpx import AsyncClient
 
-from anime_sama_api.langs import Lang
-
 from .utils import remove_some_js_comments
 from .season import Season
-from .langs import flags
+from .langs import flags, Lang
 
 
 # Cyberpunk: Edgerunners is 'Animes' but that an oversight from anime-sama
