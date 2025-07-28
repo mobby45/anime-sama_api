@@ -1,14 +1,15 @@
+from collections.abc import Sequence
 from logging import LogRecord
 from typing import Literal
 
 Reaction = Literal["continue", "retry", "crash", ""]
 
-how_to_react: dict[Reaction, tuple[str, ...]] = {
+how_to_react: dict[Reaction, Sequence[str]] = {
     "continue": (
         "[Errno 61] Connection refused",
         "Remote end closed connection without response",
         "HTTPError 404: Not Found",
-        "Unsupported URL",
+        # "Unsupported URL",  temp fix should be reenable but the retry for vidmoly.net should have priority
         "[Errno 7] No address associated with hostname",
         "[Errno 11002] getaddrinfo failed",
     ),
@@ -17,7 +18,7 @@ how_to_react: dict[Reaction, tuple[str, ...]] = {
         "unable to download video data: HTTP Error 416",
         "HTTPError 500: Internal Server Error",
         "The read operation timed out",
-        "Unsupported URL: ",
+        "Unsupported URL: https://vidmoly.net/",
         "TransportError('timed out')",
         "[Errno 54] Connection reset by peer",
         "[Errno 104] Connection reset by peer",
@@ -40,11 +41,11 @@ def reaction_to(msg: str | None) -> Reaction:
     return ""
 
 
-def is_error_handle(msg: str):
+def is_error_handle(msg: str) -> bool:
     return bool(reaction_to(msg))
 
 
-def YDL_log_filter(record: LogRecord):
+def YDL_log_filter(record: LogRecord) -> bool:
     if record.filename != "YoutubeDL.py":
         return True
 

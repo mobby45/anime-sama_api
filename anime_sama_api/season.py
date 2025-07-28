@@ -3,7 +3,7 @@ from dataclasses import dataclass, replace
 from functools import reduce
 import re
 import asyncio
-from typing import get_args
+from typing import Any, cast, get_args
 
 from httpx import AsyncClient
 
@@ -23,8 +23,8 @@ class Season:
     def __init__(
         self,
         url: str,
-        name="",
-        serie_name="",
+        name: str = "",
+        serie_name: str = "",
         client: AsyncClient | None = None,
     ) -> None:
         self.url = url
@@ -36,7 +36,7 @@ class Season:
         self.client = client or AsyncClient()
 
     async def get_all_pages(self) -> list[SeasonLangPage]:
-        async def process_page(lang_id: LangId):
+        async def process_page(lang_id: LangId) -> SeasonLangPage:
             page_url = self.url + lang_id + "/"
             response = await self.client.get(page_url)
 
@@ -83,7 +83,8 @@ class Season:
         )
         players_list = sorted(players_list, key=lambda tuple: tuple[0])
         players_list_links = (
-            re.findall(r"'(.+?)'", player) for _, player in players_list
+            cast(list[str], re.findall(r"'(.+?)'", player))
+            for _, player in players_list
         )
 
         return [Players(players) for players in zip_varlen(*players_list_links)]
@@ -98,10 +99,10 @@ class Season:
         )[-1]
         functions_list = split_and_strip(functions, (";", "\n"))[:-1]
 
-        def padding(n: int):
+        def padding(n: int) -> str:
             return " " * (len(str(number_of_episodes_max)) - len(str(n)))
 
-        def episode_name_range(*args):
+        def episode_name_range(*args) -> list[str]:
             return [f"Episode {n}{padding(n)}" for n in range(*args)]
 
         episodes_name: list[str] = []
@@ -211,11 +212,13 @@ class Season:
             for index, (name, languages) in enumerate(episodes, start=1)
         ]
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Season({self.name!r}, {self.serie_name!r})"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
-    def __eq__(self, value):
+    def __eq__(self, value: Any) -> bool:
+        if not isinstance(value, Season):
+            return False
         return self.url == value.url

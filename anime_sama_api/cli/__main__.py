@@ -3,6 +3,7 @@ import logging
 
 from rich import get_console
 from rich.logging import RichHandler
+from rich.status import Status
 
 from . import downloader, internal_player
 from .config import config
@@ -15,11 +16,11 @@ console._highlight = False
 logging.basicConfig(format="%(message)s", datefmt="[%X]", handlers=[RichHandler()])
 
 
-def spinner(text: str):
+def spinner(text: str) -> Status:
     return console.status(text, spinner_style="cyan")
 
 
-async def async_main():
+async def async_main() -> None:
     query = safe_input("Anime name: \033[0;34m", str)
 
     with spinner(f"Searching for [blue]{query}"):

@@ -1,6 +1,6 @@
 from collections.abc import Sequence
 import re
-from typing import Literal
+from typing import Any, Literal, cast
 
 from httpx import AsyncClient
 
@@ -20,12 +20,12 @@ class Catalogue:
     def __init__(
         self,
         url: str,
-        name="",
+        name: str = "",
         alternative_names: Sequence[str] | None = None,
         genres: Sequence[str] | None = None,
         categories: set[Category] | None = None,
         languages: set[Lang] | None = None,
-        image_url="",
+        image_url: str = "",
         client: AsyncClient | None = None,
     ) -> None:
         if alternative_names is None:
@@ -83,7 +83,7 @@ class Catalogue:
         return seasons
 
     async def advancement(self) -> str:
-        search = re.findall(r"Avancement.+?>(.+?)<", await self.page())
+        search = cast(list[str], re.findall(r"Avancement.+?>(.+?)<", await self.page()))
 
         if not search:
             return ""
@@ -91,7 +91,9 @@ class Catalogue:
         return search[0]
 
     async def correspondence(self) -> str:
-        search = re.findall(r"Correspondance.+?>(.+?)<", await self.page())
+        search = cast(
+            list[str], re.findall(r"Correspondance.+?>(.+?)<", await self.page())
+        )
 
         if not search:
             return ""
@@ -99,7 +101,9 @@ class Catalogue:
         return search[0]
 
     async def synopsis(self) -> str:
-        search = re.findall(r"Synopsis[\W\w]+?>(.+)<", await self.page())
+        search = cast(
+            list[str], re.findall(r"Synopsis[\W\w]+?>(.+)<", await self.page())
+        )
 
         if not search:
             return ""
@@ -123,15 +127,17 @@ class Catalogue:
         return "Autres" in self.categories
 
     @property
-    def fancy_name(self):
+    def fancy_name(self) -> str:
         names = [""] + list(self.alternative_names) if self.alternative_names else []
         return f"{self.name}[bright_black]{' - '.join(names)} {' '.join(flags[lang] for lang in self.languages if lang != 'VOSTFR')}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Catalogue({self.url!r}, {self.name!r})"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.fancy_name
 
-    def __eq__(self, value):
+    def __eq__(self, value: Any) -> bool:
+        if not isinstance(value, Catalogue):
+            return False
         return self.url == value.url

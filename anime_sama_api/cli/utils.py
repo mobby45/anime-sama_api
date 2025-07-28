@@ -1,6 +1,6 @@
 import sys
 from collections.abc import Callable
-from typing import TypeVar
+from typing import Any, TypeVar, cast
 
 from rich import print as print_func
 
@@ -10,7 +10,9 @@ T = TypeVar("T")
 
 
 def safe_input(
-    text: str, transform: Callable[[str], T], exceptions=(ValueError, IndexError)
+    text: str,
+    transform: Callable[[str], T],
+    exceptions: tuple[type[Exception], ...] = (ValueError, IndexError),
 ) -> T:
     while True:
         try:
@@ -21,7 +23,9 @@ def safe_input(
             pass
 
 
-def print_selection(choices: list, print_choices=True, exit=True) -> None:
+def print_selection(
+    choices: list[Any], print_choices: bool = True, exit: bool = True
+) -> None:
     if len(choices) == 0:
         print_func("[red]No result")
         if exit:
@@ -41,7 +45,9 @@ def print_selection(choices: list, print_choices=True, exit=True) -> None:
         )
 
 
-def select_one(choices: list[T], msg="Choose a number", **_) -> T:
+def select_one(
+    choices: list[T], msg: str = "Choose a number", **_: dict[Any, Any]
+) -> T:
     print_selection(choices)
     if len(choices) == 1:
         return choices[0]
@@ -51,7 +57,9 @@ def select_one(choices: list[T], msg="Choose a number", **_) -> T:
     )
 
 
-def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> list[T]:
+def select_range(
+    choices: list[T], msg: str = "Choose a range", print_choices: bool = True
+) -> list[T]:
     print_selection(choices, print_choices)
 
     if len(choices) == 1:
@@ -73,7 +81,7 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
                     ints[0] = 1
                 if ints[1] is None:
                     ints[1] = len(choices)
-                ints_set.update(range(ints[0], ints[1] + 1))
+                ints_set.update(range(cast(int, ints[0]), cast(int, ints[1]) + 1))
             else:
                 raise ValueError
 

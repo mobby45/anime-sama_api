@@ -1,8 +1,10 @@
 import asyncio
 from collections.abc import AsyncIterator, Generator, Sequence
-from dataclasses import dataclass, field
+from html import unescape
+from dataclasses import dataclass
 import logging
 import re
+from typing import Any, cast
 
 from httpx import AsyncClient
 
@@ -38,7 +40,7 @@ class AnimeSama:
         self.site_url = site_url
         self.client = client or AsyncClient()
 
-    async def _get_homepage_section(self, section_name: str, how_many=1) -> str:
+    async def _get_homepage_section(self, section_name: str, how_many: int = 1) -> str:
         homepage = await self.client.get(self.site_url)
 
         if not homepage.is_success:
@@ -58,27 +60,34 @@ class AnimeSama:
             rf"href=\"({self.site_url}catalogue/.+)\"[\W\w]+?src=\"(.+?)\"[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<",
             text_without_script,
         ):
-            url, image_url, name, alternative_names, genres, categories, languages = (
-                match.groups()
-            )
-            alternative_names = (
-                alternative_names.split(", ") if alternative_names else []
-            )
-            genres = genres.split(", ") if genres else []
-            categories = categories.split(", ") if categories else []
-            languages = languages.split(", ") if languages else []
+            (
+                url,
+                image_url,
+                name,
+                alternative_names_str,
+                genres_str,
+                categories_str,
+                languages_str,
+            ) = (unescape(item) for item in match.groups())
 
-            def not_in_literal(value):
+            alternative_names = (
+                alternative_names_str.split(", ") if alternative_names_str else []
+            )
+            genres = genres_str.split(", ") if genres_str else []
+            categories = categories_str.split(", ") if categories_str else []
+            languages = languages_str.split(", ") if languages_str else []
+
+            def not_in_literal(value: Any) -> None:
                 logger.warning(
                     f"Error while parsing '{value}'. \nPlease report this to the developer with URL: {url}"
                 )
 
-            categories_checked: set[Category] = set(
-                filter_literal(categories, Category, not_in_literal)
-            )  # type: ignore
-            languages_checked: set[Lang] = set(
-                filter_literal(languages, Lang, not_in_literal)
-            )  # type: ignore
+            categories_checked = cast(
+                set[Category], set(filter_literal(categories, Category, not_in_literal))
+            )
+            languages_checked = cast(
+                set[Lang], set(filter_literal(languages, Lang, not_in_literal))
+            )
 
             yield Catalogue(
                 url=url,
@@ -105,16 +114,17 @@ class AnimeSama:
                 descriptive,
             ) = match.groups()
             categories = categories.split(", ") if categories else ["Anime"]
-            language = language.strip()
+            language = language.strip() if language else "VOSTFR"
 
-            def not_in_literal(value):
+            def not_in_literal(value: Any) -> None:
                 logger.warning(
                     f"Error while parsing '{value}'. \nPlease report this to the developer with URL: {season_url} (from homepage)"
                 )
 
-            categories_checked: tuple[Category] = tuple(
-                filter_literal(categories, Category, not_in_literal)
-            )  # type: ignore
+            categories_checked = cast(
+                tuple[Category],
+                tuple(filter_literal(categories, Category, not_in_literal)),
+            )
             is_Literal(language, Lang, not_in_literal)
 
             yield EpisodeRelease(
@@ -122,7 +132,7 @@ class AnimeSama:
                 image_url=image_url,
                 serie_name=serie_name,
                 categories=categories_checked,
-                language=language,  # type: ignore
+                language=cast(Lang, language),
                 descriptive=descriptive,
             )
 

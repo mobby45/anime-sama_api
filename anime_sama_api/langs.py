@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     pprint(langs)
 
-    async def main():
+    async def main() -> None:
         async for catalogue in AnimeSama("https://anime-sama.fr/").catalogues_iter():
             if await catalogue.seasons():
                 break

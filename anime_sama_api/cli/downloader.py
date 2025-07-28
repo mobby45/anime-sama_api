@@ -2,7 +2,7 @@ import time
 import logging
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import cast
 from urllib.parse import urlparse
 
 from yt_dlp import YoutubeDL
@@ -68,11 +68,11 @@ def download(
     path: Path,
     prefer_languages: list[Lang] = ["VOSTFR"],
     players_config: PlayersConfig = PlayersConfig([], []),
-    concurrent_fragment_downloads=3,
-    max_retry_time=1024,
-    format="",
-    format_sort="",
-):
+    concurrent_fragment_downloads: int = 3,
+    max_retry_time: int = 1024,
+    format: str = "",
+    format_sort: str = "",
+) -> None:
     if not any(episode.languages.values()):
         logger.error("No player available")
         return
@@ -86,7 +86,7 @@ def download(
         path / episode.serie_name / episode.season_name / episode.name
     ).expanduser()
 
-    def hook(data: dict):
+    def hook(data: dict) -> None:
         if data.get("status") != "downloading":
             return
 
@@ -113,7 +113,7 @@ def download(
         while True:
             try:
                 with YoutubeDL(option) as ydl:  # type: ignore
-                    error_code: int = ydl.download([player])  # type: ignore
+                    error_code = cast(int, ydl.download([player]))
 
                     if not error_code:
                         sucess = True
@@ -134,7 +134,7 @@ def download(
                             break
 
                         logger.warning(
-                            f"{episode.name} interrupted. Retrying in %ss.", retry_time
+                            f"{episode.name} interrupted. Retrying in {retry_time}s."
                         )
                         time.sleep(retry_time)
                         retry_time *= 2
@@ -163,10 +163,10 @@ def multi_download(
     concurrent_downloads: dict[str, int] = {},
     prefer_languages: list[Lang] = ["VOSTFR"],
     players_config: PlayersConfig = PlayersConfig([], []),
-    max_retry_time=1024,
-    format="",
-    format_sort="",
-):
+    max_retry_time: int = 1024,
+    format: str = "",
+    format_sort: str = "",
+) -> None:
     """
     Not sure if you can use this function multiple times
     """

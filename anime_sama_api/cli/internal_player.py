@@ -10,7 +10,7 @@ from .config import config
 from ..episode import Episode
 
 
-def open_silent_process(command: list[str]) -> subprocess.Popen:
+def open_silent_process(command: list[str]) -> subprocess.Popen[bytes]:
     try:
 
         if os.name in ("nt", "dos"):
@@ -29,7 +29,7 @@ def play_episode(
     episode: Episode,
     prefer_languages: list[Lang],
     args: list[str] | None = None,
-) -> subprocess.Popen | None:
+) -> subprocess.Popen[bytes] | None:
     best = episode.best(prefer_languages)
     if best is None:
         print("[red]No player available")
@@ -49,7 +49,7 @@ def play_episode(
     # self._start_dc_presence(entry)
 
 
-def play_file(path: Path, args: list[str] | None = None) -> subprocess.Popen:
+def play_file(path: Path, args: list[str] | None = None) -> subprocess.Popen[bytes]:
     player_command = config.internal_player_command + [str(path)]
     if args is not None:
         player_command += args
