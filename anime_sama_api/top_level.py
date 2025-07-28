@@ -93,7 +93,7 @@ class AnimeSama:
 
     def _yield_release_episodes_from(self, html: str) -> Generator[EpisodeRelease]:
         for match in re.finditer(
-            rf"href=\"({self.site_url}catalogue/.+?/.+?/)[\W\w]+?src=\"(.+?)\"[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<",
+            rf"href=\"({self.site_url}catalogue/.+)\"[\W\w]+?src=\"(.+?)\"[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<[\W\w]+?>(.*)\n?<",
             html,
         ):
             (
