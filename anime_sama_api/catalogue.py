@@ -9,8 +9,10 @@ from .season import Season
 from .langs import flags, Lang
 
 
-# Cyberpunk: Edgerunners is 'Animes' but that an oversight from anime-sama
-# Even though, we should handle thoses edges cases
+# Oversight from anime-sama that we should handle
+# 'Animes' instead of 'Anime' seen in Cyberpunk: Edgerunners and Valkyrie Apocalypse
+# 'Autre' instead of 'Autres' seen in Hazbin Hotel
+# 'Scans' is in the language section for Watamote (harder to handle)
 Category = Literal["Anime", "Scans", "Film", "Autres"]
 
 

@@ -26,3 +26,7 @@ url = "https://anime-sama.fr/"
 fragment = 3
 # how many video to download at once
 video = 5
+
+[players_hostname]
+prefers = []
+bans = []

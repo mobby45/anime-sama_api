@@ -59,7 +59,7 @@ def select_range(choices: list[T], msg="Choose a range", print_choices=True) -> 
 
     def transform(string: str) -> list[T]:
         # Return all choices if the user enter '*' symbol
-        if string == "*" :
+        if string == "*":
             return choices
         # Else, detect the string and transform it into a list of choices
         ints_set: set[int] = set()

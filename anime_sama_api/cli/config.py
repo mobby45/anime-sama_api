@@ -34,7 +34,7 @@ class Config:
     format_sort: str
     internal_player_command: list[str]
     url: str
-    players: PlayersConfig  # Deprecated
+    players_config: PlayersConfig
     concurrent_downloads: dict[str, int]
 
 
@@ -96,10 +96,11 @@ config_dict["internal_player_command"] = (
     if config_dict.get("internal_player_command") is not None
     else ""
 )
-config_dict["players"] = (
-    PlayersConfig(**config_dict["players"])
-    if config_dict.get("players") is not None
+config_dict["players_config"] = (
+    PlayersConfig(**config_dict["players_hostname"])
+    if config_dict.get("players_hostname") is not None
     else PlayersConfig([], [])
 )
+del config_dict["players_hostname"]
 config = Config(**config_dict)
 del config_dict

@@ -193,10 +193,11 @@ class AnimeSama:
 
     async def new_episodes(self) -> list[EpisodeRelease]:
         """
-        Return the new available episodes on anime-sama using the homepage.
+        Return the new available episodes on anime-sama using the homepage sorted from oldest to newest.
         """
         section = await self._get_homepage_section("ajouts animes", 4)
-        return list(self._yield_release_episodes_from(section))
+        release_episodes = list(self._yield_release_episodes_from(section))
+        return list(reversed(release_episodes))
 
     """async def new_scans(self) -> list[Scan]:
         raise NotImplementedError"""

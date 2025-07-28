@@ -44,6 +44,7 @@ async def async_main():
             config.download_path,
             config.concurrent_downloads,
             config.prefer_languages,
+            config.players_config,
             config.max_retry_time,
             config.format,
             config.format_sort,

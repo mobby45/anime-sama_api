@@ -26,7 +26,7 @@ from rich.progress import (
 from .error_handeling import YDL_log_filter, reaction_to
 from ..episode import Episode
 from ..langs import Lang
-from .config import config
+from .config import PlayersConfig, config
 
 
 logger = logging.getLogger(__name__)
@@ -67,6 +67,7 @@ def download(
     episode: Episode,
     path: Path,
     prefer_languages: list[Lang] = ["VOSTFR"],
+    players_config: PlayersConfig = PlayersConfig([], []),
     concurrent_fragment_downloads=3,
     max_retry_time=1024,
     format="",
@@ -102,7 +103,9 @@ def download(
         "format_sort": format_sort.split(","),
     }
 
-    for player in episode.consume_player(prefer_languages):
+    for player in episode.consume_player(
+        prefer_languages, players_config.prefers, players_config.bans
+    ):
         retry_time = 1
         sucess = False
         download_progress.update(me, site=urlparse(player).hostname)
@@ -157,8 +160,9 @@ def download(
 def multi_download(
     episodes: list[Episode],
     path: Path,
-    concurrent_downloads={},
+    concurrent_downloads: dict[str, int] = {},
     prefer_languages: list[Lang] = ["VOSTFR"],
+    players_config: PlayersConfig = PlayersConfig([], []),
     max_retry_time=1024,
     format="",
     format_sort="",
@@ -177,6 +181,7 @@ def multi_download(
                     episode,
                     path,
                     prefer_languages,
+                    players_config,
                     concurrent_downloads.get("fragment", 1),
                     max_retry_time,
                     format,
