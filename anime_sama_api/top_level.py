@@ -1,5 +1,5 @@
 import asyncio
-from collections.abc import AsyncIterator, Generator, Sequence
+from collections.abc import AsyncIterator, Generator
 from html import unescape
 from dataclasses import dataclass
 import logging

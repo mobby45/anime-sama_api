@@ -179,7 +179,7 @@ class Season:
                     curr_done += pos + 1
                     break
             else:
-                fusion.append((name_new, Languages({page.lang_id: players})))
+                fusion.append((name_new, Languages({page.lang_id: players})))  # type: ignore
         fusion.extend(current[curr_done:])
         return fusion
 
