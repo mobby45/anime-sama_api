@@ -1,3 +1,4 @@
+import re
 import sys
 from collections.abc import Callable
 from typing import Any, TypeVar, cast
@@ -91,3 +92,7 @@ def select_range(
         f"[white]{msg}[/white] [green][1-{len(choices)}][/]: \033[0;34m",
         transform,
     )
+
+
+def normalize(title: str) -> str:
+    return re.sub(r"[^\w\s]", "", title.lower().strip())

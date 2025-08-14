@@ -27,6 +27,7 @@ class PlayersConfig:
 class Config:
     prefer_languages: list[Lang]
     download_path: Path
+    episode_path: str
     download: bool
     show_players: bool
     max_retry_time: int
@@ -102,5 +103,6 @@ config_dict["players_config"] = (
     else PlayersConfig([], [])
 )
 del config_dict["players_hostname"]
+del config_dict["players"]  # Backward compatibility
 config = Config(**config_dict)
 del config_dict

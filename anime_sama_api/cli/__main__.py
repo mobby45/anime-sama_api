@@ -7,6 +7,7 @@ from rich.status import Status
 
 from . import downloader, internal_player
 from .config import config
+from .episode_extra_info import convert_with_extra_info
 from .utils import safe_input, select_one, select_range
 
 from ..top_level import AnimeSama
@@ -41,8 +42,12 @@ async def async_main() -> None:
 
     if config.download:
         downloader.multi_download(
-            selected_episodes,
+            [
+                convert_with_extra_info(episode, catalogue)
+                for episode in selected_episodes
+            ],
             config.download_path,
+            config.episode_path,
             config.concurrent_downloads,
             config.prefer_languages,
             config.players_config,

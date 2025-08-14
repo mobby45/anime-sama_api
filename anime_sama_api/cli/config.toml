@@ -2,8 +2,10 @@
 # Possible values: "VASTFR", "VCN", "VF", "VJSTFR", "VKR", "VQC", "VOSTFR"
 prefer_languages = ["VOSTFR"]
 
-# Where to put the downloads (an additional folder is created for every series)
+# Where to put the downloads
 download_path = "~/Downloads/Anime-Sama"
+# How to organize the downloads (you can use {serie} {season} {episode} {release_year_parentheses})
+episode_path = "{serie}/{season}/{episode}"
 
 # If it downloads or plays the selected episodes
 download = true

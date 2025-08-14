@@ -23,8 +23,8 @@ from rich.progress import (
     ProgressColumn,
 )
 
+from .episode_extra_info import EpisodeWithExtraInfo
 from .error_handeling import YDL_log_filter, reaction_to
-from ..episode import Episode
 from ..langs import Lang
 from .config import PlayersConfig, config
 
@@ -64,8 +64,9 @@ progress = Group(total_progress, download_progress)
 
 
 def download(
-    episode: Episode,
+    episode: EpisodeWithExtraInfo,
     path: Path,
+    episode_path: str = "{episode}",
     prefer_languages: list[Lang] = ["VOSTFR"],
     players_config: PlayersConfig = PlayersConfig([], []),
     concurrent_fragment_downloads: int = 3,
@@ -73,17 +74,23 @@ def download(
     format: str = "",
     format_sort: str = "",
 ) -> None:
-    if not any(episode.languages.values()):
+    if not any(episode.warpped.languages.values()):
         logger.error("No player available")
         return
 
     me = download_progress.add_task(
-        "download", episode_name=episode.name, site="", total=None
+        "download", episode_name=episode.warpped.name, site="", total=None
     )
     task = download_progress.tasks[me]
 
     full_path = (
-        path / episode.serie_name / episode.season_name / episode.name
+        path
+        / episode_path.format(
+            serie=episode.warpped.serie_name,
+            season=episode.warpped.season_name,
+            episode=episode.warpped.name,
+            release_year_parentheses=episode.release_year_parentheses(),
+        )
     ).expanduser()
 
     def hook(data: dict) -> None:
@@ -103,7 +110,7 @@ def download(
         "format_sort": format_sort.split(","),
     }
 
-    for player in episode.consume_player(
+    for player in episode.warpped.consume_player(
         prefer_languages, players_config.prefers, players_config.bans
     ):
         retry_time = 1
@@ -134,7 +141,7 @@ def download(
                             break
 
                         logger.warning(
-                            f"{episode.name} interrupted. Retrying in {retry_time}s."
+                            f"{episode.warpped.name} interrupted. Retrying in {retry_time}s."
                         )
                         time.sleep(retry_time)
                         retry_time *= 2
@@ -158,8 +165,9 @@ def download(
 
 
 def multi_download(
-    episodes: list[Episode],
+    episodes: list[EpisodeWithExtraInfo],
     path: Path,
+    episode_path: str = "{episode}",
     concurrent_downloads: dict[str, int] = {},
     prefer_languages: list[Lang] = ["VOSTFR"],
     players_config: PlayersConfig = PlayersConfig([], []),
@@ -180,6 +188,7 @@ def multi_download(
                     download,
                     episode,
                     path,
+                    episode_path,
                     prefer_languages,
                     players_config,
                     concurrent_downloads.get("fragment", 1),

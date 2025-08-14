@@ -73,7 +73,10 @@ class AnimeSama:
             alternative_names = (
                 alternative_names_str.split(", ") if alternative_names_str else []
             )
-            genres = genres_str.split(", ") if genres_str else []
+            if " - " in genres_str:
+                genres = genres_str.split(" - ")
+            else:
+                genres = genres_str.split(", ") if genres_str else []
             categories = categories_str.split(", ") if categories_str else []
             languages = languages_str.split(", ") if languages_str else []
 

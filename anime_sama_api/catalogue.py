@@ -141,3 +141,6 @@ class Catalogue:
         if not isinstance(value, Catalogue):
             return False
         return self.url == value.url
+
+    def __hash__(self) -> int:
+        return hash(self.url + self.name + "".join(self.alternative_names))
