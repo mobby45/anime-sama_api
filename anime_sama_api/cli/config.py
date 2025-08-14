@@ -103,6 +103,7 @@ config_dict["players_config"] = (
     else PlayersConfig([], [])
 )
 del config_dict["players_hostname"]
-del config_dict["players"]  # Backward compatibility
+if config_dict.get("players"):  # Backward compatibility
+    del config_dict["players"]
 config = Config(**config_dict)
 del config_dict
