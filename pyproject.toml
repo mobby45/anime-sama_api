@@ -35,7 +35,7 @@ dependencies = [
 anime-sama = "anime_sama_api:main"
 
 [project.urls]
-Repository = "https://github.com/Sky-NiniKo/anime-sama_downloader/"
+Repository = "https://github.com/Sky-NiniKo/anime-sama_api/"
 
 [project.optional-dependencies]
 cli = [

@@ -26,7 +26,7 @@ You can customize the config at `~/.config/anime-sama_cli/config.toml` for macOS
 
 ## Install locally
 ```bash
-git clone https://github.com/Sky-NiniKo/anime-sama_downloader.git
+git clone https://github.com/Sky-NiniKo/anime-sama_api.git
 cd anime-sama_downloader
 uv sync --extra cli
 ```
