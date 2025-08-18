@@ -109,6 +109,10 @@ class Catalogue:
             return ""
 
         return search[0]
+    
+    async def is_mature(self) -> bool:
+        """Return True if the catalogue contain a warning about adult content"""
+        return re.search(r'<div class=".*?yellow.*?">[\W\w]+?public averti', await self.page()) is not None
 
     @property
     def is_anime(self) -> bool:
