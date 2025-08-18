@@ -9,7 +9,7 @@ how_to_react: dict[Reaction, Sequence[str]] = {
         "[Errno 61] Connection refused",
         "Remote end closed connection without response",
         "HTTPError 404: Not Found",
-        # "Unsupported URL",  temp fix should be reenable but the retry for vidmoly.net should have priority
+        "Unsupported URL",
         "[Errno 7] No address associated with hostname",
         "[Errno 11002] getaddrinfo failed",
     ),
@@ -18,13 +18,15 @@ how_to_react: dict[Reaction, Sequence[str]] = {
         "unable to download video data: HTTP Error 416",
         "HTTPError 500: Internal Server Error",
         "The read operation timed out",
-        "Unsupported URL: https://vidmoly.net/",
+        "Waiting for vidmoly",  # Custom error msg to tell the downloader to retry
         "TransportError('timed out')",
         "[Errno 54] Connection reset by peer",
         "[Errno 104] Connection reset by peer",
         "HTTPError 503: Service Temporarily Unavailable",
         "[Errno 32] Broken pipe",
         "[Errno 101] Network is unreachable",
+        "[Errno 51] Network is unreachable",
+        "[Errno 2] No such file or directory",
     ),
     "crash": (),
 }

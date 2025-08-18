@@ -1,3 +1,4 @@
+import random
 import time
 import logging
 from concurrent.futures import ThreadPoolExecutor
@@ -5,6 +6,7 @@ from pathlib import Path
 from typing import cast
 from urllib.parse import urlparse
 
+import httpx
 from yt_dlp import YoutubeDL
 from yt_dlp.utils import DownloadError
 from rich import get_console
@@ -118,6 +120,17 @@ def download(
         download_progress.update(me, site=urlparse(player).hostname)
 
         while True:
+            # Check if the video is not accessible through vidmoly
+            try:
+                if (
+                    player.startswith("https://vidmoly.")
+                    and "Please wait"  # Note "Please wait" appear in all the player page
+                    not in httpx.get(player, headers={"User-Agent": ""}).text
+                ):
+                    break
+            except httpx.ConnectError:
+                break
+
             try:
                 with YoutubeDL(option) as ydl:  # type: ignore
                     error_code = cast(int, ydl.download([player]))
@@ -131,8 +144,16 @@ def download(
 
                     break
 
-            except DownloadError as execption:
-                match reaction_to(execption.msg):
+            except DownloadError as exception:
+                # yt-dlp thinks vidmoly is unsupported but it just need wait
+                if (
+                    player.startswith("https://vidmoly.")
+                    and exception.msg is not None
+                    and "Unsupported URL: https://vidmoly.net/" in exception.msg
+                ):
+                    exception.msg = "Waiting for vidmoly"
+
+                match reaction_to(exception.msg):
                     case "continue":
                         break
 
@@ -143,11 +164,12 @@ def download(
                         logger.warning(
                             f"{episode.warpped.name} interrupted. Retrying in {retry_time}s."
                         )
-                        time.sleep(retry_time)
+                        # random is used to spread the resume time and so mitigate deadlock when multiple downloads resume at the same time
+                        time.sleep(retry_time * random.uniform(0.8, 1.2))
                         retry_time *= 2
 
                     case "crash":
-                        raise execption
+                        raise exception
 
                     case "":
                         logger.fatal(
