@@ -81,7 +81,7 @@ def download(
         return
 
     me = download_progress.add_task(
-        "download", episode_name=episode.warpped.name, site="", total=None
+        "download", episode_name=episode.formatted_episode_name(), site="", total=None
     )
     task = download_progress.tasks[me]
 
@@ -89,8 +89,8 @@ def download(
         path
         / episode_path.format(
             serie=episode.warpped.serie_name,
-            season=episode.warpped.season_name,
-            episode=episode.warpped.name,
+            season=episode.formatted_season_name(),
+            episode=episode.formatted_episode_name(),
             release_year_parentheses=episode.release_year_parentheses(),
         )
     ).expanduser()
@@ -162,7 +162,7 @@ def download(
                             break
 
                         logger.warning(
-                            f"{episode.warpped.name} interrupted. Retrying in {retry_time}s."
+                            f"{episode.formatted_episode_name()} interrupted. Retrying in {retry_time}s."
                         )
                         # random is used to spread the resume time and so mitigate deadlock when multiple downloads resume at the same time
                         time.sleep(retry_time * random.uniform(0.8, 1.2))
