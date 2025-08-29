@@ -1,5 +1,6 @@
 # Refactor is not a bad idea
 
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from functools import lru_cache
@@ -21,6 +22,46 @@ class EpisodeWithExtraInfo:
         if self.release_date is None:
             return ""
         return f" ({self.release_date.year})"
+    
+    def formatted_episode_name(self) -> str:
+        """Formate le nom de l'épisode avec un numéro à 2 chiffres si c'est un numéro"""
+        episode_name = self.warpped.name
+        
+        # Cherche un pattern comme "Episode X" ou "Épisode X" 
+        episode_pattern = r'(?i)(episode|épisode)\s*(\d+)'
+        match = re.search(episode_pattern, episode_name)
+        
+        if match:
+            prefix = match.group(1)
+            number = int(match.group(2))
+            return re.sub(episode_pattern, f"{prefix} {number:02d}", episode_name)
+        
+        # Cherche juste un numéro à la fin
+        number_pattern = r'\b(\d+)$'
+        match = re.search(number_pattern, episode_name.strip())
+        
+        if match:
+            number = int(match.group(1))
+            return re.sub(number_pattern, f"{number:02d}", episode_name)
+        
+        return episode_name
+    
+    def formatted_season_name(self) -> str:
+        """Formate le nom de la saison avec un numéro à 2 chiffres si c'est une saison"""
+        season_name = self.warpped.season_name
+        
+        # Cherche un pattern comme "Season X" ou "Saison X"
+        season_pattern = r'(?i)(season|saison)\s*(\d+)'
+        match = re.search(season_pattern, season_name)
+        
+        if match:
+            prefix = match.group(1)
+            number = int(match.group(2))
+            return re.sub(season_pattern, f"{prefix} {number:02d}", season_name)
+        
+        # Pour les cas comme "Arc de X" ou autres formats spéciaux
+        # On garde le nom original car ce ne sont pas des numéros de saison classiques
+        return season_name
 
 
 def convert_with_extra_info(
@@ -31,11 +72,11 @@ def convert_with_extra_info(
 
 
 en2fr_genre = {
-    "Comedy": "Comédie",
+    "Comedy": "ComÃ©die",
     "Gourmet": "Gastronomie",
     "Drama": "Drame",
     "Adventure": "Aventure",
-    "Mystery": "Mystère",
+    "Mystery": "MystÃ¨re",
     "Sci-Fi": "Science-fiction",
     "Sports": "Tournois",
     "Supernatural": "Surnaturel",
