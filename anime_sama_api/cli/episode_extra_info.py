@@ -72,11 +72,11 @@ def convert_with_extra_info(
 
 
 en2fr_genre = {
-    "Comedy": "ComÃ©die",
+    "Comedy": "Comédie",
     "Gourmet": "Gastronomie",
     "Drama": "Drame",
     "Adventure": "Aventure",
-    "Mystery": "MystÃ¨re",
+    "Mystery": "Mystère",
     "Sci-Fi": "Science-fiction",
     "Sports": "Tournois",
     "Supernatural": "Surnaturel",
