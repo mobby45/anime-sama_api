@@ -65,6 +65,49 @@ total_progress = Progress(
 progress = Group(total_progress, download_progress)
 
 
+def is_movie_or_special(episode: EpisodeWithExtraInfo) -> bool:
+    """Détermine si l'épisode est un film ou contenu spécial basé sur le nom de la saison et de l'épisode"""
+    episode_name = episode.warpped.name.lower()
+    season_name = episode.warpped.season_name.lower()
+    
+    # Mots-clés qui indiquent clairement un film ou contenu spécial
+    movie_keywords = ["movie", "film", "ova", "ona", "special", "recap"]
+    
+    # Mots-clés qui indiquent clairement une série
+    series_keywords = ["saison", "season", "épisode", "episode", "ep ", "ep.", "s0", "s1", "s2", "s3", "s4", "s5"]
+    
+    # Vérification claire pour les films/spéciaux
+    is_clearly_special = any(keyword in episode_name or keyword in season_name for keyword in movie_keywords)
+    
+    # Vérification claire pour les séries
+    has_clear_series_indicators = any(keyword in season_name or keyword in episode_name for keyword in series_keywords)
+    
+    # Si c'est clairement un film/spécial
+    if is_clearly_special:
+        return True
+    
+    # Si c'est clairement une série
+    if has_clear_series_indicators:
+        return False
+    
+    # Cas ambigu : demander à l'utilisateur
+    console.print(f"\n[yellow]Détection ambiguë pour :[/yellow]")
+    console.print(f"  [bold]Série :[/bold] {episode.warpped.serie_name}")
+    console.print(f"  [bold]Saison :[/bold] {episode.warpped.season_name}")
+    console.print(f"  [bold]Épisode :[/bold] {episode.warpped.name}")
+    
+    while True:
+        response = input("\nEst-ce un film/contenu spécial qui doit avoir son propre dossier ? (o/n ou y/n): ").lower().strip()
+        if response in ['o', 'oui', 'y', 'yes']:
+            console.print("[green]✓ Traité comme un film/spécial - dossier séparé[/green]")
+            return True
+        elif response in ['n', 'non', 'no']:
+            console.print("[blue]✓ Traité comme un épisode normal[/blue]")
+            return False
+        else:
+            console.print("[red]Veuillez répondre par 'o' (oui), 'n' (non), 'y' (yes) ou 'n' (no)[/red]")
+
+
 def download(
     episode: EpisodeWithExtraInfo,
     path: Path,
@@ -85,15 +128,59 @@ def download(
     )
     task = download_progress.tasks[me]
 
-    full_path = (
-        path
-        / episode_path.format(
-            serie=episode.warpped.serie_name,
-            season=episode.formatted_season_name(),
-            episode=episode.formatted_episode_name(),
-            release_year_parentheses=episode.release_year_parentheses(),
-        )
-    ).expanduser()
+    # Fonction pour nettoyer les caractères invalides pour Windows
+    def clean_filename(filename):
+        """Nettoie les caractères invalides pour Windows"""
+        invalid_chars = '<>:"|?*'
+        for char in invalid_chars:
+            filename = filename.replace(char, '')
+        return filename.strip()
+
+    # Détermine si c'est un film/spécial pour ajuster le chemin
+    if is_movie_or_special(episode):
+        # Pour les films, créer un dossier avec le nom du film
+        movie_name = clean_filename(episode.formatted_episode_name())
+        full_path = (
+            path
+            / episode_path.format(
+                serie=clean_filename(episode.warpped.serie_name),
+                season=movie_name,  # Utilise le nom du film comme dossier
+                episode=movie_name,  # Le fichier aura le même nom
+                release_year_parentheses=episode.release_year_parentheses(),
+            )
+        ).expanduser()
+    else:
+        # Comportement normal pour les épisodes de série
+        full_path = (
+            path
+            / episode_path.format(
+                serie=clean_filename(episode.warpped.serie_name),
+                season=clean_filename(episode.formatted_season_name()),
+                episode=clean_filename(episode.formatted_episode_name()),
+                release_year_parentheses=episode.release_year_parentheses(),
+            )
+        ).expanduser()
+
+    # Créer le fichier .match dans le répertoire de destination
+    match_file_path = full_path.parent / '.match'
+
+    try:
+        # Créer les dossiers parents s'ils n'existent pas
+        full_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(match_file_path, 'w', encoding='utf-8') as match_file:
+            # Utilise le titre officiel MAL
+            official_title = episode.get_official_title()
+            match_file.write(f"title: {official_title}\n")
+            
+            if episode.mal_id is not None:
+                match_file.write(f"mal-id: {episode.mal_id}\n")
+            else:
+                match_file.write("mal-id: unknown\n")
+                
+        logger.info(f"Fichier .match créé : {match_file_path}")
+    except Exception as e:
+        logger.warning(f"Impossible de créer le fichier .match: {e}")
 
     def hook(data: dict) -> None:
         if data.get("status") != "downloading":

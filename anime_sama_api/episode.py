@@ -108,7 +108,9 @@ class Episode:
     @property
     def season_number(self) -> int:
         match_season_number = re.search(r"\d+", self.season_name)
+        print("caca",int(match_season_number.group(0)))
         return int(match_season_number.group(0)) if match_season_number else 0
+
 
     @property
     def long_name(self) -> str:
